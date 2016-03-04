@@ -1,0 +1,5 @@
+services:
+#	- {class: App\UserModule\Presenters\AdminMenu\AdminMenuControl, tags: [run]}
+	AdminMenu:
+		setup:
+			- setItem(App\UserModule\Presenters\AdminMenu\AdminMenuControl(\Nette\Application\LinkGenerator $linkGenerator))
