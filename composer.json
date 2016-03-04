@@ -1,0 +1,18 @@
+{
+	"name": "wamesro/userModule",
+	"version": "0.0.1",
+	"description": "CMS WAME admin Core",
+	"homepage": "http://wame.sk/cms-wame-admin",
+	"authors": [
+		{
+			"name": "Wame",
+			"homepage": "http://wame.sk"
+		}
+	],
+	"require": {
+		"wamesro/core": "*"
+	},
+	"autoload": {
+		"classmap": ["."]
+	}
+}

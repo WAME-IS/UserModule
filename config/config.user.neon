@@ -1,0 +1,24 @@
+services:
+    authenticator: Wame\UserModule\Models\Authenticator
+
+    # Models
+    - Wame\UserModule\Models\UserManager
+
+    # Entities
+    - Wame\UserModule\Entities\UserEntity
+    - Wame\UserModule\Entities\UserInfoEntity
+
+    # Repositories
+    - Wame\UserModule\Repositories\UserRepository
+    - Wame\UserModule\Repositories\UserInfoRepository
+
+    # Forms
+    - Wame\UserModule\Forms\SignInForm
+
+    # Events
+    - {class: Wame\UserModule\Events\SignInListener, tags: [run]}
+
+doctrine:
+    metadata:
+        Wame\UserModule\Entities\UserEntity: %appDir%/../vendor/wame/UserModule/entities
+        Wame\UserModule\Entities\UserInfoEntity: %appDir%/../vendor/wame/UserModule/entities
