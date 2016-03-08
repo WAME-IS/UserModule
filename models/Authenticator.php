@@ -45,7 +45,6 @@ class Authenticator extends Object implements Security\IAuthenticator
 		
 		$userEntity->lastLogin = new \DateTime('now');
 		$this->entityManager->persist($userEntity);
-		$this->entityManager->flush();
 
         return new Security\Identity($userEntity->id, $userEntity->role, $this->getIdentityData($userEntity));
     }
