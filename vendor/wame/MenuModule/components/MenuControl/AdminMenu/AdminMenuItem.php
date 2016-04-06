@@ -6,6 +6,8 @@ use Wame\MenuModule\Models\Item;
 
 class AdminMenuItem
 {	
+	public $name = 'user';
+			
 	/** @var \Nette\Application\LinkGenerator */
 	private $linkGenerator;
 	
@@ -17,12 +19,12 @@ class AdminMenuItem
 	public function addItem()
 	{
 		$item = new Item();
-		$item->setTitle(_('Užívatelia'));
+		$item->setTitle(_('Users'));
 		$item->setLink($this->linkGenerator->link('Admin:Users:', ['id' => null]));
 		$item->setIcon('fa fa-users');
 		
-		$item->addNode($this->usersDefault());
-		$item->addNode($this->userAdd());
+		$item->addNode($this->usersDefault(), 'users');
+		$item->addNode($this->userAdd(), 'addUser');
 		
 		return $item->getItem();
 	}
@@ -30,7 +32,7 @@ class AdminMenuItem
 	private function usersDefault()
 	{
 		$item = new Item();
-		$item->setTitle(_('Užívatelia'));
+		$item->setTitle(_('Users'));
 		$item->setLink($this->linkGenerator->link('Admin:Users:', ['id' => null]));
 		
 		return $item->getItem();
@@ -39,7 +41,7 @@ class AdminMenuItem
 	private function userAdd()
 	{
 		$item = new Item();
-		$item->setTitle(_('Pridať užívateľa'));
+		$item->setTitle(_('Add user'));
 		$item->setLink($this->linkGenerator->link('Admin:User:add', ['id' => null]));
 		
 		return $item->getItem();
