@@ -22,5 +22,4 @@ services:
 
 doctrine:
 	metadata:
-		Wame\UserModule\Entities\UserEntity: %appDir%/../vendor/wame/UserModule/entities
-		Wame\UserModule\Entities\UserInfoEntity: %appDir%/../vendor/wame/UserModule/entities
+		Wame\UserModule\Entities: %appDir%/../vendor/wame/UserModule/entities

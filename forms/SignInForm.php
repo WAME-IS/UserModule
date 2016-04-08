@@ -34,7 +34,7 @@ class SignInForm extends Form
 	 */
 	public function create()
 	{
-		$form = $this->formFactory->create();
+		$form = $this->formFactory->createForm();
 		
 		$form->addText('email', 'Email')
 				->setRequired('Please enter your username.');
