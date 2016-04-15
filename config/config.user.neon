@@ -1,5 +1,4 @@
 services:
-	user.module: Wame\UserModule
 	authenticator: Wame\UserModule\Models\Authenticator
 
 	# Models
