@@ -31,17 +31,11 @@ class SignInListener extends Object
 		if ($user->identity->status == UserRepository::STATUS_BLOCKED) {
 			$presenter->redirect(':Homepage:Homepage:');
 		}
-		if ($user->identity->status == UserRepository::STATUS_VERIFY_PHONE) {
-			$presenter->redirect(':User:Verify:phone');
-		}
 		if ($user->identity->status == UserRepository::STATUS_VERIFY_EMAIL) {
 			$presenter->redirect(':User:Verify:email');
 		}
-
-//		if ($user->isInRole('administrator')) {
-//			$presenter->redirect(':Admin:Dashboard:');
-//		}
 		
+//		Presmerovanie na adresu odkiaľ prišiel
 //		if ($this->httpRequest->getReferer()) {
 //			$referer = $this->httpRequest->getReferer();
 //			
@@ -50,7 +44,7 @@ class SignInListener extends Object
 //			}
 //		}
 		
-		$presenter->flashMessage(_('Boli ste úspešne prihlásený.'), 'success');
+		$presenter->flashMessage(_('You have been successfully logged in.'), 'success');
 		$presenter->redirect(':User:Profile:');
 	}
 

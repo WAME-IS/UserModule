@@ -5,12 +5,13 @@ services:
 	- Wame\UserModule\Models\UserManager
 
 	# Entities
+	- Wame\UserModule\Entities\CompanyEntity
 	- Wame\UserModule\Entities\UserEntity
 	- Wame\UserModule\Entities\UserInfoEntity
 
 	# Repositories
+	- Wame\UserModule\Repositories\CompanyRepository
 	- Wame\UserModule\Repositories\UserRepository
-	- Wame\UserModule\Repositories\UserInfoRepository
 
 	# Forms
 	- Wame\UserModule\Forms\SignInForm
@@ -22,3 +23,4 @@ services:
 doctrine:
 	metadata:
 		Wame\UserModule\Entities: %appDir%/../vendor/wame/UserModule/entities
+		Wame\UserModule\Repositories: %appDir%/../vendor/wame/UserModule/repositories
