@@ -60,15 +60,10 @@ class Authenticator extends Object implements Security\IAuthenticator
 		return [
 			'lang' => $userEntity->lang,
 			'token' => $userEntity->token,
-			'currencyId' => $userEntity->currencyId,
 			'email' => $userEntity->email,
 			'nick' => $userEntity->nick,
-			'fullName' => $userEntity->fullName,
 			'registerDate' => $userEntity->registerDate,
 			'lastLogin' => $userEntity->lastLogin,
-			'image' => $userEntity->image,
-			'credit' => $userEntity->credit,
-			'rating' => $userEntity->rating,
 			'status' => $userEntity->status
 		];
 	}
