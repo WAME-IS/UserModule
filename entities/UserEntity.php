@@ -5,7 +5,7 @@ namespace Wame\UserModule\Entities;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="wame_user", indexes={@ORM\Index(name="user_info_id", columns={"user_info_id"})})
+ * @ORM\Table(name="wame_user")
  * @ORM\Entity
  */
 class UserEntity extends \Wame\Core\Entities\BaseEntity
