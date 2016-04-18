@@ -57,5 +57,29 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
 	 * @ORM\JoinColumn(name="info_id", referencedColumnName="id", nullable=true)
 	 */
     protected $info;
+	
+	/** Get ********************************************************************************/
+	
+	public function getName()
+	{
+		return $this->info->firstName . ' ' . $this->info->lastName;
+	}
+
+	public function getFullName()
+	{
+		$return = '';
+		
+		if ($this->info->degree) {
+			$return .= $this->info->degree . ' ';
+		}
+		
+		$return .= $this->getName();
+		
+		if ($this->info->degreeSuffix) {
+			$return .= ' ' . $this->info->degreeSuffix;
+		}
+		
+		return $return;
+	}
 
 }
