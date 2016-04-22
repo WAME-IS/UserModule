@@ -28,6 +28,11 @@ services:
 	- Wame\UserModule\Repositories\CompanyRepository
 	- Wame\UserModule\Repositories\UserRepository
 
+
+	# User sing in listener - user redirects
+	- {class: Wame\UserModule\Events\SignInListener, tags: [run]}
+
+
 	# Forms
 	- Wame\UserModule\Forms\SignInForm
 
