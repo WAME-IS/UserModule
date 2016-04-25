@@ -20,7 +20,7 @@ class AdminMenuItem
 	{
 		$item = new Item();
 		$item->setTitle(_('Users'));
-		$item->setLink($this->linkGenerator->link('Admin:Users:', ['id' => null]));
+		$item->setLink($this->linkGenerator->link('Admin:User:', ['id' => null]));
 		$item->setIcon('fa fa-users');
 		
 		$item->addNode($this->usersDefault(), 'users');
@@ -33,7 +33,7 @@ class AdminMenuItem
 	{
 		$item = new Item();
 		$item->setTitle(_('Users'));
-		$item->setLink($this->linkGenerator->link('Admin:Users:', ['id' => null]));
+		$item->setLink($this->linkGenerator->link('Admin:User:', ['id' => null]));
 		
 		return $item->getItem();
 	}
@@ -42,7 +42,7 @@ class AdminMenuItem
 	{
 		$item = new Item();
 		$item->setTitle(_('Add user'));
-		$item->setLink($this->linkGenerator->link('Admin:User:add', ['id' => null]));
+		$item->setLink($this->linkGenerator->link('Admin:User:create', ['id' => null]));
 		
 		return $item->getItem();
 	}

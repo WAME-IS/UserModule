@@ -1,0 +1,15 @@
+{block content}
+	<h1>{$siteTitle}</h1>
+	
+	{control createUserForm}
+	
+	{*form createUserForm}
+		{control createUserForm-EmailFormContainer}
+		{control createUserForm-RoleFormContainer}
+		{control createUserForm-DegreeFormContainer}
+		{control createUserForm-NameFormContainer}
+		{control createUserForm-BirthdateFormContainer}
+		{control createUserForm-TextFormContainer}
+		{control createUserForm-AddressFormContainer}
+		{input submit}
+	{/form*}

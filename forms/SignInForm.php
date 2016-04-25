@@ -7,11 +7,8 @@ use Nette\Security;
 use Nette\Application\UI\Form;
 use Wame\Core\Forms\FormFactory;
 
-class SignInForm extends Form
+class SignInForm extends FormFactory
 {
-	/** @var FormFactory */
-	private $formFactory;
-
 	/** @var Security\User */
 	private $user;
 
@@ -20,10 +17,8 @@ class SignInForm extends Form
 
 	public function __construct(
 		Container $container,
-		FormFactory $formFactory, 
 		Security\User $user
 	) {
-		$this->formFactory = $formFactory;
 		$this->user = $user;
 		
 		$this->loginExpiration = $container->parameters['user']['loginExpiration'];
@@ -34,17 +29,17 @@ class SignInForm extends Form
 	 */
 	public function create()
 	{
-		$form = $this->formFactory->createForm();
+		$form = $this->createForm();
 		
-		$form->addText('email', 'Email')
-				->setRequired('Please enter your username.');
+		$form->addText('email', _('Email'))
+				->setRequired(_('Please enter your login email.'));
 
-		$form->addPassword('password', 'Password')
-				->setRequired('Please enter your password.');
+		$form->addPassword('password', _('Password'))
+				->setRequired(_('Please enter your password.'));
 
-		$form->addCheckbox('remember', 'Keep me signed in');
+		$form->addCheckbox('remember', _('Keep me signed in'));
 
-		$form->addSubmit('send', 'Sign in');
+		$form->addSubmit('send', _('Sign in'));
 
 		$form->onSuccess[] = [$this, 'formSucceeded'];
 		
