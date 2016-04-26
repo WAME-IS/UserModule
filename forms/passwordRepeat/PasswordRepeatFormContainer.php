@@ -5,6 +5,12 @@ namespace Wame\UserModule\Forms;
 use Nette\Application\UI\Form;
 use Wame\DynamicObject\Forms\BaseFormContainer;
 
+interface IPasswordRepeatFormContainerFactory
+{
+	/** @return PasswordRepeatFormContainer */
+	public function create();
+}
+
 class PasswordRepeatFormContainer extends BaseFormContainer
 {
     public function render() 

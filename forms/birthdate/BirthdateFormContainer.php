@@ -4,6 +4,12 @@ namespace Wame\UserModule\Forms;
 
 use Wame\DynamicObject\Forms\BaseFormContainer;
 
+interface IBirthdateFormContainerFactory
+{
+	/** @return BirthdateFormContainer */
+	public function create();	
+}
+
 class BirthdateFormContainer extends BaseFormContainer
 {
     public function render() 

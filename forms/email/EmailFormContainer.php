@@ -5,6 +5,12 @@ namespace Wame\UserModule\Forms;
 use Nette\Application\UI\Form;
 use Wame\DynamicObject\Forms\BaseFormContainer;
 
+interface IEmailFormContainerFactory
+{
+	/** @return EmailFormContainer */
+	public function create();
+}
+
 class EmailFormContainer extends BaseFormContainer
 {
 	/**

@@ -4,6 +4,12 @@ namespace Wame\UserModule\Forms;
 
 use Wame\DynamicObject\Forms\BaseFormContainer;
 
+interface INameFormContainerFactory
+{
+	/** @return NameFormContainer */
+	public function create();
+}
+
 class NameFormContainer extends BaseFormContainer
 {
     public function render() 

@@ -4,6 +4,12 @@ namespace Wame\UserModule\Forms;
 
 use Wame\DynamicObject\Forms\BaseFormContainer;
 
+interface IDegreeFormContainerFactory
+{
+	/** @return DegreeFormContainer */
+	public function create();
+}
+
 class DegreeFormContainer extends BaseFormContainer
 {
     public function render() 
