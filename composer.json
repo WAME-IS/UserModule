@@ -13,7 +13,7 @@
 		"wame/Core": "*",
 		"wame/MenuModule": "*",
 		"wame/PermissionModule": "*",
-		"wame/PlaceModule": "*"
+		"wame/LocationModule": "*"
 	},
 	"autoload": {
 		"classmap": ["."]
