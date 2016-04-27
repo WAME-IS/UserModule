@@ -2,7 +2,6 @@
 
 namespace App\AdminModule\Presenters;
 
-use Nette\Application\UI\Form;
 use Wame\PermissionModule\Repositories\RoleRepository;
 use Wame\UserModule\Forms\SignUpForm;
 use Wame\UserModule\Repositories\UserRepository;
@@ -40,58 +39,23 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 		}
 	}
 	
+	/**
+	 * Create user from admin
+	 * 
+	 * @return CreateUserForm
+	 */
 	protected function createComponentCreateUserForm() 
 	{
 		$form = $this->createUserForm->create();
 
-		$form->onSuccess[] = [$this, 'signUpFormSucceeded'];
-		
-//		if ($this->action == 'edit' && is_numeric($this->id)) {
-//			$defaults = $this->userRepository->get(['id' => $this->id]);
-//
-//			$form->setDefaults([
-//				'title' => $defaults->title,
-//				'slug' => $defaults->slug,
-//				'status' => $defaults->status,
-//				'description' => $defaults->description,
-//				'text' => $defaults->text
-//			]);
-//		}
-		
 		return $form;
-	}
-
-	public function signUpFormSucceeded(Form $form, $values)
-	{
-		try {
-			if ($this->action == 'edit') {
-				$userEntity = $this->userRepository->set($this->id, $values);
-				
-				$this->userRepository->onEdit($form, $values, $userEntity);
-				
-				$this->flashMessage(_('The user was successfully updated'), 'success');
-			} elseif ($this->action == 'create') {
-				$this->userRepository->isEmailExists($values['email']);
-				
-				$userEntity = $this->userRepository->create($values);
-				
-				$this->userRepository->onCreate($form, $values, $userEntity);
-
-				$this->flashMessage(_('The user was successfully created'), 'success');
-			}
-		} catch (\Exception $e) {
-			$form->addError($e->getMessage());
-			$this->flashMessage($e->getMessage(), 'danger');
-		}
-		
-		$this->redirect('this');
 	}
 	
 	
 	public function renderDefault()
 	{
 		$this->template->siteTitle = _('Users');
-		$this->template->users = $this->userRepository->getAll(['status >' => UserRepository::STATUS_BLOCKED]);
+		$this->template->users = $this->userRepository->find(['status >' => UserRepository::STATUS_BLOCKED]);
 	}
 	
 	
@@ -118,7 +82,7 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 	{
 		$this->userRepository->delete(['id' => $this->id]);
 		
-		$this->flashMessage(_('User has been successfully deleted'), 'success');
+		$this->flashMessage(_('User has been successfully deleted.'), 'success');
 		$this->redirect(':Admin:User:', ['id' => null]);
 	}
 

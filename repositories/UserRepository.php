@@ -4,9 +4,7 @@ namespace Wame\UserModule\Repositories;
 
 use Nette\Utils\Random;
 use Nette\Utils\Strings;
-use Nette\Security\Passwords;
 use Wame\UserModule\Entities\UserEntity;
-use Wame\UserModule\Entities\UserInfoEntity;
 use Wame\Core\Exception\RepositoryException;
 
 class UserRepository extends \Wame\Core\Repositories\BaseRepository
@@ -27,21 +25,6 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 	
 	
 	/**
-	 * Get users by criteria
-	 * 
-	 * @param array $criteria
-	 * @param string $orderBy
-	 * @param int $limit
-	 * @param int $offset
-	 * @return UserEntity
-	 */
-	public function getAll($criteria = [], $orderBy = null, $limit = null, $offset = null)
-	{
-		return $this->userEntity->findBy($criteria, $orderBy, $limit, $offset);
-	}
-	
-	
-	/**
 	 * Get one user by criteria
 	 * 
 	 * @param array $criteria
@@ -55,43 +38,67 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 	
 	
 	/**
+	 * Get users by criteria
+	 * 
+	 * @param array $criteria
+	 * @param string $orderBy
+	 * @param int $limit
+	 * @param int $offset
+	 * @return UserEntity
+	 */
+	public function find($criteria = [], $orderBy = null, $limit = null, $offset = null)
+	{
+		return $this->userEntity->findBy($criteria, $orderBy, $limit, $offset);
+	}
+	
+	
+	/**
 	 * Create user
 	 * 
-	 * @param array $values
+	 * @param UserEntity $userEntity
 	 * @return UserEntity
 	 * @throws RepositoryException
 	 */
-	public function create($values)
+	public function create($userEntity)
 	{
-		$userInfoEntity = new UserInfoEntity();
-		$userInfoEntity->firstName = $values['first_name'];
-		$userInfoEntity->lastName = $values['last_name'];
-		$userInfoEntity->degree = $values['degree'];
-		$userInfoEntity->text = $values['text'];
-		
-		if ($values['birthdate']) {
-			$userInfoEntity->birthdate = $this->formatDate($values['birthdate'], 'Y-m-d');
-		} else {
-			$userInfoEntity->birthdate = null;
-		}
-		
-		$userEntity = new UserEntity();
-		$userEntity->info = $userInfoEntity;
-		$userEntity->token = $this->generateToken();
-		$userEntity->email = $values['email'];
-		$userEntity->password = null;
-		$userEntity->registerDate = $this->formatDate('now');
-		$userEntity->status = UserRepository::STATUS_VERIFY_EMAIL;
+		$this->emailExists($userEntity->email);
 
 		$create = $this->entityManager->persist($userEntity);
 
-		$this->entityManager->persist($userInfoEntity);
+		$this->entityManager->persist($userEntity->info);
 
 		if (!$create) {
-			throw new RepositoryException(_('Could not create the user'));
+			throw new RepositoryException(_('Could not create the user.'));
 		}
 		
 		return $userEntity;
+	}
+	
+	
+	/**
+	 * Update user
+	 * 
+	 * @param UserEntity $userEntity
+	 * @return UserEntity
+	 */
+	public function update($userEntity)
+	{
+		// TODO: update user
+		
+		return $userEntity;
+	}
+	
+	
+	/**
+	 * Delete user by criteria
+	 * 
+	 * @param array $criteria
+	 * @param int $status
+	 */
+	public function delete($criteria = [], $status = self::STATUS_BLOCKED)
+	{
+		$userEntity = $this->userEntity->findOneBy($criteria);
+		$userEntity->status = $status;
 	}
 	
 	
@@ -108,7 +115,7 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 			if ($values['password'] && $values['password'] == $values['password_repeat']) {
 				$password = $values['password'];
 			} else {
-				throw new RepositoryException(_('Passwords must be the same'));
+				throw new RepositoryException(_('Passwords must be the same.'));
 			}
 		} else {
 			$password = Strings::random();
@@ -121,11 +128,12 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 	/**
 	 * Generate token
 	 * 
+	 * @param int $length
 	 * @return string
 	 */
-	public function generateToken()
+	public function generateToken($length = 10)
 	{
-		return Random::generate(10);
+		return Random::generate($length);
 	}
 	
 	
@@ -137,7 +145,7 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 	 * @param mixed $without without user ids
 	 * @return mixed
 	 */
-	public function isEmailExists($email, $role = null, $without = null)
+	public function emailExists($email, $role = null, $without = null)
 	{
 		$by = ['email' => $email];
 		
@@ -162,7 +170,7 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 		if ($check == 0) {
 			return null;
 		} else {
-			throw new RepositoryException(_('The user with this email already exists'));
+			throw new RepositoryException(_('The user with this email already exists.'));
 		}
 	}
 	
