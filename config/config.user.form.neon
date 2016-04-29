@@ -1,0 +1,36 @@
+services:
+	# Forms
+	- Wame\UserModule\Forms\SignInForm
+
+	# Factories
+	- Wame\UserModule\Forms\IEmailFormContainerFactory
+	- Wame\UserModule\Forms\IDegreeFormContainerFactory
+	- Wame\UserModule\Forms\INameFormContainerFactory
+	- Wame\UserModule\Forms\IBirthdateFormContainerFactory
+	- Wame\UserModule\Forms\ITextFormContainerFactory
+
+	# Registration form in frontend
+	SignUpForm:
+		class: Wame\UserModule\Forms\SignUpForm
+		setup:
+			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer')
+
+	# Create user in administration form
+	CreateUserForm:
+		class: Wame\UserModule\Vendor\Wame\AdminModule\Forms\CreateUserForm
+		setup:
+			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 99)
+			- addFormContainer(Wame\UserModule\Forms\DegreeFormContainer(), 'DegreeFormContainer', 80)
+			- addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
+			- addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
+			- addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
+
+	# Edit user in administration form
+	EditUserForm:
+		class: Wame\UserModule\Vendor\Wame\AdminModule\Forms\EditUserForm
+		setup:
+			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 99)
+			- addFormContainer(Wame\UserModule\Forms\DegreeFormContainer(), 'DegreeFormContainer', 80)
+			- addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
+			- addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
+			- addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
