@@ -29,7 +29,7 @@ class SignInListener extends Object
 		$presenter = $this->application->getPresenter();
 		
 		if ($user->identity->status == UserRepository::STATUS_BLOCKED) {
-			$presenter->redirect(':Homepage:Homepage:');
+			$presenter->redirect(':User:Sign:in');
 		}
 		if ($user->identity->status == UserRepository::STATUS_VERIFY_EMAIL) {
 			$presenter->redirect(':User:Verify:email');

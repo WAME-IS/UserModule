@@ -1,19 +1,32 @@
 services:
-	# Forms
-	- Wame\UserModule\Forms\SignInForm
-
 	# Factories
-	- Wame\UserModule\Forms\IEmailFormContainerFactory
-	- Wame\UserModule\Forms\IDegreeFormContainerFactory
-	- Wame\UserModule\Forms\INameFormContainerFactory
 	- Wame\UserModule\Forms\IBirthdateFormContainerFactory
+	- Wame\UserModule\Forms\IDegreeFormContainerFactory
+	- Wame\UserModule\Forms\IEmailFormContainerFactory
+	- Wame\UserModule\Forms\INameFormContainerFactory
+	- Wame\UserModule\Forms\INickFormContainerFactory
 	- Wame\UserModule\Forms\ITextFormContainerFactory
 
-	# Registration form in frontend
+
+	# Sign in form
+	SignInForm:
+		class: Wame\UserModule\Forms\SignInForm
+		setup:
+			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 3)
+			- addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 1)
+
+	# Sign up form
 	SignUpForm:
 		class: Wame\UserModule\Forms\SignUpForm
 		setup:
-			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer')
+			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 99)
+			- addFormContainer(Wame\UserModule\Forms\NickFormContainer(), 'NickFormContainer', 98)
+			- addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 97)
+			- addFormContainer(Wame\UserModule\Forms\PasswordRepeatFormContainer(), 'PasswordRepeatFormContainer', 96)
+			- addFormContainer(Wame\UserModule\Forms\DegreeFormContainer(), 'DegreeFormContainer', 80)
+			- addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
+			- addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
+			- addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
 
 	# Create user in administration form
 	CreateUserForm:

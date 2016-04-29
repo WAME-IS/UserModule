@@ -14,10 +14,6 @@ services:
 	authenticator: Wame\UserModule\Models\Authenticator
 
 
-	# Models
-	- Wame\UserModule\Models\UserManager
-
-
 	# Entities
 	- Wame\UserModule\Entities\CompanyEntity
 	- Wame\UserModule\Entities\UserEntity

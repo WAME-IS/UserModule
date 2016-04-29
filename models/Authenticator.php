@@ -24,19 +24,16 @@ class Authenticator extends Object implements Security\IAuthenticator
         $userEntity = $this->entityManager->getRepository(UserEntity::class)->findOneBy(['email' => $email]);
 		
         if (!$userEntity) {
-            throw new Security\AuthenticationException('Užívateľ s taktýmto emailom sa nenašiel.', self::IDENTITY_NOT_FOUND);
+            throw new Security\AuthenticationException(_('The user with this email not found.'), self::IDENTITY_NOT_FOUND);
         }
         if (!Security\Passwords::verify($password, $userEntity->password)) {
-            throw new Security\AuthenticationException('Zle zadané heslo.', self::INVALID_CREDENTIAL);
+            throw new Security\AuthenticationException(_('Wrong password entered.'), self::INVALID_CREDENTIAL);
         }
         if ($userEntity->status == UserRepository::STATUS_BLOCKED) {
-			throw new Security\AuthenticationException('Používateľske konto je blokované.', self::INVALID_CREDENTIAL);
-		}
- 		if ($userEntity->status == UserRepository::STATUS_VERIFY_PHONE){
-			throw new Security\AuthenticationException('Používateľske konto nieje aktivované. Na vaše telefónne číslo sme vám zaslali SMS s aktivačným kódom.', self::INVALID_CREDENTIAL);
+			throw new Security\AuthenticationException(_('The user account is blocked.'), self::INVALID_CREDENTIAL);
 		}
  		if ($userEntity->status == UserRepository::STATUS_VERIFY_EMAIL){
-			throw new Security\AuthenticationException('Používateľske konto nieje aktivované. Použijte aktivačný link ktorý sme Vám poslali na Váš email.', self::INVALID_CREDENTIAL);
+			throw new Security\AuthenticationException(_('The user account is not activated. Use the activation link sent to you at your email.'), self::INVALID_CREDENTIAL);
 		}
 		
 		if (Security\Passwords::needsRehash($userEntity->password)) {
