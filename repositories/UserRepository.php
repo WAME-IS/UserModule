@@ -18,7 +18,7 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 	
 	public function __construct(\Nette\DI\Container $container, \Kdyby\Doctrine\EntityManager $entityManager, \h4kuna\Gettext\GettextSetup $translator, \Nette\Security\User $user) 
 	{
-		parent::__construct($container, $entityManager, $translator, $user);
+		parent::__construct($container, $entityManager, $translator, $user, UserEntity::class);
 		
 		$this->userEntity = $this->entityManager->getRepository(UserEntity::class);
 	}
@@ -83,7 +83,7 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 	 */
 	public function update($userEntity)
 	{
-		// TODO: update user
+		$this->emailExists($userEntity->email, null, $userEntity->id);
 		
 		return $userEntity;
 	}
@@ -162,7 +162,7 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 				$without = [$without];
 			}
 			
-			$by['without != ?'] = $without;
+			$by['id != ?'] = $without;
 		}
 		
 		$check = $this->userEntity->countBy($by);

@@ -11,31 +11,34 @@ interface IEmailFormContainerFactory
 	public function create();
 }
 
-class EmailFormContainer extends BaseFormContainer
-{
-	/**
-	 * Container callback
-	 * 
-	 * @param Form $object
-	 */
-    public function attached($object) 
-	{
-        parent::attached($object);
-		
-        if ($object instanceof Form) {
-            $object->onSuccess[] = function (Form $form) {
-                $path = $this->lookupPath(Form::class);
-//                dump($form->getValues()->$path);
-            };
-        }
-    }
 
+class EmailFormContainer extends BaseFormContainer
+{	
+//	/**
+//	 * Container callback
+//	 * 
+//	 * @param Form $object
+//	 */
+//    public function attached($object) 
+//	{
+//        parent::attached($object);
+//
+//        if ($object instanceof Form) {
+//            $object->onSuccess[] = function (Form $form) {
+//                $path = $this->lookupPath(Form::class);
+////                dump($form->getValues()->$path);
+//            };
+//        }
+//    }
+
+	
     public function render() 
 	{
         $this->template->_form = $this->getForm();
         $this->template->render(__DIR__ . '/default.latte');
     }
 
+	
     public function configure() 
 	{
 		$form = $this->getForm();
@@ -48,5 +51,13 @@ class EmailFormContainer extends BaseFormContainer
 				->addRule(Form::FILLED, _('Enter email'))
 				->addRule(Form::EMAIL, _('Wrong format email'));
     }
+	
+	
+	public function setDefaultValues($object)
+	{
+		$form = $this->getForm();
+		
+		$form['email']->setDefaultValue($object->userEntity->email);
+	}
 	
 }

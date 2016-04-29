@@ -10,6 +10,7 @@ interface IBirthdateFormContainerFactory
 	public function create();	
 }
 
+
 class BirthdateFormContainer extends BaseFormContainer
 {
     public function render() 
@@ -18,6 +19,7 @@ class BirthdateFormContainer extends BaseFormContainer
         $this->template->render(__DIR__ . '/default.latte');
     }
 
+	
     public function configure() 
 	{
 		$form = $this->getForm();
@@ -26,5 +28,15 @@ class BirthdateFormContainer extends BaseFormContainer
 
 		$form->addText('birthdate', _('Birthdate'));
     }
+	
+	
+	public function setDefaultValues($object)
+	{
+		$form = $this->getForm();
+
+		if ($object->userEntity->info->birthdate) {
+			$form['birthdate']->setDefaultValue($this->formatDate($object->userEntity->info->birthdate, 'd.m.Y'));
+		}
+	}
 	
 }

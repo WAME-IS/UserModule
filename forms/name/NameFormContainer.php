@@ -29,4 +29,12 @@ class NameFormContainer extends BaseFormContainer
 				->setRequired(_('Please enter last name'));
     }
 	
+	public function setDefaultValues($object)
+	{
+		$form = $this->getForm();
+		
+		$form['first_name']->setDefaultValue($object->userEntity->info->firstName);
+		$form['last_name']->setDefaultValue($object->userEntity->info->lastName);
+	}
+	
 }
