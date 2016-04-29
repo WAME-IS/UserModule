@@ -6,14 +6,21 @@ use Wame\PermissionModule\Repositories\RoleRepository;
 use Wame\UserModule\Forms\SignUpForm;
 use Wame\UserModule\Repositories\UserRepository;
 use Wame\UserModule\Vendor\Wame\AdminModule\Forms\CreateUserForm;
+use Wame\UserModule\Vendor\Wame\AdminModule\Forms\EditUserForm;
 
 class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 {	
 	/** @var array */
 	private $roleList;
 	
+	/** @var \Wame\UserModule\Entities\UserEntity */
+	private $userEntity;
+	
 	/** @var CreateUserForm @inject */
 	public $createUserForm;
+	
+	/** @var EditUserForm @inject */
+	public $editUserForm;
 	
 	/** @var RoleRepository @inject */
 	public $roleRepository;
@@ -39,14 +46,33 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 		}
 	}
 	
+	public function actionEdit()
+	{
+		if ($this->id) {
+			$this->userEntity = $this->userRepository->get(['id' => $this->id]);
+		}
+	}
+	
 	/**
-	 * Create user from admin
+	 * Create user
 	 * 
 	 * @return CreateUserForm
 	 */
 	protected function createComponentCreateUserForm() 
 	{
-		$form = $this->createUserForm->create();
+		$form = $this->createUserForm->build();
+
+		return $form;
+	}
+	
+	/**
+	 * Edit user
+	 * 
+	 * @return EditUserForm
+	 */
+	protected function createComponentEditUserForm() 
+	{
+		$form = $this->editUserForm->setId($this->id)->build();
 
 		return $form;
 	}
@@ -62,7 +88,6 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 	public function renderCreate()
 	{
 		$this->template->siteTitle = _('Create new user');
-		$this->template->setFile(__DIR__ . '/templates/User/edit.latte');
 	}
 	
 	
