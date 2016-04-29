@@ -13,6 +13,10 @@ class CreateUserForm extends FormFactory
 	/** @var UserRepository */
 	private $userRepository;
 	
+	/** @var UserEntity */
+	public $userEntity;
+	
+	
 	public function __construct(UserRepository $userRepository) 
 	{
 		parent::__construct();
@@ -20,8 +24,9 @@ class CreateUserForm extends FormFactory
 		$this->userRepository = $userRepository;
 	}
 	
-	public function create()
-	{
+	
+	public function build()
+	{		
 		$form = $this->createForm();
 
 		$form->addSubmit('submit', _('Create user'));
@@ -36,20 +41,12 @@ class CreateUserForm extends FormFactory
 		$presenter = $form->getPresenter();
 
 		try {
-			if ($presenter->action == 'edit') {
-				$userEntity = $this->updateUser($presenter->id, $values);
-				
-				$this->userRepository->onUpdate($form, $values, $userEntity);
-				
-				$presenter->flashMessage(_('The user was successfully updated.'), 'success');
-			} elseif ($presenter->action == 'create') {
-				$userEntity = $this->createUser($values);
-				
-				$this->userRepository->onCreate($form, $values, $userEntity);
+			$userEntity = $this->create($values);
 
-				$presenter->flashMessage(_('The user was successfully created.'), 'success');
-			}
-			
+			$this->userRepository->onCreate($form, $values, $userEntity);
+
+			$presenter->flashMessage(_('The user was successfully created.'), 'success');
+
 			$presenter->redirect('this');
 		} catch (\Exception $e) {
 			if ($e instanceof \Nette\Application\AbortException) {
@@ -67,7 +64,7 @@ class CreateUserForm extends FormFactory
 	 * @param array $values
 	 * @return UserEntity
 	 */
-	private function createUser($values)
+	private function create($values)
 	{
 		$userInfoEntity = new UserInfoEntity();
 		$userInfoEntity->firstName = $values['first_name'];
@@ -90,23 +87,6 @@ class CreateUserForm extends FormFactory
 		$userEntity->status = UserRepository::STATUS_VERIFY_EMAIL;
 		
 		return $this->userRepository->create($userEntity);
-	}
-	
-	
-	/**
-	 * Update user
-	 * 
-	 * @param int $userId
-	 * @param array $values
-	 * @return UserEntity
-	 */
-	private function updateUser($userId, $values)
-	{
-		$userEntity = $this->userRepository->get(['id' => $userId]);
-		
-		// TODO: update user
-		
-		return $this->userRepository->update($userEntity);
 	}
 
 }

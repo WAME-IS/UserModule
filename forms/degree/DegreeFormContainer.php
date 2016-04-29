@@ -10,6 +10,7 @@ interface IDegreeFormContainerFactory
 	public function create();
 }
 
+
 class DegreeFormContainer extends BaseFormContainer
 {
     public function render() 
@@ -18,6 +19,7 @@ class DegreeFormContainer extends BaseFormContainer
         $this->template->render(__DIR__ . '/default.latte');
     }
 
+	
     public function configure() 
 	{
 		$form = $this->getForm();
@@ -26,5 +28,13 @@ class DegreeFormContainer extends BaseFormContainer
 
 		$form->addText('degree', _('Degree'));
     }
+	
+	
+	public function setDefaultValues($object)
+	{
+		$form = $this->getForm();
+
+		$form['degree']->setDefaultValue($object->userEntity->info->degree);
+	}
 	
 }

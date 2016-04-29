@@ -25,7 +25,7 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
     /**
      * @ORM\Column(name="role", type="string", length=20, nullable=false)
     */
-    protected $role = 'contact';
+    protected $role = 'client';
 
     /**
      * @ORM\Column(name="password", type="string", length=64, nullable=true)
