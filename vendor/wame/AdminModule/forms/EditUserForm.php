@@ -49,16 +49,12 @@ class EditUserForm extends FormFactory
 	{
 		$presenter = $form->getPresenter();
 		
-		$this->entityManager->getConnection()->beginTransaction();
-
 		try {
 			$userEntity = $this->update($presenter->id, $values);
-
+		
 			$this->userRepository->onUpdate($form, $values, $userEntity);
 
 			$presenter->flashMessage(_('The user was successfully updated.'), 'success');
-			
-			$this->entityManager->getConnection()->commit();
 			
 			$presenter->redirect('this');
 		} catch (\Exception $e) {
@@ -67,7 +63,7 @@ class EditUserForm extends FormFactory
 			}
 			
 			$form->addError($e->getMessage());
-			$this->entityManager->getConnection()->rollback();
+			$this->entityManager->clear();
 		}
 	}
 
