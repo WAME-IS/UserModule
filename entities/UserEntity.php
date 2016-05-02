@@ -4,6 +4,7 @@ namespace Wame\UserModule\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
 use \Wame\Core\Entities\Columns;
+use Nette\Security\Passwords;
 
 /**
  * @ORM\Table(name="wame_user")
@@ -80,6 +81,15 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
 		}
 		
 		return $return;
+	}
+	
+	/** Set ********************************************************************************/
+	
+	public function setPassword($password)
+	{
+		$this->password = Passwords::hash($password);
+		
+		return $this;
 	}
 
 }

@@ -24,6 +24,8 @@ class NickFormContainer extends BaseFormContainer
 	{
 		$form = $this->getForm();
 
+		$form->addGroup(_('Login data'));
+
 		$form->addText('nick', _('Nick'))
 				->setRequired(_('Please enter nick'));
     }

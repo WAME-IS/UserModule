@@ -15,18 +15,35 @@ services:
 			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 3)
 			- addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 1)
 
+
 	# Sign up form
 	SignUpForm:
 		class: Wame\UserModule\Forms\SignUpForm
 		setup:
-			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 99)
-			- addFormContainer(Wame\UserModule\Forms\NickFormContainer(), 'NickFormContainer', 98)
+			- addFormContainer(Wame\UserModule\Forms\NickFormContainer(), 'NickFormContainer', 99)
+			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 98)
 			- addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 97)
 			- addFormContainer(Wame\UserModule\Forms\PasswordRepeatFormContainer(), 'PasswordRepeatFormContainer', 96)
 			- addFormContainer(Wame\UserModule\Forms\DegreeFormContainer(), 'DegreeFormContainer', 80)
 			- addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
 			- addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
 			- addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
+
+
+	# Forgotten password form
+	PasswordForgotForm:
+		class: Wame\UserModule\Forms\PasswordForgotForm
+		setup:
+			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer')
+
+
+	# New password form
+	PasswordNewForm:
+		class: Wame\UserModule\Forms\PasswordNewForm
+		setup:
+			- addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 2)
+			- addFormContainer(Wame\UserModule\Forms\PasswordRepeatFormContainer(), 'PasswordRepeatFormContainer', 1)
+
 
 	# Create user in administration form
 	CreateUserForm:
@@ -38,11 +55,13 @@ services:
 			- addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
 			- addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
 
+
 	# Edit user in administration form
 	EditUserForm:
 		class: Wame\UserModule\Vendor\Wame\AdminModule\Forms\EditUserForm
 		setup:
-			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 99)
+			- addFormContainer(Wame\UserModule\Forms\NickFormContainer(), 'NickFormContainer', 99)
+			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 98)
 			- addFormContainer(Wame\UserModule\Forms\DegreeFormContainer(), 'DegreeFormContainer', 80)
 			- addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
 			- addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)

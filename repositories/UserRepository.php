@@ -12,9 +12,12 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 	const STATUS_BLOCKED = 0;
 	const STATUS_ACTIVE = 1;
 	const STATUS_VERIFY_EMAIL = 2;
+	const STATUS_RESET_PASSWORD = 3;
+	
 	
 	/** @var UserEntity */
 	private $userEntity;	
+	
 	
 	public function __construct(\Nette\DI\Container $container, \Kdyby\Doctrine\EntityManager $entityManager, \h4kuna\Gettext\GettextSetup $translator, \Nette\Security\User $user) 
 	{
@@ -124,6 +127,50 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 		return $password;
 	}
 	
+	
+	/**
+	 * Reset password
+	 * password set on null and change status
+	 * 
+	 * @param array $criteria
+	 * @return UserEntity
+	 * @throws RepositoryException
+	 */
+	public function resetPassword($criteria)
+	{
+		$userEntity = $this->get($criteria);
+		
+		if (!$userEntity) {
+			throw new RepositoryException(_('The user of this data not found.'));
+		}
+		
+		if ($userEntity->status == self::STATUS_BLOCKED) {
+			throw new RepositoryException(_('This user account is blocked.'));
+		}
+		
+		$userEntity->password = null;
+		$userEntity->status = self::STATUS_RESET_PASSWORD;
+		
+		return $userEntity;
+	}
+	
+	
+	/**
+	 * Change password
+	 * 
+	 * @param UserEntity $userEntity
+	 * @param string $password
+	 * @return UserEntity
+	 * @throws RepositoryException
+	 */
+	public function changePassword($userEntity, $password)
+	{
+		$userEntity->password = $password;
+		$userEntity->status = self::STATUS_ACTIVE;
+		
+		return $userEntity;
+	}
+
 	
 	/**
 	 * Generate token

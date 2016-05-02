@@ -12,32 +12,6 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
 
 	/** @var SignUpForm @inject */
 	public $signUpForm;
-
-	
-	/**
-	 * Sign in form
-	 * 
-	 * @return Nette\Application\UI\Form
-	 */
-	protected function createComponentSignInForm()
-	{
-		$form = $this->signInForm->build();
-		
-		return $form;
-	}
-	
-	
-	/**
-	 * Sign up form
-	 * 
-	 * @return Nette\Application\UI\Form
-	 */
-	protected function createComponentSignUpForm()
-	{
-		$form = $this->signUpForm->build();
-		
-		return $form;
-	}
 	
 	
 	public function actionIn()
@@ -62,6 +36,32 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
 	{
 		$this->getUser()->logout(true);
 		$this->redirect(':User:Sign:in');
+	}
+	
+	
+	/**
+	 * Sign in form
+	 * 
+	 * @return Nette\Application\UI\Form
+	 */
+	protected function createComponentSignInForm()
+	{
+		$form = $this->signInForm->build();
+		
+		return $form;
+	}
+	
+	
+	/**
+	 * Sign up form
+	 * 
+	 * @return Nette\Application\UI\Form
+	 */
+	protected function createComponentSignUpForm()
+	{
+		$form = $this->signUpForm->build();
+		
+		return $form;
 	}
 	
 	

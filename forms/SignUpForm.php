@@ -48,7 +48,7 @@ class SignUpForm extends FormFactory
 
 			$presenter->flashMessage(_('Registration has been successfully completed.'), 'success');
 
-			$presenter->redirect(':User:Sign:in');
+			$presenter->redirect(':User:Sign:in', ['id' => null]);
 		} catch (\Exception $e) {
 			if ($e instanceof \Nette\Application\AbortException) {
 				throw $e;

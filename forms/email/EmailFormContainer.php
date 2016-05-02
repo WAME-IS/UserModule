@@ -43,8 +43,6 @@ class EmailFormContainer extends BaseFormContainer
 	{
 		$form = $this->getForm();
 		
-		$form->addGroup(_('Login data'));
-
 		$form->addText('email', _('Email'))
 				->setType('email')
 				->setRequired(_('Please enter your email'))
