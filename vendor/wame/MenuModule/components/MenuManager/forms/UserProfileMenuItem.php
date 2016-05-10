@@ -83,7 +83,7 @@ class UserProfileMenuItem implements IMenuItem
 	
 	public function getLink($menuEntity)
 	{
-		return $this->linkGenerator->link(':User:User:profile', ['lang' => $this->lang]);
+		return $this->linkGenerator->link('User:Profile:', ['lang' => $this->lang]);
 	}
 	
 }

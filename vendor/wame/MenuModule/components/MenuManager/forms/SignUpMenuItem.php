@@ -83,7 +83,7 @@ class SignUpMenuItem implements IMenuItem
 	
 	public function getLink($menuEntity)
 	{
-		return $this->linkGenerator->link(':User:Sign:up', ['lang' => $this->lang]);
+		return $this->linkGenerator->link('User:Sign:up', ['lang' => $this->lang]);
 	}
 	
 }

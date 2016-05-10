@@ -83,7 +83,7 @@ class UserSettingsMenuItem implements IMenuItem
 	
 	public function getLink($menuEntity)
 	{
-		return $this->linkGenerator->link(':User:User:settings', ['lang' => $this->lang]);
+		return $this->linkGenerator->link('User:UserSettings:', ['lang' => $this->lang]);
 	}
 	
 }

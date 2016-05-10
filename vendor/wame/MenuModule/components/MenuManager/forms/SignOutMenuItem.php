@@ -83,7 +83,7 @@ class SignOutMenuItem implements IMenuItem
 	
 	public function getLink($menuEntity)
 	{
-		return $this->linkGenerator->link(':User:Sign:out', ['lang' => $this->lang]);
+		return $this->linkGenerator->link('User:Sign:out', ['lang' => $this->lang]);
 	}
 	
 }
