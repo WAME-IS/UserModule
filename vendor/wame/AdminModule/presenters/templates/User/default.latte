@@ -1,0 +1,72 @@
+{block content}
+	<h1>{$siteTitle}</h1>
+	
+	<a n:if="count($users) > 0" class="btn btn-success ajax-modal pull-right" n:href=":Admin:User:create, 'id' => null">
+		<span class="fa fa-plus"></span>
+		{_'Create user'}
+	</a>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>{_'Name'}</th>
+				<th>{_'Email'}</th>
+				<th>{_'Role'}</th>
+				<th>{_'Register date'}</th>
+				<th>{_'Last login'}</th>
+				<th>{_'Status'}</th>
+				<th></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr n:foreach="$users as $user">
+				<td>
+					{$user->id}
+				</td>
+
+				<td>
+					<div><a n:href=":Admin:User:edit, 'id' => $user->id">{$user->fullName}</a></div>
+					<small n:if="$user->nick" class="text-muted">{$user->nick}</small>
+				</td>
+
+				<td>
+					{$user->email}
+				</td>
+
+				<td>
+					{$user->role}
+				</td>
+
+				<td>
+					<div>{$user->registerDate|date:'d.m.Y'}</div>
+					<small>{$user->registerDate|date:'H:i:s'}</small>
+				</td>
+
+				<td>
+					{if $user->lastLogin}
+						<div>{$user->lastLogin|date:'d.m.Y'}</div>
+						<small>{$user->lastLogin|date:'H:i:s'}</small>
+					{else}
+						-
+					{/if}
+				</td>
+
+				<td>
+					{if $user->status == 1}
+						<span class="label label-success">{_'Active'}</span>
+					{elseif $user->status == 0}
+						<span class="label label-danger">{_'Blocked'}</span>
+					{elseif $user->status == 2}
+						<span class="label label-info">{_'Email activation'}</span>
+					{/if}
+				</td>
+
+				<td class="text-right">
+					<a class="btn btn-sm btn-warning" n:href=":Admin:User:edit, 'id' => $user->id"><span class="fa fa-edit"></span></a>
+					<a class="btn btn-sm btn-danger ajax-modal" n:href=":Admin:User:delete, 'id' => $user->id"><span class="fa fa-trash-o"></span></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>

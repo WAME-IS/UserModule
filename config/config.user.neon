@@ -1,22 +1,31 @@
 services:
+	PermissionObject:
+		setup:
+			- addResource('admin.user')
+			- addResourceAction('admin.user', 'view')
+			- allow('moderator', 'admin.user', 'view')
+			- addResourceAction('admin.user', 'add')
+			- allow('moderator', 'admin.user', 'add')
+			- addResourceAction('admin.user', 'edit')
+			- allow('moderator', 'admin.user', 'edit')
+			- addResourceAction('admin.user', 'delete')
+			- allow('admin', 'admin.user', 'delete')
+
 	authenticator: Wame\UserModule\Models\Authenticator
 
-	# Models
-	- Wame\UserModule\Models\UserManager
 
 	# Entities
 	- Wame\UserModule\Entities\CompanyEntity
 	- Wame\UserModule\Entities\UserEntity
 	- Wame\UserModule\Entities\UserInfoEntity
 
+
 	# Repositories
 	- Wame\UserModule\Repositories\CompanyRepository
 	- Wame\UserModule\Repositories\UserRepository
 
-	# Forms
-	- Wame\UserModule\Forms\SignInForm
 
-	# Events
+	# User sing in listener - user redirects
 	- {class: Wame\UserModule\Events\SignInListener, tags: [run]}
 
 

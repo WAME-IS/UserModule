@@ -29,9 +29,9 @@ class UserInfoEntity extends \Wame\Core\Entities\BaseEntity
     protected $lastName = null;
 
     /**
-     * @ORM\Column(name="salutation", type="integer", length=1, nullable=false)
+     * @ORM\Column(name="salutation", type="integer", length=1, nullable=true)
      */
-    protected $salutation = '0';
+    protected $salutation = null;
 
     /**
      * @ORM\Column(name="degree", type="string", length=30, nullable=true)
@@ -42,20 +42,20 @@ class UserInfoEntity extends \Wame\Core\Entities\BaseEntity
      * @ORM\Column(name="degree_suffix", type="string", length=30, nullable=true)
      */
     protected $degreeSuffix = null;
+	
+    /**
+     * @ORM\Column(name="gender", type="integer", length=1, nullable=true)
+     */
+    protected $gender = null;
 
     /**
-     * @ORM\Column(name="birthdate", type="date", nullable=false)
+     * @ORM\Column(name="birthdate", type="date", nullable=true)
      */
-    protected $birthdate;
+    protected $birthdate = null;
 
     /**
      * @ORM\Column(name="text", type="text", nullable=true)
      */
     protected $text = null;
-
-    /**
-     * @ORM\Column(name="legal_form", type="integer", length=1, nullable=false)
-     */
-    protected $legalForm = 1;
 	
 }

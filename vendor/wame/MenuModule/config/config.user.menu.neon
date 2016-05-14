@@ -1,4 +1,19 @@
 services:
 	AdminMenu:
 		setup:
-			- setService(Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuControl\AdminMenu\AdminMenuItemFactory())
+			- setService(Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuControl\AdminMenu\AdminMenuItem())
+
+	MenuManager:
+		setup:
+			- addMenuItemType(Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms\SignUpMenuItem(), 'signUp')
+			- addMenuItemType(Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms\SignInMenuItem(), 'signIn')
+			- addMenuItemType(Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms\SignOutMenuItem(), 'signOut')
+			- addMenuItemType(Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms\UserSettingsMenuItem(), 'userSettings')
+			- addMenuItemType(Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms\UserProfileMenuItem(), 'userProfile')
+
+	# Events
+	- {class: Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Events\SignUpMenuItemListener, tags: [run]}
+	- {class: Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Events\SignInMenuItemListener, tags: [run]}
+	- {class: Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Events\SignOutMenuItemListener, tags: [run]}
+	- {class: Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Events\UserSettingsMenuItemListener, tags: [run]}
+	- {class: Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Events\UserProfileMenuItemListener, tags: [run]}

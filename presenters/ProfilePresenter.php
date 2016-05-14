@@ -2,26 +2,32 @@
 
 namespace App\UserModule\Presenters;
 
-use \Wame\UserModule\Entities\UserEntity;
+use Wame\UserModule\Repositories\UserRepository;
+use Wame\UserModule\Entities\UserEntity;
 
 class ProfilePresenter extends \App\Core\Presenters\BasePresenter
 {	
-	/** @var \Wame\UserModule\Entities\UserEntity */
+	/** @var UserRepository @inject */
+	public $userRepository;
+	
+	/** @var UserEntity */
 	private $userEntity;
+	
 	
 	public function actionDefault()
 	{
 		if (!$this->user->isLoggedIn()) {
-			$this->flashMessage('Pre vstup do tejto sekcie sa musíte prihlásiť.', 'danger');
+			$this->flashMessage(_('To enter this section must be log in.'), 'danger');
 			$this->redirect(':User:Sign:in');
 		}
 		
-		$this->userEntity = $this->entityManager->getRepository(UserEntity::class)->findOneBy(['id' => $this->user->id]);
+		$this->userEntity = $this->userRepository->get(['id' => $this->user->id]);
 	}
+	
 	
 	public function renderDefault()
 	{
-		$this->template->siteTitle = _('Užívateľ');
+		$this->template->siteTitle = _('Profile');
 		$this->template->userEntity = $this->userEntity;
 	}
 

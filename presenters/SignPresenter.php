@@ -3,45 +3,77 @@
 namespace App\UserModule\Presenters;
 
 use Wame\UserModule\Forms\SignInForm;
+use Wame\UserModule\Forms\SignUpForm;
 
 class SignPresenter extends \App\Core\Presenters\BasePresenter
 {	
 	/** @var SignInForm @inject */
 	public $signInForm;
 
+	/** @var SignUpForm @inject */
+	public $signUpForm;
+	
+	
+	public function actionIn()
+	{
+		if ($this->user->isLoggedIn()) {
+			$this->flashMessage(_('You are now logged.'), 'info');
+			$this->redirect(':User:Profile:');
+		}
+	}
+	
+	
+	public function actionUp()
+	{
+		if ($this->user->isLoggedIn()) {
+			$this->flashMessage(_('You are now logged.'), 'info');
+			$this->redirect(':User:Profile:');
+		}
+	}
+	
+	
+	public function actionOut()
+	{
+		$this->getUser()->logout(true);
+		$this->redirect(':User:Sign:in');
+	}
+	
+	
 	/**
-	 * Sign in form factory
+	 * Sign in form
 	 * 
 	 * @return Nette\Application\UI\Form
 	 */
 	protected function createComponentSignInForm()
 	{
-		$form = $this->signInForm->create();
-
-		$form->addComponent(new \Nette\Forms\Controls\TextInput('Nick'), 'nick', 'password');
-		
-		$form['nick']->setAttribute('placeholder', 'nick');
+		$form = $this->signInForm->build();
 		
 		return $form;
 	}
 	
-	public function actionIn()
+	
+	/**
+	 * Sign up form
+	 * 
+	 * @return Nette\Application\UI\Form
+	 */
+	protected function createComponentSignUpForm()
 	{
-		if ($this->user->isLoggedIn()) {
-			$this->flashMessage('Momentálne ste prihlásený.', 'info');
-			$this->redirect(':Homepage:Homepage:');
-		}
+		$form = $this->signUpForm->build();
+		
+		return $form;
 	}
 	
-	public function actionOut()
-	{
-		$this->getUser()->logout(true);
-		$this->redirect(':Homepage:Homepage:');
-	}
 	
 	public function renderIn()
 	{
-		$this->template->siteTitle = _('Prihlásenie');
+		$this->template->siteTitle = _('Login');
+	}
+	
+	
+	public function renderUp()
+	{
+		$this->template->siteTitle = _('Registration');
 	}
 
 }

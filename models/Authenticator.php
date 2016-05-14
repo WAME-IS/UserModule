@@ -10,49 +10,62 @@ use Wame\UserModule\Repositories\UserRepository;
 
 class Authenticator extends Object implements Security\IAuthenticator
 {
-	/** @var \Kdyby\Doctrine\EntityManager */
-	private $entityManager;
+	/** @var UserEntity */
+	private $userEntity;
 	
-	public function __construct(EntityManager $entityManager) {
-		$this->entityManager = $entityManager;
+	
+	public function __construct(EntityManager $entityManager) 
+	{
+		$this->userEntity = $entityManager->getRepository(UserEntity::class);
 	}
+	
 	
 	function authenticate(array $credentials)
     {
         list ($email, $password) = $credentials;
 				
-        $userEntity = $this->entityManager->getRepository(UserEntity::class)->findOneBy(['email' => $email]);
+        $userEntity = $this->userEntity->findOneBy(['email' => $email]);
 		
-        if (!$userEntity) {
-            throw new Security\AuthenticationException('Užívateľ s taktýmto emailom sa nenašiel.', self::IDENTITY_NOT_FOUND);
-        }
-        if (!Security\Passwords::verify($password, $userEntity->password)) {
-            throw new Security\AuthenticationException('Zle zadané heslo.', self::INVALID_CREDENTIAL);
-        }
-        if ($userEntity->status == UserRepository::STATUS_BLOCKED) {
-			throw new Security\AuthenticationException('Používateľske konto je blokované.', self::INVALID_CREDENTIAL);
-		}
- 		if ($userEntity->status == UserRepository::STATUS_VERIFY_PHONE){
-			throw new Security\AuthenticationException('Používateľske konto nieje aktivované. Na vaše telefónne číslo sme vám zaslali SMS s aktivačným kódom.', self::INVALID_CREDENTIAL);
-		}
- 		if ($userEntity->status == UserRepository::STATUS_VERIFY_EMAIL){
-			throw new Security\AuthenticationException('Používateľske konto nieje aktivované. Použijte aktivačný link ktorý sme Vám poslali na Váš email.', self::INVALID_CREDENTIAL);
-		}
+        $this->verify($userEntity, $password);
 		
 		if (Security\Passwords::needsRehash($userEntity->password)) {
 			$userEntity->password = Security\Passwords::hash($password);
 		}
 		
 		$userEntity->lastLogin = new \DateTime('now');
-		$this->entityManager->persist($userEntity);
 
         return new Security\Identity($userEntity->id, $userEntity->role, $this->getIdentityData($userEntity));
     }
 	
+	
+	private function verify($userEntity, $password)
+	{
+		if (!$userEntity) {
+            throw new Security\AuthenticationException(_('The user with this email not found.'), self::IDENTITY_NOT_FOUND);
+        }
+		
+        if (!Security\Passwords::verify($password, $userEntity->password)) {
+            throw new Security\AuthenticationException(_('Wrong password entered.'), self::INVALID_CREDENTIAL);
+        }
+		
+        if ($userEntity->status == UserRepository::STATUS_BLOCKED) {
+			throw new Security\AuthenticationException(_('The user account is blocked.'), self::INVALID_CREDENTIAL);
+		}
+		
+ 		if ($userEntity->status == UserRepository::STATUS_VERIFY_EMAIL){
+			throw new Security\AuthenticationException(_('The user account is not activated. Use the activation link sent to you at your email.'), self::INVALID_CREDENTIAL);
+		}
+		
+ 		if ($userEntity->status == UserRepository::STATUS_RESET_PASSWORD){
+			throw new Security\AuthenticationException(_('You have requested to change your password. To your inbox you will be sent an email with a link to change your password.'), self::INVALID_CREDENTIAL);
+		}
+	}
+	
+	
 	/**
 	 * Return identity data
 	 * 
-	 * @param Wame\UserModule\Entities\UserEntity $userEntity
+	 * @param UserEntity $userEntity
 	 * @return array
 	 */
 	private function getIdentityData($userEntity)
@@ -62,6 +75,10 @@ class Authenticator extends Object implements Security\IAuthenticator
 			'token' => $userEntity->token,
 			'email' => $userEntity->email,
 			'nick' => $userEntity->nick,
+			'name' => $userEntity->name,
+			'fullName' => $userEntity->fullName,
+			'birthdate' => $userEntity->info->birthdate,
+			'gender' => $userEntity->info->gender,
 			'registerDate' => $userEntity->registerDate,
 			'lastLogin' => $userEntity->lastLogin,
 			'status' => $userEntity->status

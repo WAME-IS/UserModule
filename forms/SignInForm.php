@@ -7,66 +7,50 @@ use Nette\Security;
 use Nette\Application\UI\Form;
 use Wame\Core\Forms\FormFactory;
 
-class SignInForm extends Form
+class SignInForm extends FormFactory
 {
-	/** @var FormFactory */
-	private $formFactory;
-
 	/** @var Security\User */
 	private $user;
 
 	/** @var array */
 	private $loginExpiration;
 
+	
 	public function __construct(
 		Container $container,
-		FormFactory $formFactory, 
 		Security\User $user
 	) {
-		$this->formFactory = $formFactory;
+		parent::__construct();
+
 		$this->user = $user;
 		
 		$this->loginExpiration = $container->parameters['user']['loginExpiration'];
 	}
+
 	
-	/**
-	 * @return Form
-	 */
-	public function create()
+	public function build()
 	{
-		$form = $this->formFactory->createForm();
-		
-		$form->addText('email', 'Email')
-				->setRequired('Please enter your username.');
+		$form = $this->createForm();
 
-		$form->addPassword('password', 'Password')
-				->setRequired('Please enter your password.');
+		$form->addCheckbox('remember', _('Keep me signed in'));
 
-		$form->addCheckbox('remember', 'Keep me signed in');
-
-		$form->addSubmit('send', 'Sign in');
+		$form->addSubmit('submit', _('Sign in'));
 
 		$form->onSuccess[] = [$this, 'formSucceeded'];
 		
 		return $form;
 	}
 
-	/**
-	 * Sign in user
-	 * 
-	 * @param Form $form
-	 * @param array $values
-	 */
 	public function formSucceeded(Form $form, $values)
 	{
-		if ($values->remember) {
+		if ($values['remember']) {
 			$this->user->setExpiration($this->loginExpiration['remember'], FALSE);
 		} else {
 			$this->user->setExpiration($this->loginExpiration['forget'], TRUE);
 		}
 
 		try {
-			$this->user->login($values->email, $values->password);
+			$this->user->login($values['email'], $values['password']);
 		} catch (Security\AuthenticationException $e) {
 			$form->addError($e->getMessage());
 		}

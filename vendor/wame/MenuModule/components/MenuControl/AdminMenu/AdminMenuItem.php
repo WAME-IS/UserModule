@@ -2,47 +2,50 @@
 
 namespace Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuControl\AdminMenu;
 
+use Nette\Application\LinkGenerator;
 use Wame\MenuModule\Models\Item;
 
-class AdminMenuItem
+interface IAdminMenuItem
+{
+	/** @return AdminMenuItem */
+	public function create();
+}
+
+
+class AdminMenuItem implements \Wame\MenuModule\Models\IMenuItem
 {	
-	public $name = 'user';
-			
-	/** @var \Nette\Application\LinkGenerator */
+    /** @var LinkGenerator */
 	private $linkGenerator;
 	
-	public function __construct($linkGenerator)
-	{
+	
+	public function __construct(
+		LinkGenerator $linkGenerator
+	) {
 		$this->linkGenerator = $linkGenerator;
 	}
+	
 	
 	public function addItem()
 	{
 		$item = new Item();
+		$item->setName('user');
+		$item->setPriority(1);
 		$item->setTitle(_('Users'));
-		$item->setLink($this->linkGenerator->link('Admin:Users:', ['id' => null]));
+		$item->setLink($this->linkGenerator->link('Admin:User:', ['id' => null]));
 		$item->setIcon('fa fa-users');
 		
 		$item->addNode($this->usersDefault(), 'users');
-		$item->addNode($this->userAdd(), 'addUser');
 		
 		return $item->getItem();
 	}
+	
 	
 	private function usersDefault()
 	{
 		$item = new Item();
+		$item->setName('user-users');
 		$item->setTitle(_('Users'));
-		$item->setLink($this->linkGenerator->link('Admin:Users:', ['id' => null]));
-		
-		return $item->getItem();
-	}
-	
-	private function userAdd()
-	{
-		$item = new Item();
-		$item->setTitle(_('Add user'));
-		$item->setLink($this->linkGenerator->link('Admin:User:add', ['id' => null]));
+		$item->setLink($this->linkGenerator->link('Admin:User:', ['id' => null]));
 		
 		return $item->getItem();
 	}

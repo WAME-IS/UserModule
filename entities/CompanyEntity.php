@@ -42,7 +42,7 @@ class CompanyEntity extends \Wame\Core\Entities\BaseEntity
     protected $companyImage = null;
 	
     /**
- 	 * @ORM\ManyToOne(targetEntity="\Wame\PlaceModule\Entities\AddressEntity")
+ 	 * @ORM\ManyToOne(targetEntity="\Wame\LocationModule\Entities\AddressEntity")
 	 * @ORM\JoinColumn(name="address_id", referencedColumnName="id", nullable=false)
      */
     protected $address;
