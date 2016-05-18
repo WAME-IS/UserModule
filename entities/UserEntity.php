@@ -3,7 +3,7 @@
 namespace Wame\UserModule\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
-use \Wame\Core\Entities\Columns;
+use Wame\Core\Entities\Columns;
 use Nette\Security\Passwords;
 
 /**
@@ -24,11 +24,13 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
     protected $referal = null;
 
     /**
+	 * @noApi
      * @ORM\Column(name="role", type="string", length=20, nullable=false)
-    */
+     */
     protected $role = 'client';
 
     /**
+	 * @noApi
      * @ORM\Column(name="password", type="string", length=64, nullable=true)
      */
     protected $password;
@@ -44,11 +46,13 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
     protected $nick = null;
  
     /**
+	 * @var DateTime
      * @ORM\Column(name="register_date", type="datetime", nullable=true)
      */
     protected $registerDate;
  
     /**
+	 * @var DateTime
      * @ORM\Column(name="last_login", type="datetime", nullable=true)
      */
     protected $lastLogin;
@@ -59,8 +63,39 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
 	 */
     protected $info;
 	
-	/** Get ********************************************************************************/
 	
+	/** get ********************************************************************************/
+	
+	public function getReferal()
+	{
+		return $this->referal;
+	}
+	
+	public function getRole()
+	{
+		return $this->role;
+	}
+	
+	public function getEmail()
+	{
+		return $this->email;
+	}
+	
+	public function getNick()
+	{
+		return $this->nick;
+	}
+	
+	public function getRegisterDate()
+	{
+		return $this->registerDate;
+	}
+	
+	public function getLastLogin()
+	{
+		return $this->lastLogin;
+	}
+
 	public function getName()
 	{
 		return $this->info->firstName . ' ' . $this->info->lastName;
@@ -83,11 +118,54 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
 		return $return;
 	}
 	
-	/** Set ********************************************************************************/
+	
+	/** set ********************************************************************************/
 	
 	public function setPassword($password)
 	{
 		$this->password = Passwords::hash($password);
+		
+		return $this;
+	}
+	
+	public function setReferal($referal)
+	{
+		$this->referal = $referal;
+		
+		return $this;
+	}
+	
+	public function setRole($role)
+	{
+		$this->role = $role;
+		
+		return $this;
+	}
+	
+	public function setEmail($email)
+	{
+		$this->email = $email;
+		
+		return $this;
+	}
+	
+	public function setNick($nick)
+	{
+		$this->nick = $nick;
+		
+		return $this;
+	}
+	
+	public function setRegisterDate($registerDate)
+	{
+		$this->registerDate = $registerDate;
+		
+		return $this;
+	}
+	
+	public function setLastLogin($lastLogin)
+	{
+		$this->lastLogin = $lastLogin;
 		
 		return $this;
 	}
