@@ -24,13 +24,11 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
     protected $referal = null;
 
     /**
-	 * @noApi
      * @ORM\Column(name="role", type="string", length=20, nullable=false)
      */
     protected $role = 'client';
 
     /**
-	 * @noApi
      * @ORM\Column(name="password", type="string", length=64, nullable=true)
      */
     protected $password;
