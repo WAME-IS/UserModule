@@ -14,16 +14,46 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 	const STATUS_VERIFY_EMAIL = 2;
 	const STATUS_RESET_PASSWORD = 3;
 	
-
-	public function __construct(
-		\Nette\DI\Container $container, 
-		\Kdyby\Doctrine\EntityManager $entityManager, 
-		\h4kuna\Gettext\GettextSetup $translator, 
-		\Nette\Security\User $user
-	) {
+	
+	/** @var UserEntity */
+	private $userEntity;	
+	
+	
+	public function __construct(\Nette\DI\Container $container, \Kdyby\Doctrine\EntityManager $entityManager, \h4kuna\Gettext\GettextSetup $translator, \Nette\Security\User $user) 
+	{
 		parent::__construct($container, $entityManager, $translator, $user, UserEntity::class);
+		
+		$this->userEntity = $this->entityManager->getRepository(UserEntity::class);
 	}
-
+	
+	
+	/**
+	 * Get one user by criteria
+	 * 
+	 * @param array $criteria
+	 * @param string $orderBy
+	 * @return UserEntity
+	 */
+	public function get($criteria = [], $orderBy = null)
+	{
+		return $this->userEntity->findOneBy($criteria, $orderBy);
+	}
+	
+	
+	/**
+	 * Get users by criteria
+	 * 
+	 * @param array $criteria
+	 * @param string $orderBy
+	 * @param int $limit
+	 * @param int $offset
+	 * @return UserEntity
+	 */
+	public function find($criteria = [], $orderBy = null, $limit = null, $offset = null)
+	{
+		return $this->userEntity->findBy($criteria, $orderBy, $limit, $offset);
+	}
+	
 	
 	/**
 	 * Create user
@@ -70,7 +100,7 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 	 */
 	public function delete($criteria = [], $status = self::STATUS_BLOCKED)
 	{
-		$userEntity = $this->findOneBy($criteria);
+		$userEntity = $this->userEntity->findOneBy($criteria);
 		$userEntity->status = $status;
 	}
 	
@@ -182,7 +212,7 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 			$by['id != ?'] = $without;
 		}
 		
-		$check = $this->countBy($by);
+		$check = $this->userEntity->countBy($by);
 		
 		if ($check == 0) {
 			return null;
