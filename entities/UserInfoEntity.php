@@ -14,8 +14,7 @@ class UserInfoEntity extends \Wame\Core\Entities\BaseEntity
 	use Columns\Identifier;
 	
 	/**
-	 * @noApi
-     * @ORM\ManyToOne(targetEntity="UserInfoEntity", inversedBy="info")
+     * @ORM\ManyToOne(targetEntity="UserEntity", inversedBy="info")
      * @ORM\JoinColumn(name="id", referencedColumnName="id", nullable=true)
      */
 	protected $user;
