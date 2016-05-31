@@ -12,7 +12,6 @@
 	"require": {
 		"wame/Core": "*",
 		"wame/MenuModule": "*",
-		"wame/PermissionModule": "*",
 		"wame/LocationModule": "*"
 	},
 	"autoload": {

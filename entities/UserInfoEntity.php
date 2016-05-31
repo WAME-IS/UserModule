@@ -3,7 +3,7 @@
 namespace Wame\UserModule\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
-use \Wame\Core\Entities\Columns;
+use Wame\Core\Entities\Columns;
 
 /**
  * @ORM\Table(name="wame_user_info")
@@ -12,8 +12,8 @@ use \Wame\Core\Entities\Columns;
 class UserInfoEntity extends \Wame\Core\Entities\BaseEntity
 {	
 	use Columns\Identifier;
-	
-	/**
+
+    /**
      * @ORM\ManyToOne(targetEntity="UserEntity", inversedBy="info")
      * @ORM\JoinColumn(name="id", referencedColumnName="id", nullable=true)
      */
@@ -165,7 +165,7 @@ class UserInfoEntity extends \Wame\Core\Entities\BaseEntity
 		return $this;
 	}
 	
-	public function setirthdate($birthdate)
+	public function setBirthdate($birthdate)
 	{
 		$this->birthdate = $birthdate;
 		 

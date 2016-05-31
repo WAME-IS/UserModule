@@ -3,7 +3,8 @@
 namespace Wame\UserModule\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
-use \Wame\Core\Entities\Columns;
+use Wame\Core\Entities\Columns;
+use Wame\LocationModule\Entities\Columns\Address;
 
 /**
  * @ORM\Table(name="wame_company")
@@ -14,37 +15,80 @@ class CompanyEntity extends \Wame\Core\Entities\BaseEntity
 	use Columns\Identifier;
 	use Columns\Status;
 	use Columns\Token;
+	use Address;
 
     /**
-     * @ORM\Column(name="name", type="string", length=100, nullable=false)
+     * @ORM\Column(name="name", type="string", length=100, nullable=true)
      */
     protected $name;
 
     /**
-     * @ORM\Column(name="ico", type="string", length=20, nullable=false)
+     * @ORM\Column(name="ico", type="string", length=20, nullable=true)
      */
     protected $ico;
 
     /**
-     * @ORM\Column(name="dic", type="string", length=30, nullable=false)
+     * @ORM\Column(name="dic", type="string", length=30, nullable=true)
      */
     protected $dic;
 
     /**
-     * @ORM\Column(name="ic_dph", type="string", length=40, nullable=false)
+     * @ORM\Column(name="ic_dph", type="string", length=40, nullable=true)
      */
     protected $icDph;
 
-
-    /**
-     * @ORM\Column(name="company_image", type="string", length=255, nullable=true)
-     */
-    protected $companyImage = null;
 	
-    /**
- 	 * @ORM\ManyToOne(targetEntity="\Wame\LocationModule\Entities\AddressEntity")
-	 * @ORM\JoinColumn(name="address_id", referencedColumnName="id", nullable=false)
-     */
-    protected $address;
+	/** get ************************************************************/
+
+	public function getName()
+	{
+		return $this->name;
+	}
+
+	public function getIco()
+	{
+		return $this->ico;
+	}
+
+	public function getDic()
+	{
+		return $this->dic;
+	}
+
+	public function getIcDph()
+	{
+		return $this->icDph;
+	}
+
+
+	/** set ************************************************************/
+
+	public function setName($name)
+	{
+		$this->name = $name;
+		
+		return $this;
+	}
+
+	public function setIco($ico)
+	{
+		$this->ico = $ico;
+		
+		return $this;
+	}
+
+	public function setDic($dic)
+	{
+		$this->dic = $dic;
+		
+		return $this;
+	}
+
+	public function setIcDph($icDph)
+	{
+		$this->icDph = $icDph;
+		
+		return $this;
+	}
 
 }

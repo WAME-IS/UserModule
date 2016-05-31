@@ -64,6 +64,11 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
 	
 	/** get ********************************************************************************/
 	
+	public function getInfo()
+	{
+		return $this->info;
+	}
+	
 	public function getReferal()
 	{
 		return $this->referal;
@@ -118,6 +123,13 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
 	
 	
 	/** set ********************************************************************************/
+	
+	public function setInfo($info)
+	{
+		$this->info = $info;
+		
+		return $this;
+	}
 	
 	public function setPassword($password)
 	{

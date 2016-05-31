@@ -18,15 +18,19 @@ services:
 	- Wame\UserModule\Entities\CompanyEntity
 	- Wame\UserModule\Entities\UserEntity
 	- Wame\UserModule\Entities\UserInfoEntity
+	- Wame\UserModule\Entities\UserInCompanyEntity
 
 
 	# Repositories
 	- Wame\UserModule\Repositories\CompanyRepository
 	- Wame\UserModule\Repositories\UserRepository
+	- Wame\UserModule\Repositories\UserInCompanyRepository
 
 
 	# User sing in listener - user redirects
 	- {class: Wame\UserModule\Events\SignInListener, tags: [run]}
+
+	- {class: Wame\UserModule\Events\SignUp\CompanyListener, tags: [run]}
 
 
 doctrine:
