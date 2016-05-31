@@ -1,18 +1,8 @@
 {block content}
+	<h1>{$siteTitle}</h1>
+
+	{control signInForm}
 	
-	<div class="container">
-		<h1 class="page-heading">{$siteTitle}</h1>
-		
-		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-				
-				{control signInForm}
-				
-				<div class="text-right">
-					<a class="btn-link" n:href=":User:Password:forgot">{_'I forgot my password'}</a>
-				</div>
-			</div>	
-		</div>
-	
+	<div class="text-right">
+		<a n:href=":User:Password:forgot">{_'I forgot my password'}</a>
 	</div>
-	
