@@ -13,14 +13,18 @@ use Wame\LocationModule\Entities\Columns\Address;
 class CompanyEntity extends \Wame\Core\Entities\BaseEntity
 {
 	use Columns\Identifier;
+	use Columns\CreateDate;
+	use Columns\CreateUser;
+	use Columns\Description;
+	use Columns\EditDate;
+	use Columns\EditUser;
+	use Columns\Name;
+	use Columns\Parameters;
+	use Columns\Slug;
 	use Columns\Status;
 	use Columns\Token;
 	use Address;
 
-    /**
-     * @ORM\Column(name="name", type="string", length=100, nullable=true)
-     */
-    protected $name;
 
     /**
      * @ORM\Column(name="ico", type="string", length=20, nullable=true)
@@ -40,11 +44,6 @@ class CompanyEntity extends \Wame\Core\Entities\BaseEntity
 	
 	/** get ************************************************************/
 
-	public function getName()
-	{
-		return $this->name;
-	}
-
 	public function getIco()
 	{
 		return $this->ico;
@@ -63,30 +62,23 @@ class CompanyEntity extends \Wame\Core\Entities\BaseEntity
 
 	/** set ************************************************************/
 
-	public function setName($name)
-	{
-		$this->name = $name;
-		
-		return $this;
-	}
-
 	public function setIco($ico)
 	{
-		$this->ico = $ico;
+		$this->ico = str_replace(' ', '', $ico);
 		
 		return $this;
 	}
 
 	public function setDic($dic)
 	{
-		$this->dic = $dic;
+		$this->dic = str_replace(' ', '', $dic);
 		
 		return $this;
 	}
 
 	public function setIcDph($icDph)
 	{
-		$this->icDph = $icDph;
+		$this->icDph = str_replace(' ', '', $icDph);
 		
 		return $this;
 	}
