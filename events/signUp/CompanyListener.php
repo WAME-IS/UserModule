@@ -3,6 +3,7 @@
 namespace Wame\UserModule\Events\SignUp;
 
 use Nette\Object;
+use Wame\Utils\Strings;
 use Wame\UserModule\Entities\CompanyEntity;
 use Wame\UserModule\Repositories\CompanyRepository;
 use Wame\UserModule\Repositories\UserRepository;
@@ -34,6 +35,11 @@ class CompanyListener extends Object
 	{
 		$companyEntity = new CompanyEntity();
 		$companyEntity->setName($userEntity->getFullName());
+		$companyEntity->setSlug(Strings::webalize($userEntity->getFullName()));
+		$companyEntity->setStatus(CompanyRepository::STATUS_ACTIVE);
+		$companyEntity->setToken(time());
+		$companyEntity->setCreateDate($userEntity->getRegisterDate());
+		$companyEntity->setCreateUser($userEntity);
 		
 		$this->companyRepository->create($companyEntity);
 
