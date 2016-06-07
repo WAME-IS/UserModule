@@ -38,7 +38,7 @@ class CompanyPresenter extends BasePresenter
 		}
 		
 		if (!$this->user->isAllowed('company', 'create')) {
-			$this->flashMessage(_('To enter this section you do not have have enough privileges.'), 'danger');
+			$this->flashMessage(_('To enter this section you do not have enough privileges.'), 'danger');
 			$this->redirect(':Admin:Dashboard:', ['id' => null]);
 		}
 	}
