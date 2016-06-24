@@ -36,15 +36,8 @@ class BillingDataFormContainer extends BaseFormContainer
             };
         }
     }
-	
 
-    public function render() 
-	{
-        $this->template->_form = $this->getForm();
-        $this->template->render(__DIR__ . '/default.latte');
-    }
 
-	
     public function configure() 
 	{
 		$form = $this->getForm();
@@ -55,8 +48,8 @@ class BillingDataFormContainer extends BaseFormContainer
 		
 		$form->addText('icDph', _('IČ DPH'));
     }
-	
-	
+
+
 	public function setDefaultValues($object)
 	{
 		$form = $this->getForm();

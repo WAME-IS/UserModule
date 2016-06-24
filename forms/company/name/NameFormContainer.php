@@ -34,26 +34,17 @@ class NameFormContainer extends BaseFormContainer
             };
         }
     }
-	
 
-    public function render() 
-	{
-        $this->template->_form = $this->getForm();
-        $this->template->render(__DIR__ . '/default.latte');
-    }
 
-	
     public function configure() 
 	{
 		$form = $this->getForm();
 
 		$form->addText('name', _('Name'))
-				->setType('text')
-				->setRequired(_('Please enter name'))
-				->addRule(Form::FILLED, _('Name can not be empty'));
+				->setRequired(_('Please enter name'));
     }
-	
-	
+
+
 	public function setDefaultValues($object)
 	{
 		$form = $this->getForm();

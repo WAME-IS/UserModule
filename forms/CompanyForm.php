@@ -113,10 +113,10 @@ class CompanyForm extends FormFactory
 	
 	
 	/**
-	 * Create site
+	 * Create company
 	 * 
 	 * @param array $values
-	 * @return SiteEntity
+	 * @return CompanyEntity
 	 */
 	private function create($values)
 	{
@@ -146,9 +146,9 @@ class CompanyForm extends FormFactory
 	
 	
 	/**
-	 * Update site
+	 * Update company
 	 * 
-	 * @return SiteEntity
+	 * @return CompanyEntity
 	 */
 	private function update()
 	{

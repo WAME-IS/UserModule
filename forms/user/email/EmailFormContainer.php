@@ -5,6 +5,7 @@ namespace Wame\UserModule\Forms;
 use Nette\Application\UI\Form;
 use Wame\DynamicObject\Forms\BaseFormContainer;
 
+
 interface IEmailFormContainerFactory
 {
 	/** @return EmailFormContainer */
@@ -31,14 +32,7 @@ class EmailFormContainer extends BaseFormContainer
 //        }
 //    }
 
-	
-    public function render() 
-	{
-        $this->template->_form = $this->getForm();
-        $this->template->render(__DIR__ . '/default.latte');
-    }
 
-	
     public function configure() 
 	{
 		$form = $this->getForm();
@@ -49,13 +43,13 @@ class EmailFormContainer extends BaseFormContainer
 				->addRule(Form::FILLED, _('Enter email'))
 				->addRule(Form::EMAIL, _('Wrong format email'));
     }
-	
-	
+
+
 	public function setDefaultValues($object)
 	{
 		$form = $this->getForm();
 		
 		$form['email']->setDefaultValue($object->userEntity->email);
 	}
-	
+
 }

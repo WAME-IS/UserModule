@@ -32,14 +32,7 @@ class DescriptionFormContainer extends BaseFormContainer
             };
         }
     }
-	
 
-    public function render() 
-	{
-        $this->template->_form = $this->getForm();
-        $this->template->render(__DIR__ . '/default.latte');
-    }
-	
 
     public function configure() 
 	{
@@ -47,8 +40,8 @@ class DescriptionFormContainer extends BaseFormContainer
 
 		$form->addTextArea('description', _('Description'));
     }
-	
-	
+
+
 	public function setDefaultValues($object)
 	{
 		$form = $this->getForm();
