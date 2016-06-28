@@ -4,6 +4,7 @@ namespace Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms;
 
 use Wame\DynamicObject\Forms\BaseFormContainer;
 
+
 interface ISignUpFormContainerFactory
 {
 	/** @return SignUpFormContainer */
@@ -13,13 +14,6 @@ interface ISignUpFormContainerFactory
 
 class SignUpFormContainer extends BaseFormContainer
 {
-    public function render() 
-	{
-        $this->template->_form = $this->getForm();
-        $this->template->render(__DIR__ . '/default.latte');
-    }
-
-	
     public function configure() 
 	{
 		$form = $this->getForm();
@@ -27,8 +21,8 @@ class SignUpFormContainer extends BaseFormContainer
 		$form->addText('title', _('Title'))
 				->setDefaultValue(_('Sign up'));
     }
-	
-	
+
+
 	public function setDefaultValues($object)
 	{
 		$form = $this->getForm();

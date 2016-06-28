@@ -4,6 +4,7 @@ namespace Wame\UserModule\Forms;
 
 use Wame\DynamicObject\Forms\BaseFormContainer;
 
+
 interface IBirthdateFormContainerFactory
 {
 	/** @return BirthdateFormContainer */
@@ -13,13 +14,6 @@ interface IBirthdateFormContainerFactory
 
 class BirthdateFormContainer extends BaseFormContainer
 {
-    public function render() 
-	{
-        $this->template->_form = $this->getForm();
-        $this->template->render(__DIR__ . '/default.latte');
-    }
-
-	
     public function configure() 
 	{
 		$form = $this->getForm();
@@ -28,8 +22,8 @@ class BirthdateFormContainer extends BaseFormContainer
 
 		$form->addText('birthdate', _('Birthdate'));
     }
-	
-	
+
+
 	public function setDefaultValues($object)
 	{
 		$form = $this->getForm();
@@ -38,5 +32,5 @@ class BirthdateFormContainer extends BaseFormContainer
 			$form['birthdate']->setDefaultValue($this->formatDate($object->userEntity->info->birthdate, 'd.m.Y'));
 		}
 	}
-	
+
 }

@@ -66,3 +66,12 @@ services:
 			- addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
 			- addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
 			- addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
+
+
+	# Comapany form
+	CompanyForm:
+		class: Wame\UserModule\Forms\CompanyForm
+		setup:
+			- addFormContainer(Wame\UserModule\Forms\Company\NameFormContainer(), 'NameFormContainer', 99)
+			- addFormContainer(Wame\UserModule\Forms\Company\DescriptionFormContainer(), 'DescriptionFormContainer', 98)
+			- addFormContainer(Wame\UserModule\Forms\Company\BillingDataFormContainer(), 'BillingDataFormContainer', 80)

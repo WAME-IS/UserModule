@@ -4,6 +4,7 @@ namespace Wame\UserModule\Forms;
 
 use Wame\DynamicObject\Forms\BaseFormContainer;
 
+
 interface IDegreeFormContainerFactory
 {
 	/** @return DegreeFormContainer */
@@ -13,13 +14,6 @@ interface IDegreeFormContainerFactory
 
 class DegreeFormContainer extends BaseFormContainer
 {
-    public function render() 
-	{
-        $this->template->_form = $this->getForm();
-        $this->template->render(__DIR__ . '/default.latte');
-    }
-
-	
     public function configure() 
 	{
 		$form = $this->getForm();
@@ -28,13 +22,13 @@ class DegreeFormContainer extends BaseFormContainer
 
 		$form->addText('degree', _('Degree'));
     }
-	
-	
+
+
 	public function setDefaultValues($object)
 	{
 		$form = $this->getForm();
 
 		$form['degree']->setDefaultValue($object->userEntity->info->degree);
 	}
-	
+
 }

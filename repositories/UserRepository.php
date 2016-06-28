@@ -191,4 +191,40 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 		}
 	}
 	
+	
+	/**
+	 * @api {get} /user-search/ Search users
+	 * @param array $columns	columns
+	 * @param string $phrase	phrase
+	 * @param string $select	select
+	 */
+	public function findLike($columns = [], $phrase = null, $select = '*') 
+	{
+		$search = $this->entityManager->createQueryBuilder()
+				->select($select)
+				->from(UserEntity::class, 'u')
+//				->leftJoin(\Wame\UserModule\Entities\UserInfoEntity::class, 'i', \Doctrine\ORM\Query\Expr\Join::WITH, 'u.id = i.user')
+				->andWhere('u.status = :status')
+				->setParameter('status', self::STATUS_ACTIVE);
+		
+		foreach ($columns as $column) {
+			$search->andWhere($column . ' LIKE :phrase');
+		}
+		
+		$search->setParameter('phrase', '%' . $phrase . '%');
+
+		return $search->getQuery()->getResult();
+	}
+	
+	/**
+	 * @api {get} /user/ User
+	 * @param type $criteria
+	 * @param type $orderBy
+	 * @param type $limit
+	 * @param type $offset
+	 */
+	public function find($criteria = array(), $orderBy = array(), $limit = null, $offset = null) {
+		return parent::find($criteria, $orderBy, $limit, $offset);
+	}
+	
 }

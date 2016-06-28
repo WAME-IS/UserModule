@@ -17,12 +17,16 @@ class SignUpForm extends FormFactory
 	/** @var UserEntity */
 	public $userEntity;
 	
+	/** @var string */
+	private $lang;
+	
 	
 	public function __construct(UserRepository $userRepository) 
 	{
 		parent::__construct();
 
 		$this->userRepository = $userRepository;
+		$this->lang = $userRepository->lang;
 	}
 	
 	
@@ -70,25 +74,26 @@ class SignUpForm extends FormFactory
 		$password = $this->userRepository->getPassword($values);
 		
 		$userInfoEntity = new UserInfoEntity();
-		$userInfoEntity->firstName = $values['first_name'];
-		$userInfoEntity->lastName = $values['last_name'];
-		$userInfoEntity->degree = $values['degree'];
-		$userInfoEntity->text = $values['text'];
+		$userInfoEntity->setFirstName($values['first_name']);
+		$userInfoEntity->setLastName($values['last_name']);
+		$userInfoEntity->setDegree($values['degree']);
+		$userInfoEntity->setText($values['text']);
 		
 		if ($values['birthdate']) {
-			$userInfoEntity->birthdate = $this->formatDate($values['birthdate'], 'Y-m-d');
+			$userInfoEntity->setBirthdate($this->formatDate($values['birthdate'], 'Y-m-d'));
 		} else {
-			$userInfoEntity->birthdate = null;
+			$userInfoEntity->setBirthdate(null);
 		}
 		
 		$userEntity = new UserEntity();
-		$userEntity->info = $userInfoEntity;
-		$userEntity->token = $this->userRepository->generateToken();
-		$userEntity->email = $values['email'];
-		$userEntity->nick = $values['nick'];
-		$userEntity->password = Passwords::hash($password);
-		$userEntity->registerDate = $this->formatDate('now');
-		$userEntity->status = UserRepository::STATUS_ACTIVE;
+		$userEntity->setInfo($userInfoEntity);
+		$userEntity->setLang($this->lang);
+		$userEntity->setToken($this->userRepository->generateToken());
+		$userEntity->setEmail($values['email']);
+		$userEntity->setNick($values['nick']);
+		$userEntity->setPassword(Passwords::hash($password));
+		$userEntity->setRegisterDate($this->formatDate('now'));
+		$userEntity->setStatus(UserRepository::STATUS_ACTIVE);
 		
 		return $this->userRepository->create($userEntity);
 	}

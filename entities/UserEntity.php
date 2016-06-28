@@ -2,6 +2,7 @@
 
 namespace Wame\UserModule\Entities;
 
+use Wame\RestApiModule\DataConverter\Annotations\noApi;
 use Doctrine\ORM\Mapping as ORM;
 use Wame\Core\Entities\Columns;
 use Nette\Security\Passwords;
@@ -29,6 +30,7 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
     protected $role = 'client';
 
     /**
+	 * @noApi
      * @ORM\Column(name="password", type="string", length=64, nullable=true)
      */
     protected $password;
@@ -63,6 +65,11 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
 	
 	
 	/** get ********************************************************************************/
+	
+	public function getInfo()
+	{
+		return $this->info;
+	}
 	
 	public function getReferal()
 	{
@@ -118,6 +125,13 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
 	
 	
 	/** set ********************************************************************************/
+	
+	public function setInfo($info)
+	{
+		$this->info = $info;
+		
+		return $this;
+	}
 	
 	public function setPassword($password)
 	{
