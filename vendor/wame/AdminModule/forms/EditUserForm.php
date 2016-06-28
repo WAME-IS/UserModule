@@ -87,7 +87,7 @@ class EditUserForm extends FormFactory
 		$userEntity->info->text = $values['text'];
 		
 		if ($values['birthdate']) {
-			$userEntity->info->birthdate = $this->formatDate($values['birthdate'], 'Y-m-d');
+			$userEntity->info->birthdate = \Wame\Utils\Date::toDateTime($values['birthdate'], 'Y-m-d');
 		} else {
 			$userEntity->info->birthdate = null;
 		}

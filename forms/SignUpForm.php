@@ -80,7 +80,7 @@ class SignUpForm extends FormFactory
 		$userInfoEntity->setText($values['text']);
 		
 		if ($values['birthdate']) {
-			$userInfoEntity->setBirthdate($this->formatDate($values['birthdate'], 'Y-m-d'));
+			$userInfoEntity->setBirthdate(\Wame\Utils\Date::toDateTime($values['birthdate'], 'Y-m-d'));
 		} else {
 			$userInfoEntity->setBirthdate(null);
 		}
@@ -92,7 +92,7 @@ class SignUpForm extends FormFactory
 		$userEntity->setEmail($values['email']);
 		$userEntity->setNick($values['nick']);
 		$userEntity->setPassword(Passwords::hash($password));
-		$userEntity->setRegisterDate($this->formatDate('now'));
+		$userEntity->setRegisterDate(\Wame\Utils\Date::toDateTime('now'));
 		$userEntity->setStatus(UserRepository::STATUS_ACTIVE);
 		
 		return $this->userRepository->create($userEntity);

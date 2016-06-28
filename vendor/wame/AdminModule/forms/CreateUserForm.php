@@ -73,7 +73,7 @@ class CreateUserForm extends FormFactory
 		$userInfoEntity->text = $values['text'];
 		
 		if ($values['birthdate']) {
-			$userInfoEntity->birthdate = $this->formatDate($values['birthdate'], 'Y-m-d');
+			$userInfoEntity->birthdate = \Wame\Utils\Date::toDateTime($values['birthdate'], 'Y-m-d');
 		} else {
 			$userInfoEntity->birthdate = null;
 		}
@@ -83,7 +83,7 @@ class CreateUserForm extends FormFactory
 		$userEntity->token = $this->userRepository->generateToken();
 		$userEntity->email = $values['email'];
 		$userEntity->password = null;
-		$userEntity->registerDate = $this->formatDate('now');
+		$userEntity->registerDate = \Wame\Utils\Date::toDateTime('now');
 		$userEntity->status = UserRepository::STATUS_VERIFY_EMAIL;
 		
 		return $this->userRepository->create($userEntity);

@@ -1,59 +1,58 @@
 services:
-	PermissionObject:
-		setup:
-			- addResource('admin.user')
-			- addResourceAction('admin.user', 'view')
-			- allow('moderator', 'admin.user', 'view')
-			- addResourceAction('admin.user', 'add')
-			- allow('moderator', 'admin.user', 'add')
-			- addResourceAction('admin.user', 'edit')
-			- allow('moderator', 'admin.user', 'edit')
-			- addResourceAction('admin.user', 'delete')
-			- allow('admin', 'admin.user', 'delete')
+    PermissionObject:
+        setup:
+            - addResource('admin.user')
+            - addResourceAction('admin.user', 'view')
+            - allow('moderator', 'admin.user', 'view')
+            - addResourceAction('admin.user', 'add')
+            - allow('moderator', 'admin.user', 'add')
+            - addResourceAction('admin.user', 'edit')
+            - allow('moderator', 'admin.user', 'edit')
+            - addResourceAction('admin.user', 'delete')
+            - allow('admin', 'admin.user', 'delete')
 
-			- addResource('company')
-			- addResourceAction('company', 'view')
-			- allow('guest', 'company', 'view')
-			- addResourceAction('company', 'create')
-			- allow('client', 'company', 'create')
-			- addResourceAction('company', 'edit')
-			- allow('client', 'company', 'edit')
-			- addResourceAction('company', 'delete')
-			- allow('client', 'company', 'delete')
+            - addResource('company')
+            - addResourceAction('company', 'view')
+            - allow('guest', 'company', 'view')
+            - addResourceAction('company', 'create')
+            - allow('client', 'company', 'create')
+            - addResourceAction('company', 'edit')
+            - allow('client', 'company', 'edit')
+            - addResourceAction('company', 'delete')
+            - allow('client', 'company', 'delete')
 
-			- addResource('admin.company')
-			- addResourceAction('admin.company', 'view')
-			- allow('moderator', 'admin.company', 'view')
-			- addResourceAction('admin.company', 'create')
-			- allow('moderator', 'admin.company', 'create')
-			- addResourceAction('admin.company', 'edit')
-			- allow('moderator', 'admin.company', 'edit')
-			- addResourceAction('admin.company', 'delete')
-			- allow('admin', 'admin.company', 'delete')
+            - addResource('admin.company')
+            - addResourceAction('admin.company', 'view')
+            - allow('moderator', 'admin.company', 'view')
+            - addResourceAction('admin.company', 'create')
+            - allow('moderator', 'admin.company', 'create')
+            - addResourceAction('admin.company', 'edit')
+            - allow('moderator', 'admin.company', 'edit')
+            - addResourceAction('admin.company', 'delete')
+            - allow('admin', 'admin.company', 'delete')
 
-	authenticator: Wame\UserModule\Models\Authenticator
+    authenticator: Wame\UserModule\Models\Authenticator
+    - {class: Wame\UserModule\Models\UserEntityExtensionMethod, tags: [run]}
 
-
-	# Entities
-	- Wame\UserModule\Entities\CompanyEntity
-	- Wame\UserModule\Entities\UserEntity
-	- Wame\UserModule\Entities\UserInfoEntity
-	- Wame\UserModule\Entities\UserInCompanyEntity
-
-
-	# Repositories
-	- Wame\UserModule\Repositories\CompanyRepository
-	- Wame\UserModule\Repositories\UserRepository
-	- Wame\UserModule\Repositories\UserInCompanyRepository
+    # Entities
+    - Wame\UserModule\Entities\CompanyEntity
+    - Wame\UserModule\Entities\UserEntity
+    - Wame\UserModule\Entities\UserInfoEntity
+    - Wame\UserModule\Entities\UserInCompanyEntity
 
 
-	# User sing in listener - user redirects
-	- {class: Wame\UserModule\Events\SignInListener, tags: [run]}
+    # Repositories
+    - Wame\UserModule\Repositories\CompanyRepository
+    - Wame\UserModule\Repositories\UserRepository
+    - Wame\UserModule\Repositories\UserInCompanyRepository
 
-	- {class: Wame\UserModule\Events\SignUp\CompanyListener, tags: [run]}
+
+    # User sing in listener - user redirects
+    - {class: Wame\UserModule\Events\SignInListener, tags: [run]}
+
+    - {class: Wame\UserModule\Events\SignUp\CompanyListener, tags: [run]}
 
 
 doctrine:
-	metadata:
-		Wame\UserModule\Entities: %appDir%/../vendor/wame/UserModule/entities
-		Wame\UserModule\Repositories: %appDir%/../vendor/wame/UserModule/repositories
+    metadata:
+        Wame\UserModule\Entities: %appDir%/../vendor/wame/UserModule/entities

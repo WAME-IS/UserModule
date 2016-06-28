@@ -226,5 +226,13 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 	public function find($criteria = array(), $orderBy = array(), $limit = null, $offset = null) {
 		return parent::find($criteria, $orderBy, $limit, $offset);
 	}
+    
+    /**
+	 * @api {get} /user/:id Get user by id
+	 * @param int $id
+	 */
+	public function getUserById($id) {
+		return $this->get(['id' => $id]);
+	}
 	
 }

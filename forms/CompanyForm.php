@@ -121,7 +121,7 @@ class CompanyForm extends FormFactory
 	private function create($values)
 	{
 		$companyEntity = new CompanyEntity();
-		$companyEntity->setCreateDate($this->formatDate('now'));
+		$companyEntity->setCreateDate(\Wame\Utils\Date::toDateTime('now'));
 		$companyEntity->setCreateUser($this->userEntity);
 		$companyEntity->setDescription($values['description']);
 		$companyEntity->setName($values['name']);
@@ -137,7 +137,7 @@ class CompanyForm extends FormFactory
 		$userInCompanyEntity = new UserInCompanyEntity();
 		$userInCompanyEntity->setCompany($companyEntity);
 		$userInCompanyEntity->setUser($this->userEntity);
-		$userInCompanyEntity->setCreateDate($this->formatDate('now'));
+		$userInCompanyEntity->setCreateDate(\Wame\Utils\Date::toDateTime('now'));
 		
 		$this->userInCompanyRepository->create($userInCompanyEntity);
 		
@@ -152,7 +152,7 @@ class CompanyForm extends FormFactory
 	 */
 	private function update()
 	{
-		$this->companyEntity->setEditDate($this->formatDate('now'));
+		$this->companyEntity->setEditDate(\Wame\Utils\Date::toDateTime('now'));
 		$this->companyEntity->setEditUser($this->userEntity);
 		
 		return $this->companyRepository->update($this->companyEntity);
