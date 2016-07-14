@@ -52,6 +52,9 @@ services:
 
     - {class: Wame\UserModule\Events\SignUp\CompanyListener, tags: [run]}
 
+    # Components
+    - Wame\UserModule\Components\IUserControlFactory
+
 
 doctrine:
     metadata:

@@ -1,0 +1,14 @@
+services:
+	ComponentManager:
+		setup:
+			- addComponent(Wame\UserModule\Vendor\Wame\ComponentModule\UserComponent())
+
+	PermissionObject:
+		setup:
+			- addResource('userControl')
+			- addResourceAction('userControl', 'create')
+			- allow('moderator', 'userControl', 'create')
+			- addResourceAction('userControl', 'edit')
+			- allow('moderator', 'userControl', 'edit')
+			- addResourceAction('userControl', 'delete')
+			- allow('admin', 'userControl', 'delete')
