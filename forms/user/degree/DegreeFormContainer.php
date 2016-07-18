@@ -3,6 +3,7 @@
 namespace Wame\UserModule\Forms;
 
 use Wame\DynamicObject\Forms\BaseFormContainer;
+use Wame\UserModule\Entities\UserInfoEntity;
 
 
 interface IDegreeFormContainerFactory
@@ -30,5 +31,26 @@ class DegreeFormContainer extends BaseFormContainer
 
 		$form['degree']->setDefaultValue($object->userEntity->info->degree);
 	}
+
+    
+    /**
+     * Create
+     * 
+     * @param \Nette\Application\UI\Form $form
+     * @param array $values
+     * @param \Nette\Application\UI\Presenter $presenter
+     */
+    public function create($form, $values, $presenter)
+    {
+        $userInfoEntity = $presenter->getStatus()->get('userInfoEntity');
+
+        if (!$userInfoEntity) {
+            $userInfoEntity = new UserInfoEntity();
+        }
+
+        $userInfoEntity->setDegree($values['degree']);
+
+        $presenter->getStatus()->set('userInfoEntity', $userInfoEntity);
+    }
 
 }
