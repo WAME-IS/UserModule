@@ -76,6 +76,11 @@ class SignUpForm extends FormFactory
 		$password = $this->userRepository->getPassword($values);
 		
 		$userInfoEntity = $presenter->getStatus()->get('userInfoEntity');
+        
+        if (!$userInfoEntity) {
+            $userInfoEntity = new UserInfoEntity();
+            $userInfoEntity->setImportUserId(time());
+        }
 		
 		$userEntity = $presenter->getStatus()->get('userEntity');
 		$userEntity->setInfo($userInfoEntity);
