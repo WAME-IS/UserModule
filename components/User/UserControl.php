@@ -36,9 +36,9 @@ class UserControl extends \Wame\Core\Components\BaseControl
 	private $lang;
 	
 	
-	public function __construct(UserRepository $userRepository)
+	public function __construct(\Nette\DI\Container $container, UserRepository $userRepository)
     {
-		parent::__construct();
+		parent::__construct($container);
 		
 		$this->userRepository = $userRepository;
 		$this->lang = $userRepository->lang;

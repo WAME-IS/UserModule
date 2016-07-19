@@ -3,7 +3,7 @@
 namespace Wame\UserModule\Vendor\Wame\ComponentModule;
 
 use Nette\Application\LinkGenerator;
-use Wame\ComponentModule\Models\IComponent;
+use Wame\ComponentModule\Registers\IComponent;
 use Wame\MenuModule\Models\Item;
 use Wame\UserModule\Components\IUserControlFactory;
 
@@ -81,10 +81,9 @@ class UserComponent implements IComponent
     }
 
 
-    public function createComponent($componentInPosition)
+    public function createComponent()
     {
         $control = $this->IUserControlFactory->create();
-        $control->setComponentInPosition($componentInPosition);
 
         return $control;
     }

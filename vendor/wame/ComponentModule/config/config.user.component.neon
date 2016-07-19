@@ -1,7 +1,7 @@
 services:
-	ComponentManager:
+	ComponentRegister:
 		setup:
-			- addComponent(Wame\UserModule\Vendor\Wame\ComponentModule\UserComponent())
+			- add(Wame\UserModule\Vendor\Wame\ComponentModule\UserComponent())
 
 	PermissionObject:
 		setup:
