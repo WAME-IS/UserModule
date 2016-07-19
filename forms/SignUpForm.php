@@ -81,7 +81,7 @@ class SignUpForm extends FormFactory
 		$userEntity->setInfo($userInfoEntity);
 		$userEntity->setLang($this->lang);
 		$userEntity->setToken($this->userRepository->generateToken());
-		$userEntity->setPassword(Passwords::hash($password));
+		$userEntity->setPassword($password);
 		$userEntity->setRegisterDate(\Wame\Utils\Date::toDateTime('now'));
 		$userEntity->setStatus(UserRepository::STATUS_ACTIVE);
 		
