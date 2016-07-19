@@ -4,6 +4,7 @@ namespace Wame\UserModule\Forms;
 
 use Nette\Application\UI\Form;
 use Wame\DynamicObject\Forms\BaseFormContainer;
+use Wame\UserModule\Entities\UserEntity;
 
 
 interface IEmailFormContainerFactory
@@ -14,25 +15,7 @@ interface IEmailFormContainerFactory
 
 
 class EmailFormContainer extends BaseFormContainer
-{	
-//	/**
-//	 * Container callback
-//	 * 
-//	 * @param Form $object
-//	 */
-//    public function attached($object) 
-//	{
-//        parent::attached($object);
-//
-//        if ($object instanceof Form) {
-//            $object->onSuccess[] = function (Form $form) {
-//                $path = $this->lookupPath(Form::class);
-////                dump($form->getValues()->$path);
-//            };
-//        }
-//    }
-
-
+{
     public function configure() 
 	{
 		$form = $this->getForm();
@@ -51,5 +34,26 @@ class EmailFormContainer extends BaseFormContainer
 		
 		$form['email']->setDefaultValue($object->userEntity->email);
 	}
+
+  
+    /**
+     * Create
+     * 
+     * @param \Nette\Application\UI\Form $form
+     * @param array $values
+     * @param \Nette\Application\UI\Presenter $presenter
+     */
+    public function create($form, $values, $presenter)
+    {
+        $userEntity = $presenter->getStatus()->get('userEntity');
+
+        if (!$userEntity) {
+            $userEntity = new UserEntity();
+        }
+
+		$userEntity->setEmail($values['email']);
+
+        $presenter->getStatus()->set('userEntity', $userEntity);
+    }
 
 }

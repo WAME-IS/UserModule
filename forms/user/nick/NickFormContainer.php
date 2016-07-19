@@ -3,6 +3,7 @@
 namespace Wame\UserModule\Forms;
 
 use Wame\DynamicObject\Forms\BaseFormContainer;
+use Wame\UserModule\Entities\UserEntity;
 
 
 interface INickFormContainerFactory
@@ -31,5 +32,26 @@ class NickFormContainer extends BaseFormContainer
 		
 		$form['nick']->setDefaultValue($object->userEntity->nick);
 	}
+
+    
+    /**
+     * Create
+     * 
+     * @param \Nette\Application\UI\Form $form
+     * @param array $values
+     * @param \Nette\Application\UI\Presenter $presenter
+     */
+    public function create($form, $values, $presenter)
+    {
+        $userEntity = $presenter->getStatus()->get('userEntity');
+
+        if (!$userEntity) {
+            $userEntity = new UserEntity();
+        }
+
+        $userEntity->setNick($values['nick']);
+
+        $presenter->getStatus()->set('userEntity', $userEntity);
+    }
 
 }
