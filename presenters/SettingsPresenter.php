@@ -2,7 +2,7 @@
 
 namespace App\UserModule\Presenters;
 
-class UserSettingsPresenter extends \App\Core\Presenters\BasePresenter
+class SettingsPresenter extends \App\Core\Presenters\BasePresenter
 {
 	public function actionDefault()
 	{
