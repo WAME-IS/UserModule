@@ -4,6 +4,8 @@ namespace Wame\UserModule\Components;
 
 use Wame\UserModule\Entities\UserEntity;
 use Wame\UserModule\Repositories\UserRepository;
+use Wame\PositionModule\Components\IPositionControlFactory;
+use Nette\Security\User;
 
 interface IUserControlFactory
 {
@@ -17,33 +19,26 @@ class UserControl extends \Wame\Core\Components\BaseControl
 	/** @var integer */
 	protected $id;
 	
-	/** @var string */
-	protected $slug;
-	
-	/** @var boolean */
-	private $inList = false;
-	
 	/** @var UserEntity */
 	protected $userEntity;
-	
-	/** @var UserRepository */
-	private $userRepository;
-	
-	/** @var UserEntity */
-	private $user;
-	
-	/** @var string */
-	private $lang;
+    
+    /** @var IPositionControlFactory */
+    private $IPositionControlFactory;
+    
+    private $user;
 	
 	
-	public function __construct(UserRepository $userRepository)
-    {
+	public function __construct(
+        User $user, 
+        IPositionControlFactory $IPositionControlFactory
+    ) {
 		parent::__construct();
 		
-		$this->userRepository = $userRepository;
-		$this->lang = $userRepository->lang;
+        $this->user = $user;
         
-//        $this->getPresenter()->getStatus()->set('meta', 'test');
+        $this->IPositionControlFactory = $IPositionControlFactory;
+        
+        $this->getStatus()->set('user', $this->user->getEntity());
 	}
 	
 	/**
@@ -51,19 +46,31 @@ class UserControl extends \Wame\Core\Components\BaseControl
 	 * 
 	 * @param UserEntity $userEntity	user
 	 */
-	public function render($user = null)
+	public function render(UserEntity $userEntity = null)
 	{
-        $this->user = $user;
-        
-        if($this->user === null) {
-            $this->user = $this->userRepository->user->getEntity();
+        if($userEntity) {
+            $this->user = $userEntity;
         }
-		
-		$this->template->lang = $this->lang;
-		$this->template->user = $this->user;
-		
-		$this->getTemplateFile();
-		$this->template->render();
+
+        
+        
+        $this->template->user = $this->user;
+
+        $this->getTemplateFile();
+        $this->template->render();
 	}
+    
+    
+    /**
+     * Position control
+     * 
+     * @return IPositionControlFactory
+     */
+    protected function createComponentPositionControl()
+    {
+        $control = $this->IPositionControlFactory->create();
+
+        return $control;
+    }
     
 }

@@ -1,1 +1,7 @@
-{$user->name}
+{if $user->isLoggedIn()}
+    {$user->getEntity()->name}
+
+    {position userControl}
+{else}
+    {_'Not logged in'}
+{/if}
