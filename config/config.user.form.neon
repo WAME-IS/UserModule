@@ -82,4 +82,4 @@ services:
         setup:
 #            TODO: pridat group
 #            - addFormContainer()
-#            - addFormContainer(Wame\UserModule\Forms\Settings\PasswordFormContainer(), 'PasswordFormContainer', 2)
+            - addFormContainer(Wame\UserModule\Forms\Settings\PasswordFormContainer(), 'PasswordFormContainer', 2)

@@ -4,7 +4,7 @@ namespace Wame\UserModule\Forms\Settings;
 
 use Nette\Application\UI\Form;
 use Wame\DynamicObject\Forms\BaseFormContainer;
-
+use Nette\Security\User;
 
 interface IPasswordFormContainerFactory
 {
@@ -15,6 +15,16 @@ interface IPasswordFormContainerFactory
 
 class PasswordFormContainer extends BaseFormContainer
 {
+    /** @var User */
+    private $user;
+    
+    
+    public function __construct(User $user)
+    {
+        parent::__construct();
+        $this->user = $user;
+    }
+    
     public function configure() 
 	{
 		$form = $this->getForm();
@@ -25,6 +35,16 @@ class PasswordFormContainer extends BaseFormContainer
         $form->addPassword('password_repeat', _('Password repeat'))
 				->setType('password')
 				->addRule(Form::EQUAL, _('Passwords must be the same'), $form['password']);
+    }
+    
+    
+    /** @inheritdoc */
+    public function create($form, $values, $presenter)
+    {
+        if($values['password'] && $values['password_repeat']) {
+            $userEntity = $this->user->getEntity();
+            $userEntity->setPassword($values['password']);
+        }
     }
 
 }
