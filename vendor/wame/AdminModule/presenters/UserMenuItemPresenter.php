@@ -3,6 +3,8 @@
 namespace App\AdminModule\Presenters;
 
 use Wame\MenuModule\Forms\MenuItemForm;
+use Wame\MenuModule\Repositories\MenuRepository;
+
 
 class UserMenuItemPresenter extends \App\AdminModule\Presenters\BasePresenter
 {	
@@ -44,7 +46,7 @@ class UserMenuItemPresenter extends \App\AdminModule\Presenters\BasePresenter
 						->addFormContainer(new \Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms\SignInFormContainer(), 'SignInFormContainer', 50)
 						->build();
 		
-		$form['showing']->setDisabled()->setDefaultValue(0);
+		$form['showing']->setDisabled()->setDefaultValue(MenuRepository::SHOWING_NOT_LOGGED);
 
 		return $form;
 	}
@@ -64,7 +66,8 @@ class UserMenuItemPresenter extends \App\AdminModule\Presenters\BasePresenter
 						->addFormContainer(new \Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms\SignOutFormContainer(), 'SignOutFormContainer', 50)
 						->build();
 		
-		$form['showing']->setDisabled()->setDefaultValue(1);
+		$form['showing']->setDisabled()->setDefaultValue(MenuRepository::SHOWING_LOGGED);
+		$form['open']->setDisabled()->setDefaultValue(MenuRepository::OPEN_NORMAL);
 
 		return $form;
 	}
@@ -84,7 +87,7 @@ class UserMenuItemPresenter extends \App\AdminModule\Presenters\BasePresenter
 						->addFormContainer(new \Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms\UserSettingsFormContainer(), 'UserSettingsFormContainer', 50)
 						->build();
 		
-		$form['showing']->setDisabled()->setDefaultValue(1);
+		$form['showing']->setDisabled()->setDefaultValue(MenuRepository::SHOWING_LOGGED);
 
 		return $form;
 	}
@@ -104,7 +107,7 @@ class UserMenuItemPresenter extends \App\AdminModule\Presenters\BasePresenter
 						->addFormContainer(new \Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms\UserProfileFormContainer(), 'UserProfileFormContainer', 50)
 						->build();
 		
-		$form['showing']->setDisabled()->setDefaultValue(1);
+		$form['showing']->setDisabled()->setDefaultValue(MenuRepository::SHOWING_LOGGED);
 
 		return $form;
 	}

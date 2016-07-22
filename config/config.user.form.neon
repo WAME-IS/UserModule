@@ -1,77 +1,85 @@
 services:
-	# Factories
-	- Wame\UserModule\Forms\IBirthdateFormContainerFactory
-	- Wame\UserModule\Forms\IDegreeFormContainerFactory
-	- Wame\UserModule\Forms\IEmailFormContainerFactory
-	- Wame\UserModule\Forms\INameFormContainerFactory
-	- Wame\UserModule\Forms\INickFormContainerFactory
-	- Wame\UserModule\Forms\ITextFormContainerFactory
+    # Factories
+    - Wame\UserModule\Forms\IBirthdateFormContainerFactory
+    - Wame\UserModule\Forms\IDegreeFormContainerFactory
+    - Wame\UserModule\Forms\IEmailFormContainerFactory
+    - Wame\UserModule\Forms\INameFormContainerFactory
+    - Wame\UserModule\Forms\INickFormContainerFactory
+    - Wame\UserModule\Forms\ITextFormContainerFactory
 
 
-	# Sign in form
-	SignInForm:
-		class: Wame\UserModule\Forms\SignInForm
-		setup:
-			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 3)
-			- addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 1)
+    # Sign in form
+    SignInForm:
+        class: Wame\UserModule\Forms\SignInForm
+        setup:
+            - addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 3)
+            - addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 1)
 
 
-	# Sign up form
-	SignUpForm:
-		class: Wame\UserModule\Forms\SignUpForm
-		setup:
-			- addFormContainer(Wame\UserModule\Forms\NickFormContainer(), 'NickFormContainer', 99)
-			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 98)
-			- addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 97)
-			- addFormContainer(Wame\UserModule\Forms\PasswordRepeatFormContainer(), 'PasswordRepeatFormContainer', 96)
-			- addFormContainer(Wame\UserModule\Forms\DegreeFormContainer(), 'DegreeFormContainer', 80)
-			- addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
-			- addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
-			- addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
+    # Sign up form
+    SignUpForm:
+        class: Wame\UserModule\Forms\SignUpForm
+        setup:
+            - addFormContainer(Wame\UserModule\Forms\NickFormContainer(), 'NickFormContainer', 99)
+            - addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 98)
+            - addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 97)
+            - addFormContainer(Wame\UserModule\Forms\PasswordRepeatFormContainer(), 'PasswordRepeatFormContainer', 96)
+            - addFormContainer(Wame\UserModule\Forms\DegreeFormContainer(), 'DegreeFormContainer', 80)
+            - addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
+            - addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
+            - addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
 
 
-	# Forgotten password form
-	PasswordForgotForm:
-		class: Wame\UserModule\Forms\PasswordForgotForm
-		setup:
-			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer')
+    # Forgotten password form
+    PasswordForgotForm:
+        class: Wame\UserModule\Forms\PasswordForgotForm
+        setup:
+            - addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer')
 
 
-	# New password form
-	PasswordNewForm:
-		class: Wame\UserModule\Forms\PasswordNewForm
-		setup:
-			- addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 2)
-			- addFormContainer(Wame\UserModule\Forms\PasswordRepeatFormContainer(), 'PasswordRepeatFormContainer', 1)
+    # New password form
+    PasswordNewForm:
+        class: Wame\UserModule\Forms\PasswordNewForm
+        setup:
+            - addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 2)
+            - addFormContainer(Wame\UserModule\Forms\PasswordRepeatFormContainer(), 'PasswordRepeatFormContainer', 1)
 
 
-	# Create user in administration form
-	CreateUserForm:
-		class: Wame\UserModule\Vendor\Wame\AdminModule\Forms\CreateUserForm
-		setup:
-			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 99)
-			- addFormContainer(Wame\UserModule\Forms\DegreeFormContainer(), 'DegreeFormContainer', 80)
-			- addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
-			- addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
-			- addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
+    # Create user in administration form
+    CreateUserForm:
+        class: Wame\UserModule\Vendor\Wame\AdminModule\Forms\CreateUserForm
+        setup:
+            - addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 99)
+            - addFormContainer(Wame\UserModule\Forms\DegreeFormContainer(), 'DegreeFormContainer', 80)
+            - addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
+            - addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
+            - addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
 
 
-	# Edit user in administration form
-	EditUserForm:
-		class: Wame\UserModule\Vendor\Wame\AdminModule\Forms\EditUserForm
-		setup:
-			- addFormContainer(Wame\UserModule\Forms\NickFormContainer(), 'NickFormContainer', 99)
-			- addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 98)
-			- addFormContainer(Wame\UserModule\Forms\DegreeFormContainer(), 'DegreeFormContainer', 80)
-			- addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
-			- addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
-			- addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
+    # Edit user in administration form
+    EditUserForm:
+        class: Wame\UserModule\Vendor\Wame\AdminModule\Forms\EditUserForm
+        setup:
+            - addFormContainer(Wame\UserModule\Forms\NickFormContainer(), 'NickFormContainer', 99)
+            - addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 98)
+            - addFormContainer(Wame\UserModule\Forms\DegreeFormContainer(), 'DegreeFormContainer', 80)
+            - addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
+            - addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
+            - addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
 
 
-	# Comapany form
-	CompanyForm:
-		class: Wame\UserModule\Forms\CompanyForm
-		setup:
-			- addFormContainer(Wame\UserModule\Forms\Company\NameFormContainer(), 'NameFormContainer', 99)
-			- addFormContainer(Wame\UserModule\Forms\Company\DescriptionFormContainer(), 'DescriptionFormContainer', 98)
-			- addFormContainer(Wame\UserModule\Forms\Company\BillingDataFormContainer(), 'BillingDataFormContainer', 80)
+    # Comapany form
+    CompanyForm:
+        class: Wame\UserModule\Forms\CompanyForm
+        setup:
+            - addFormContainer(Wame\UserModule\Forms\Company\NameFormContainer(), 'NameFormContainer', 99)
+            - addFormContainer(Wame\UserModule\Forms\Company\DescriptionFormContainer(), 'DescriptionFormContainer', 98)
+            - addFormContainer(Wame\UserModule\Forms\Company\BillingDataFormContainer(), 'BillingDataFormContainer', 80)
+
+    # Comapany form
+    UserSettingsForm:
+        class: Wame\UserModule\Forms\UserSettingsForm
+        setup:
+#            TODO: pridat group
+#            - addFormContainer()
+            - addFormContainer(Wame\UserModule\Forms\Settings\PasswordFormContainer(), 'PasswordFormContainer', 2)

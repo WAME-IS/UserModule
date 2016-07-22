@@ -3,6 +3,7 @@
 namespace Wame\UserModule\Forms;
 
 use Wame\DynamicObject\Forms\BaseFormContainer;
+use Wame\UserModule\Entities\UserInfoEntity;
 
 
 interface ITextFormContainerFactory
@@ -28,5 +29,27 @@ class TextFormContainer extends BaseFormContainer
 
 		$form['text']->setDefaultValue($object->userEntity->info->text);
 	}
+    
+
+    
+    /**
+     * Create
+     * 
+     * @param \Nette\Application\UI\Form $form
+     * @param array $values
+     * @param \Nette\Application\UI\Presenter $presenter
+     */
+    public function create($form, $values, $presenter)
+    {
+        $userInfoEntity = $presenter->getStatus()->get('userInfoEntity');
+
+        if (!$userInfoEntity) {
+            $userInfoEntity = new UserInfoEntity();
+        }
+
+        $userInfoEntity->setText($values['text']);
+
+        $presenter->getStatus()->set('userInfoEntity', $userInfoEntity);
+    }
 
 }

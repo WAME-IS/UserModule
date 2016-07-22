@@ -46,7 +46,7 @@ class SignUpForm extends FormFactory
 		$presenter = $form->getPresenter();
 
 		try {
-			$userEntity = $this->create($values);
+			$userEntity = $this->create($presenter, $values);
 
 			$this->userRepository->onCreate($form, $values, $userEntity);
 
@@ -66,32 +66,22 @@ class SignUpForm extends FormFactory
 	/**
 	 * Create user
 	 * 
+	 * @param Presenter $presenter
 	 * @param array $values
 	 * @return UserEntity
 	 */
-	private function create($values)
+	private function create($presenter, $values)
 	{
+        //Todo: oddeliť password
 		$password = $this->userRepository->getPassword($values);
 		
-		$userInfoEntity = new UserInfoEntity();
-		$userInfoEntity->setFirstName($values['first_name']);
-		$userInfoEntity->setLastName($values['last_name']);
-		$userInfoEntity->setDegree($values['degree']);
-		$userInfoEntity->setText($values['text']);
+		$userInfoEntity = $presenter->getStatus()->get('userInfoEntity');
 		
-		if ($values['birthdate']) {
-			$userInfoEntity->setBirthdate(\Wame\Utils\Date::toDateTime($values['birthdate'], 'Y-m-d'));
-		} else {
-			$userInfoEntity->setBirthdate(null);
-		}
-		
-		$userEntity = new UserEntity();
+		$userEntity = $presenter->getStatus()->get('userEntity');
 		$userEntity->setInfo($userInfoEntity);
 		$userEntity->setLang($this->lang);
 		$userEntity->setToken($this->userRepository->generateToken());
-		$userEntity->setEmail($values['email']);
-		$userEntity->setNick($values['nick']);
-		$userEntity->setPassword(Passwords::hash($password));
+		$userEntity->setPassword($password);
 		$userEntity->setRegisterDate(\Wame\Utils\Date::toDateTime('now'));
 		$userEntity->setStatus(UserRepository::STATUS_ACTIVE);
 		
