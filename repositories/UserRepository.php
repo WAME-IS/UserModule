@@ -36,13 +36,9 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 	{
 		$this->emailExists($userEntity->email);
 
-		$create = $this->entityManager->persist($userEntity);
+		$this->entityManager->persist($userEntity);
 
 		$this->entityManager->persist($userEntity->info);
-
-		if (!$create) {
-			throw new RepositoryException(_('Could not create the user.'));
-		}
 		
 		return $userEntity;
 	}
