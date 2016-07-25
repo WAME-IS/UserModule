@@ -4,8 +4,8 @@ namespace Wame\UserModule\Components;
 
 use Nette\DI\Container;
 use Nette\Security\User;
-use Wame\Core\Components\BaseControl;
 use Wame\ComponentModule\Components\IPositionControlFactory;
+use Wame\Core\Components\BaseControl;
 use Wame\UserModule\Entities\UserEntity;
 
 interface IUserControlFactory
@@ -26,7 +26,9 @@ class UserControl extends BaseControl
 
     /** @var IPositionControlFactory */
     private $IPositionControlFactory;
-    private $user;
+    
+    /** @var User */
+    protected $user;
 
     public function __construct(
     Container $container, User $user, IPositionControlFactory $IPositionControlFactory
@@ -53,8 +55,5 @@ class UserControl extends BaseControl
         }
 
         $this->template->user = $this->user;
-
-        $this->getTemplateFile();
-        $this->template->render();
     }
 }
