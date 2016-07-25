@@ -1,0 +1,4 @@
+services:
+    StatusTypeRegister:
+        setup:
+            - add(Wame\UserModule\Vendor\Wame\Core\Registers\Types\UserStatusType(), 'user')
