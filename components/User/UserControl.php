@@ -46,9 +46,10 @@ class UserControl extends BaseControl
     {
         if ($userEntity) {
             $this->user = $userEntity;
+            $this->template->profile = $userEntity;
+        } else {
+            $this->template->profile = $this->user->getEntity();
         }
-
-        $this->template->user = $this->user;
     }
     
 }
