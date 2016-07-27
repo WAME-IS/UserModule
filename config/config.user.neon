@@ -47,6 +47,7 @@ services:
 
     # Components
     - Wame\UserModule\Components\IUserControlFactory
+    - Wame\UserModule\Components\IUserSettingsButtonControlFactory
 
 
 doctrine:

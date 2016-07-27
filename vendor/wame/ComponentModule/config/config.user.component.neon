@@ -2,6 +2,7 @@ services:
 	ComponentRegister:
 		setup:
 			- add(Wame\UserModule\Vendor\Wame\ComponentModule\UserComponent())
+			- add(Wame\UserModule\Vendor\Wame\ComponentModule\UserSettingsButtonComponent())
 
 	PermissionObject:
 		setup:
