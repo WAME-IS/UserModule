@@ -22,6 +22,8 @@ class ProfilePresenter extends \App\Core\Presenters\BasePresenter
 		}
 		
 		$this->userEntity = $this->userRepository->get(['id' => $this->user->id]);
+        
+        $this->getStatus()->set('user', $this->userEntity);
 	}
 	
 	
