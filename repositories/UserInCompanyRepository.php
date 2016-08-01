@@ -41,10 +41,6 @@ class UserInCompanyRepository extends BaseRepository
 	public function getCompanyList($userId = null)
 	{
 		if (!$userId) {
-			if (!$this->user->isLoggedIn()) {
-				throw new \Exception(_('To start this action must be signed.'));
-			}
-			
 			$userId = $this->user->id;
 		}
 		
