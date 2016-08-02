@@ -14,4 +14,9 @@ class UserStatusType implements \Wame\Core\Registers\Types\IStatusType
         return _('User');
     }
     
+    public function getEntityName()
+    {
+        return \Wame\UserModule\Entities\UserEntity::class;
+    }
+    
 }
