@@ -1,0 +1,15 @@
+services:
+    UserGrid:
+        class: Wame\UserModule\Vendor\Wame\AdminModule\Grids\UserGrid
+        setup:
+            - addColumn(Wame\DataGridControl\IdGridColumn())
+            - addColumn(Wame\UserModule\Vendor\Wame\AdminModule\Grids\Columns\NameGridColumn())
+            - addColumn(Wame\UserModule\Vendor\Wame\AdminModule\Grids\Columns\NickGridColumn())
+            - addColumn(Wame\UserModule\Vendor\Wame\AdminModule\Grids\Columns\EmailGridColumn())
+            - addColumn(Wame\UserModule\Vendor\Wame\AdminModule\Grids\Columns\RoleGridColumn())
+            - addColumn(Wame\UserModule\Vendor\Wame\AdminModule\Grids\Columns\RegisterDateGridColumn())
+            - addColumn(Wame\UserModule\Vendor\Wame\AdminModule\Grids\Columns\LastLoginGridColumn())
+            - addColumn(Wame\UserModule\Vendor\Wame\AdminModule\Grids\Columns\StatusGridColumn())
+            - addColumn(Wame\DataGridControl\EditGridAction())
+            - addColumn(Wame\DataGridControl\DeleteGridAction())
+            - addColumn(Wame\UserModule\Vendor\Wame\AdminModule\Grids\Columns\AddGridToolbarButton())

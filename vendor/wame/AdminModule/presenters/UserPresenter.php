@@ -7,6 +7,8 @@ use Wame\UserModule\Forms\SignUpForm;
 use Wame\UserModule\Repositories\UserRepository;
 use Wame\UserModule\Vendor\Wame\AdminModule\Forms\CreateUserForm;
 use Wame\UserModule\Vendor\Wame\AdminModule\Forms\EditUserForm;
+use Wame\UserModule\Vendor\Wame\AdminModule\Grids\UserGrid;
+use Wame\DataGridControl\IDataGridControlFactory;
 
 class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 {	
@@ -30,13 +32,23 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 	
 	/** @var UserRepository @inject */
 	public $userRepository;
+    
+    /** @var IDataGridControlFactory @inject */
+	public $gridControl;
+    
+    /** @var UserGrid @inject */
+	public $userGrid;
 	
+    
 	public function startup() 
 	{
 		parent::startup();
 		
 		$this->roleList = $this->roleRepository->getRoles();
 	}
+    
+    
+    /** actions ***************************************************************/
 	
 	public function actionDefault()
 	{
@@ -52,31 +64,13 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 			$this->userEntity = $this->userRepository->get(['id' => $this->id]);
 		}
 	}
+    
+    
+    /** handles ***************************************************************/
 	
-	/**
-	 * Create user
-	 * 
-	 * @return CreateUserForm
-	 */
-	protected function createComponentCreateUserForm() 
-	{
-		$form = $this->createUserForm->build();
-
-		return $form;
-	}
-	
-	/**
-	 * Edit user
-	 * 
-	 * @return EditUserForm
-	 */
-	protected function createComponentEditUserForm() 
-	{
-		$form = $this->editUserForm->setId($this->id)->build();
-
-		return $form;
-	}
-	
+    
+    
+    /** renders ***************************************************************/
 	
 	public function renderDefault()
 	{
@@ -109,6 +103,48 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 		
 		$this->flashMessage(_('User has been successfully deleted.'), 'success');
 		$this->redirect(':Admin:User:', ['id' => null]);
+	}
+    
+    
+    /** components ************************************************************/
+    
+    /**
+	 * Create user
+	 * 
+	 * @return CreateUserForm
+	 */
+	protected function createComponentCreateUserForm() 
+	{
+		$form = $this->createUserForm->build();
+
+		return $form;
+	}
+	
+	/**
+	 * Edit user
+	 * 
+	 * @return EditUserForm
+	 */
+	protected function createComponentEditUserForm() 
+	{
+		$form = $this->editUserForm->setId($this->id)->build();
+
+		return $form;
+	}
+    
+    /**
+	 * Create user grid component
+	 * @param type $name
+	 * @return type
+	 */
+	protected function createComponentUserGrid()
+	{
+        $qb = $this->userRepository->createQueryBuilder('a');
+		$grid = $this->gridControl->create();
+		$grid->setDataSource($qb);
+		$grid->setProvider($this->userGrid);
+		
+		return $grid;
 	}
 
 }
