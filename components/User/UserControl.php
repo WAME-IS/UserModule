@@ -3,9 +3,7 @@
 namespace Wame\UserModule\Components;
 
 use Nette\DI\Container;
-use Nette\Security\User;
 use Wame\Core\Components\BaseControl;
-use Wame\UserModule\Entities\UserEntity;
 
 interface IUserControlFactory
 {
@@ -16,40 +14,26 @@ interface IUserControlFactory
 
 class UserControl extends BaseControl
 {
-    /** @var integer */
-    protected $id;
-
-    /** @var UserEntity */
-    protected $userEntity;
-    
-    /** @var User */
-    protected $user;
-
-    
     public function __construct(
-        Container $container, User $user
+        Container $container
     ) {
         parent::__construct($container);
 
-        $this->user = $user;
-
-        $this->getStatus()->set('user', $this->user->getEntity());
+//        $this->getStatus()->set('user', $this->user->getEntity());
     }
 
-    
-    /**
-     * Render
-     * 
-     * @param UserEntity $userEntity	user
-     */
     public function render(UserEntity $userEntity = null)
     {
-        if ($userEntity) {
-            $this->user = $userEntity;
-            $this->template->profile = $userEntity;
-        } else {
-            $this->template->profile = $this->user->getEntity();
+        if (!$userEntity) {
+            $userEntity = $this->getStatus()->get('user');
         }
+        
+        if (!$userEntity && $this->user->isLoggedIn()) {
+            $userEntity = $this->user->getEntity();
+            $this->getStatus()->set('user', $userEntity);
+        }
+        
+        $this->template->profile = $userEntity;
     }
     
 }
