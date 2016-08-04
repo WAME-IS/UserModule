@@ -31,7 +31,7 @@ class BirthdateFormContainer extends BaseFormContainer
 		$form = $this->getForm();
 
 		if ($object->userEntity->info->birthdate) {
-			$form['birthdate']->setDefaultValue(Date::toDateTime($object->userEntity->info->birthdate, 'd.m.Y'));
+			$form['birthdate']->setDefaultValue(Date::toString($object->userEntity->info->birthdate, 'd.m.Y'));
 		}
 	}
 
