@@ -1,6 +1,6 @@
     
     {position userControlSimpleBefore}
 
-    <strong class="user-heading"> {$profile->nick} </strong>
+    <strong class="user-heading"> {$profile ? $profile->getNick() : _('n/a')} </strong>
     
     {position userControlSimpleAfter}
