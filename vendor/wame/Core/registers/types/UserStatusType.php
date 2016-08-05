@@ -2,7 +2,7 @@
 
 namespace Wame\UserModule\Vendor\Wame\Core\Registers\Types;
 
-class UserStatusType implements \Wame\Core\Registers\Types\IStatusType
+class UserStatusType extends \Wame\Core\Registers\Types\StatusType
 {
     public function getStatusName()
     {
