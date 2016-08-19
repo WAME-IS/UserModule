@@ -2,11 +2,13 @@
 
 namespace Wame\UserModule\Vendor\Wame\AdminModule\Grids\Columns;
 
-use Wame\DataGridControl\BaseGridColumn;
+use Wame\DataGridControl\BaseGridItem;
 
-class RegisterDateGridColumn extends BaseGridColumn
+class RegisterDate extends BaseGridItem
 {
-	public function addColumn($grid) {
+	/** {@inheritDoc} */
+	public function render($grid)
+	{
 		$grid->addColumnDateTime('registerDate', _('Register date'))
                 ->setFormat('d.m.Y - H:i:s')
 				->setSortable()

@@ -8,7 +8,6 @@ use Wame\UserModule\Repositories\UserRepository;
 use Wame\UserModule\Vendor\Wame\AdminModule\Forms\CreateUserForm;
 use Wame\UserModule\Vendor\Wame\AdminModule\Forms\EditUserForm;
 use Wame\UserModule\Vendor\Wame\AdminModule\Grids\UserGrid;
-use Wame\DataGridControl\IDataGridControlFactory;
 
 class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 {	
@@ -32,9 +31,6 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 	
 	/** @var UserRepository @inject */
 	public $userRepository;
-    
-    /** @var IDataGridControlFactory @inject */
-	public $gridControl;
     
     /** @var UserGrid @inject */
 	public $userGrid;
@@ -109,7 +105,7 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
     /** components ************************************************************/
     
     /**
-	 * Create user
+	 * Create user form component
 	 * 
 	 * @return CreateUserForm
 	 */
@@ -121,7 +117,7 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 	}
 	
 	/**
-	 * Edit user
+	 * Edit user form component
 	 * 
 	 * @return EditUserForm
 	 */
@@ -134,17 +130,15 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
     
     /**
 	 * Create user grid component
-	 * @param type $name
-	 * @return type
+     * 
+	 * @return UserGrid
 	 */
 	protected function createComponentUserGrid()
 	{
         $qb = $this->userRepository->createQueryBuilder('a');
-		$grid = $this->gridControl->create();
-		$grid->setDataSource($qb);
-		$grid->setProvider($this->userGrid);
+		$this->userGrid->setDataSource($qb);
 		
-		return $grid;
+		return $this->userGrid;
 	}
 
 }

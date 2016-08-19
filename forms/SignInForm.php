@@ -20,8 +20,6 @@ class SignInForm extends FormFactory
 		Container $container,
 		Security\User $user
 	) {
-		parent::__construct();
-
 		$this->user = $user;
 		
 		$this->loginExpiration = $container->parameters['user']['loginExpiration'];

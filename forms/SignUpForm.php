@@ -23,8 +23,6 @@ class SignUpForm extends FormFactory
 	
 	public function __construct(UserRepository $userRepository) 
 	{
-		parent::__construct();
-
 		$this->userRepository = $userRepository;
 		$this->lang = $userRepository->lang;
 	}

@@ -2,12 +2,14 @@
 
 namespace Wame\UserModule\Vendor\Wame\AdminModule\Grids\Columns;
 
-use Wame\DataGridControl\BaseGridColumn;
+use Wame\DataGridControl\BaseGridItem;
 
-class NameGridColumn extends BaseGridColumn
+class Nick extends BaseGridItem
 {
-	public function addColumn($grid) {
-		$grid->addColumnText('fullName', _('Name'))
+	/** {@inheritDoc} */
+	public function render($grid)
+	{
+		$grid->addColumnText('nick', _('Nick'))
                 ->setSortable()
 				->setFilterText();
                 
