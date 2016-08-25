@@ -52,11 +52,7 @@ class SignUpForm extends FormFactory
 
 			$presenter->redirect(':User:Sign:in', ['id' => null]);
 		} catch (\Exception $e) {
-			if ($e instanceof \Nette\Application\AbortException) {
-				throw $e;
-			}
-			
-			$form->addError($e->getMessage());
+            \Wame\Utils\Exception::handleException($e, $form);
 		}
 	}
 	

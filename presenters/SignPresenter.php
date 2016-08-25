@@ -37,6 +37,12 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
 		$this->getUser()->logout(true);
 		$this->redirect(':User:Sign:in');
 	}
+    
+    
+    public function actionVerify()
+    {
+        $this->redirect(':User:Profile:');
+    }
 	
 	
 	/**

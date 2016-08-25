@@ -5,22 +5,29 @@ namespace Wame\UserModule\Forms;
 use Nette\Application\UI\Form;
 use Wame\Core\Forms\FormFactory;
 use Wame\UserModule\Repositories\UserRepository;
+use Wame\UserModule\Entities\UserEntity;
+use Nette\Security\User;
 
 class UserSettingsForm extends FormFactory
-{	
-	/** @var UserRepository */
-	private $userRepository;
+{
+    /** @var UserEntity */
+    public $userEntity;
 	
 	/** @var string */
 	public $lang;
-	
-	
-	public function __construct(UserRepository $userRepository)
+    
+	/** @var UserRepository */
+	private $userRepository;
+    
+    
+	public function __construct(UserRepository $userRepository, User $user)
     {
         parent::__construct();
         
 		$this->userRepository = $userRepository;
 		$this->lang = $userRepository->lang;
+        
+        $this->userEntity = $user->getEntity();
 	}
 	
 	
@@ -31,7 +38,7 @@ class UserSettingsForm extends FormFactory
 		if (count($this->getFormContainers()) > 0) {
 			$form->addSubmit('submit', _('Save'));
 
-//			$this->userEntity = $this->userRepository->findPairs(['type' => $this->id], 'value', [], 'name');
+//			$this->userEntity = $this->userRepository->get(['type' => $this->id], 'value', [], 'name');
 			
 			$this->setDefaultValues();
 		}
