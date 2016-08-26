@@ -82,7 +82,7 @@ class SignUpForm extends FormFactory
 		$userEntity->setToken($this->userRepository->generateToken());
 		$userEntity->setPassword($password);
 		$userEntity->setRegisterDate(\Wame\Utils\Date::toDateTime('now'));
-		$userEntity->setStatus(UserRepository::STATUS_ACTIVE);
+		$userEntity->setStatus(UserRepository::STATUS_VERIFY_EMAIL);
 		
 		return $this->userRepository->create($userEntity);
 	}

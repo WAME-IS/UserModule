@@ -13,6 +13,19 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 	const STATUS_ACTIVE = 1;
 	const STATUS_VERIFY_EMAIL = 2;
 	const STATUS_RESET_PASSWORD = 3;
+    
+    
+    /**
+     * Event called when entity is created
+     * 
+     * Parameters of event:
+     * \Nette\Forms\Form $form
+     * array $values
+     * \Wame\Core\Entities\BaseEntity $entity
+     * 
+     * @var callable[]
+     */
+    public $onPasswordReset = [];
 	
 
 	public function __construct(
@@ -113,9 +126,11 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
 		if ($userEntity->status == self::STATUS_BLOCKED) {
 			throw new RepositoryException(_('This user account is blocked.'));
 		}
+        
+        $this->onPasswordReset($userEntity);
 		
-		$userEntity->password = null;
-		$userEntity->status = self::STATUS_RESET_PASSWORD;
+//		$userEntity->password = null;
+//		$userEntity->status = self::STATUS_RESET_PASSWORD;
 		
 		return $userEntity;
 	}

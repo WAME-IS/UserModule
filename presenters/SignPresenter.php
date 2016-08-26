@@ -17,6 +17,8 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
     /** @var UserRepository @inject */
     public $userRepository;
 	
+    
+    /** actions ***************************************************************/
 	
 	public function actionIn()
 	{
@@ -69,8 +71,29 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
         
         $this->redirect(':User:Profile:');
     }
+    
+    
+    /** renders ***************************************************************/
+	
+	public function renderIn()
+	{
+		$this->template->siteTitle = _('Login');
+	}
 	
 	
+	public function renderUp()
+	{
+		$this->template->siteTitle = _('Registration');
+	}
+    
+    public function renderPolicies()
+    {
+        $this->template->siteTitle = _('Policies');
+    }
+	
+	
+    /** components ************************************************************/
+    
 	/**
 	 * Sign in form
 	 * 
@@ -96,16 +119,6 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
 		return $form;
 	}
 	
-	
-	public function renderIn()
-	{
-		$this->template->siteTitle = _('Login');
-	}
-	
-	
-	public function renderUp()
-	{
-		$this->template->siteTitle = _('Registration');
-	}
+    
 
 }
