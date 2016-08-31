@@ -26,7 +26,7 @@ class UserMenuItemPresenter extends \App\AdminModule\Presenters\BasePresenter
 						->addFormContainer(new \Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms\SignUpFormContainer(), 'SignUpFormContainer', 50)
 						->build();
 		
-		$form['showing']->setDisabled()->setDefaultValue(0);
+		$form['showing']->setDefaultValue(MenuRepository::SHOWING_NOT_LOGGED);
 
 		return $form;
 	}
@@ -46,7 +46,7 @@ class UserMenuItemPresenter extends \App\AdminModule\Presenters\BasePresenter
 						->addFormContainer(new \Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms\SignInFormContainer(), 'SignInFormContainer', 50)
 						->build();
 		
-		$form['showing']->setDisabled()->setDefaultValue(MenuRepository::SHOWING_NOT_LOGGED);
+		$form['showing']->setDefaultValue(MenuRepository::SHOWING_NOT_LOGGED);
 
 		return $form;
 	}
@@ -66,8 +66,8 @@ class UserMenuItemPresenter extends \App\AdminModule\Presenters\BasePresenter
 						->addFormContainer(new \Wame\UserModule\Vendor\Wame\MenuModule\Components\MenuManager\Forms\SignOutFormContainer(), 'SignOutFormContainer', 50)
 						->build();
 		
-		$form['showing']->setDisabled()->setDefaultValue(MenuRepository::SHOWING_LOGGED);
-		$form['open']->setDisabled()->setDefaultValue(MenuRepository::OPEN_NORMAL);
+		$form['showing']->setDefaultValue(MenuRepository::SHOWING_LOGGED);
+		$form['open']->setDefaultValue(MenuRepository::OPEN_NORMAL);
 
 		return $form;
 	}
