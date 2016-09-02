@@ -45,7 +45,7 @@ class EmailFormContainer extends BaseFormContainer
      */
     public function create($form, $values, $presenter)
     {
-        $userEntity = $presenter->getStatus()->get('userEntity');
+        $userEntity = $presenter->getStatus()->get(UserEntity::class);
 
         if (!$userEntity) {
             $userEntity = new UserEntity();
@@ -53,7 +53,7 @@ class EmailFormContainer extends BaseFormContainer
 
 		$userEntity->setEmail($values['email']);
 
-        $presenter->getStatus()->set('userEntity', $userEntity);
+        $presenter->getStatus()->set(UserEntity::class, $userEntity);
     }
 
 }

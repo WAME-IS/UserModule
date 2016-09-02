@@ -2,12 +2,15 @@
 
 namespace Wame\UserModule\Forms;
 
+use Exception as Exception2;
 use Nette\Application\UI\Form;
-use Nette\Security\Passwords;
 use Wame\Core\Forms\FormFactory;
-use Wame\UserModule\Repositories\UserRepository;
+use Wame\RouterModule\Vendor\Wame\AdminModule\Grids\Columns\Presenter;
 use Wame\UserModule\Entities\UserEntity;
 use Wame\UserModule\Entities\UserInfoEntity;
+use Wame\UserModule\Repositories\UserRepository;
+use Wame\Utils\Date;
+use Wame\Utils\Exception;
 
 class SignUpForm extends FormFactory
 {	
@@ -51,8 +54,8 @@ class SignUpForm extends FormFactory
 			$presenter->flashMessage(_('Registration has been successfully completed.'), 'success');
 
 			$presenter->redirect(':User:Sign:in', ['id' => null]);
-		} catch (\Exception $e) {
-            \Wame\Utils\Exception::handleException($e, $form);
+		} catch (Exception2 $e) {
+            Exception::handleException($e, $form);
 		}
 	}
 	
@@ -69,19 +72,19 @@ class SignUpForm extends FormFactory
         //Todo: oddeliť password
 		$password = $this->userRepository->getPassword($values);
 		
-		$userInfoEntity = $presenter->getStatus()->get('userInfoEntity');
+		$userInfoEntity = $presenter->getStatus()->get(UserInfoEntity::class);
         
         if (!$userInfoEntity) {
             $userInfoEntity = new UserInfoEntity();
             $userInfoEntity->setImportUserId(time());
         }
 		
-		$userEntity = $presenter->getStatus()->get('userEntity');
+		$userEntity = $presenter->getStatus()->get(UserEntity::class);
 		$userEntity->setInfo($userInfoEntity);
 		$userEntity->setLang($this->lang);
 		$userEntity->setToken($this->userRepository->generateToken());
 		$userEntity->setPassword($password);
-		$userEntity->setRegisterDate(\Wame\Utils\Date::toDateTime('now'));
+		$userEntity->setRegisterDate(Date::toDateTime('now'));
 		$userEntity->setStatus(UserRepository::STATUS_VERIFY_EMAIL);
 		
 		return $this->userRepository->create($userEntity);

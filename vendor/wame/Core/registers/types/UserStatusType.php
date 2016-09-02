@@ -4,10 +4,6 @@ namespace Wame\UserModule\Vendor\Wame\Core\Registers\Types;
 
 class UserStatusType extends \Wame\Core\Registers\Types\StatusType
 {
-    public function getStatusName()
-    {
-        return "user";
-    }
 
     public function getTitle()
     {

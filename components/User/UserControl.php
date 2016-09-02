@@ -19,18 +19,18 @@ class UserControl extends BaseControl
     ) {
         parent::__construct($container);
 
-//        $this->getStatus()->set('user', $this->user->getEntity());
+//        $this->getStatus()->set(UserEntity::class, $this->user->getEntity());
     }
 
     public function render(UserEntity $userEntity = null)
     {
         if (!$userEntity) {
-            $userEntity = $this->getStatus()->get('user');
+            $userEntity = $this->getStatus()->get(UserEntity::class);
         }
         
         if (!$userEntity && $this->user->isLoggedIn()) {
             $userEntity = $this->user->getEntity();
-            $this->getStatus()->set('user', $userEntity);
+            $this->getStatus()->set(UserEntity::class, $userEntity);
         }
         
         $this->template->profile = $userEntity;

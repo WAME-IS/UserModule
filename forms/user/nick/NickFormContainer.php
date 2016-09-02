@@ -2,6 +2,8 @@
 
 namespace Wame\UserModule\Forms;
 
+use Nette\Application\UI\Form;
+use Nette\Application\UI\Presenter;
 use Wame\DynamicObject\Forms\BaseFormContainer;
 use Wame\UserModule\Entities\UserEntity;
 
@@ -37,13 +39,13 @@ class NickFormContainer extends BaseFormContainer
     /**
      * Create
      * 
-     * @param \Nette\Application\UI\Form $form
+     * @param Form $form
      * @param array $values
-     * @param \Nette\Application\UI\Presenter $presenter
+     * @param Presenter $presenter
      */
     public function create($form, $values, $presenter)
     {
-        $userEntity = $presenter->getStatus()->get('userEntity');
+        $userEntity = $presenter->getStatus()->get(UserEntity::class);
 
         if (!$userEntity) {
             $userEntity = new UserEntity();
@@ -51,7 +53,7 @@ class NickFormContainer extends BaseFormContainer
 
         $userEntity->setNick($values['nick']);
 
-        $presenter->getStatus()->set('userEntity', $userEntity);
+        $presenter->getStatus()->set(UserEntity::class, $userEntity);
     }
 
 }

@@ -2,6 +2,8 @@
 
 namespace Wame\UserModule\Forms;
 
+use Nette\Application\UI\Form;
+use Nette\Application\UI\Presenter;
 use Wame\DynamicObject\Forms\BaseFormContainer;
 use Wame\UserModule\Entities\UserInfoEntity;
 
@@ -39,13 +41,13 @@ class NameFormContainer extends BaseFormContainer
     /**
      * Create
      * 
-     * @param \Nette\Application\UI\Form $form
+     * @param Form $form
      * @param array $values
-     * @param \Nette\Application\UI\Presenter $presenter
+     * @param Presenter $presenter
      */
     public function create($form, $values, $presenter)
     {
-        $userInfoEntity = $presenter->getStatus()->get('userInfoEntity');
+        $userInfoEntity = $presenter->getStatus()->get(UserInfoEntity::class);
 
         if (!$userInfoEntity) {
             $userInfoEntity = new UserInfoEntity();
@@ -54,7 +56,7 @@ class NameFormContainer extends BaseFormContainer
         $userInfoEntity->setFirstName($values['first_name']);
         $userInfoEntity->setLastName($values['last_name']);
 
-        $presenter->getStatus()->set('userInfoEntity', $userInfoEntity);
+        $presenter->getStatus()->set(UserInfoEntity::class, $userInfoEntity);
     }
 
 }

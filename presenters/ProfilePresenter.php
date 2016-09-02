@@ -2,10 +2,11 @@
 
 namespace App\UserModule\Presenters;
 
-use Wame\UserModule\Repositories\UserRepository;
+use App\Core\Presenters\BasePresenter;
 use Wame\UserModule\Entities\UserEntity;
+use Wame\UserModule\Repositories\UserRepository;
 
-class ProfilePresenter extends \App\Core\Presenters\BasePresenter
+class ProfilePresenter extends BasePresenter
 {	
 	/** @var UserRepository @inject */
 	public $userRepository;
@@ -23,7 +24,7 @@ class ProfilePresenter extends \App\Core\Presenters\BasePresenter
 		
 		$this->userEntity = $this->userRepository->get(['id' => $this->user->id]);
         
-        $this->getStatus()->set('user', $this->userEntity);
+        $this->getStatus()->set(UserEntity::class, $this->userEntity);
 	}
 	
 	
