@@ -7,13 +7,9 @@ use Wame\UserModule\Entities\UserInCompanyEntity;
 
 class UserInCompanyRepository extends BaseRepository
 {
-	public function __construct(
-		\Nette\DI\Container $container, 
-		\Kdyby\Doctrine\EntityManager $entityManager, 
-		\h4kuna\Gettext\GettextSetup $translator, 
-		\Nette\Security\User $user
-	) {
-		parent::__construct($container, $entityManager, $translator, $user, UserInCompanyEntity::class);
+	public function __construct()
+    {
+		parent::__construct(UserInCompanyEntity::class);
 	}
 	
 	

@@ -4,10 +4,11 @@ namespace Wame\UserModule\Repositories;
 
 use Nette\Utils\Random;
 use Nette\Utils\Strings;
+use Wame\Core\Repositories\BaseRepository;
 use Wame\UserModule\Entities\UserEntity;
 use Wame\Core\Exception\RepositoryException;
 
-class UserRepository extends \Wame\Core\Repositories\BaseRepository
+class UserRepository extends BaseRepository
 {
 	const STATUS_BLOCKED = 0;
 	const STATUS_ACTIVE = 1;
@@ -28,13 +29,9 @@ class UserRepository extends \Wame\Core\Repositories\BaseRepository
     public $onPasswordReset = [];
 	
 
-	public function __construct(
-		\Nette\DI\Container $container, 
-		\Kdyby\Doctrine\EntityManager $entityManager, 
-		\h4kuna\Gettext\GettextSetup $translator, 
-		\Nette\Security\User $user
-	) {
-		parent::__construct($container, $entityManager, $translator, $user, UserEntity::class);
+	public function __construct()
+    {
+		parent::__construct(UserEntity::class);
 	}
 
 	

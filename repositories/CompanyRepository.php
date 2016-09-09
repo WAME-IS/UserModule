@@ -11,13 +11,9 @@ class CompanyRepository extends BaseRepository
 	const STATUS_ACTIVE = 1;
 	
 	
-	public function __construct(
-		\Nette\DI\Container $container, 
-		\Kdyby\Doctrine\EntityManager $entityManager, 
-		\h4kuna\Gettext\GettextSetup $translator, 
-		\Nette\Security\User $user
-	) {
-		parent::__construct($container, $entityManager, $translator, $user, CompanyEntity::class);
+	public function __construct()
+    {
+		parent::__construct(CompanyEntity::class);
 	}
 
 	

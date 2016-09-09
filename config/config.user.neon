@@ -35,9 +35,17 @@ services:
     - {class: Wame\UserModule\Models\UserEntityExtensionMethod, tags: [run]}
 
     # Repositories
-    - Wame\UserModule\Repositories\CompanyRepository
-    - Wame\UserModule\Repositories\UserRepository
-    - Wame\UserModule\Repositories\UserInCompanyRepository
+    CompanyRepository:
+        class: Wame\UserModule\Repositories\CompanyRepository
+        inject: yes
+
+    UserRepository:
+        class: Wame\UserModule\Repositories\UserRepository
+        inject: yes
+
+    UserInCompanyRepository:
+        class: Wame\UserModule\Repositories\UserInCompanyRepository
+        inject: yes
 
 
     # User sing in listener - user redirects
