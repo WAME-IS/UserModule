@@ -1,7 +1,13 @@
 {block content}
-	<h1>{$siteTitle}</h1>
+
+<div class="container">
+    <h1 n:block="title">{$siteTitle}</h1>
+    
+    {position userPasswordForgotTop}
 	
 	<p class="lead">{_'Please enter your login email.'}</p>
-	<p>{_'By email you will be sent an email with a link where you enter your new password.'}</p>
 	
 	{control passwordForgotForm}
+    
+    {position userPasswordForgotBottom}
+</div>
