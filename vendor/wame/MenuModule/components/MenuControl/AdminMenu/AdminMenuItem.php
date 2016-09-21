@@ -35,6 +35,7 @@ class AdminMenuItem implements \Wame\MenuModule\Models\IMenuItem
 		$item->setIcon('fa fa-users');
 		
 		$item->addNode($this->usersDefault(), 'users');
+		$item->addNode($this->companiesDefault(), 'companies');
 		
 		return $item->getItem();
 	}
@@ -46,6 +47,16 @@ class AdminMenuItem implements \Wame\MenuModule\Models\IMenuItem
 		$item->setName('user-users');
 		$item->setTitle(_('Users'));
 		$item->setLink($this->linkGenerator->link('Admin:User:', ['id' => null]));
+		
+		return $item->getItem();
+	}
+    
+    private function companiesDefault()
+	{
+		$item = new Item();
+		$item->setName('user-companies');
+		$item->setTitle(_('Companies'));
+		$item->setLink($this->linkGenerator->link('Admin:Company:', ['id' => null]));
 		
 		return $item->getItem();
 	}

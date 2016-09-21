@@ -1,4 +1,11 @@
 {block content}
-	<h1>{$siteTitle}</h1>
+
+<div class="container">
+    <h1 n:block="title">{$siteTitle}</h1>
+    
+    {position userPasswordNewTop}
 	
 	{control passwordNewForm}
+    
+    {position userPasswordNewBottom}
+</div>	

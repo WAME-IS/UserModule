@@ -1,5 +1,5 @@
 services:
-    # Factories
+    # Form containers
     - Wame\UserModule\Forms\IBirthdateFormContainerFactory
     - Wame\UserModule\Forms\IDegreeFormContainerFactory
     - Wame\UserModule\Forms\IEmailFormContainerFactory
@@ -7,6 +7,9 @@ services:
     - Wame\UserModule\Forms\INickFormContainerFactory
     - Wame\UserModule\Forms\ITextFormContainerFactory
 
+    - Wame\UserModule\Forms\Containers\IIcoContainerFactory
+    - Wame\UserModule\Forms\Containers\IDicContainerFactory
+    - Wame\UserModule\Forms\Containers\IIcDphContainerFactory
 
     # Sign in form
     SignInForm:

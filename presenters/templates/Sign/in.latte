@@ -1,10 +1,15 @@
 {block content}
-	<h1>{$siteTitle}</h1>
 
-	{control signInForm}
+<div class="container">
+    <h1 n:block="title">{$siteTitle}</h1>
+    
+    {position userSignInTop}
+    
+    {control signInForm}
 	
 	<div class="text-right">
 		<a n:href=":User:Password:forgot">{_'I forgot my password'}</a>
 	</div>
     
-    {position signInBottom}
+    {position userSignInBottom}
+</div>
