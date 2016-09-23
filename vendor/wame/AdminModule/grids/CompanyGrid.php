@@ -2,7 +2,8 @@
 
 namespace Wame\UserModule\Vendor\Wame\AdminModule\Grids;
 
-class CompanyGrid extends \Wame\DataGridControl\DataGridControl
+
+class CompanyGrid extends \Wame\AdminModule\Vendor\Wame\DataGridControl\AdminDataGridControl
 {
 	
 }

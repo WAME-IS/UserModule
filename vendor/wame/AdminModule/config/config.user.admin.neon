@@ -12,7 +12,7 @@ services:
             - add(Wame\UserModule\Vendor\Wame\AdminModule\Grids\Columns\Status(), null, {priority: 20})
             - add(Wame\DataGridControl\Actions\Edit())
             - add(Wame\DataGridControl\Actions\Delete())
-            - add(Wame\DataGridControl\ToolbarButtons\Add())
+            - add(Wame\UserModule\Vendor\Wame\AdminModule\Grids\ToolbarButtons\AddUser())
             - add(Wame\DataGridControl\GroupActions\DeleteSelected())
             - add(Wame\UserModule\Vendor\Wame\AdminModule\Grids\GroupActions\ChangeRoleSelected())
 
@@ -30,7 +30,7 @@ services:
 #            - add(Wame\DataGridControl\Columns\Address(), null, {priority: 10})
             - add(Wame\DataGridControl\Actions\Edit(), null, {priority: 90})
             - add(Wame\DataGridControl\Actions\Delete(), null, {priority: 80})
-            - add(Wame\DataGridControl\ToolbarButtons\Add())
+            - add(Wame\UserModule\Vendor\Wame\AdminModule\Grids\ToolbarButtons\AddCompany())
             - add(Wame\DataGridControl\GroupActions\DeleteSelected())
 
     CompanyFormBuilder:
