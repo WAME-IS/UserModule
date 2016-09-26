@@ -1,0 +1,8 @@
+router:
+    defaultRoutes:
+        '/[<lang>/]users': 'User:User:default'
+        '/[<lang>/]user/<id>': 'User:User:show'
+        '/[<lang>/]admin/users': 'Admin:User:default'
+        '/[<lang>/]admin/user/create': 'Admin:User:create'
+        '/[<lang>/]admin/user/edit/<id>': 'Admin:User:edit'
+        '/[<lang>/]admin/user/delete/<id>': 'Admin:User:delete'
