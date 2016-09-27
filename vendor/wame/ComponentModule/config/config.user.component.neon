@@ -1,15 +1,16 @@
 services:
-	ComponentRegister:
-		setup:
-			- add(Wame\UserModule\Vendor\Wame\ComponentModule\UserComponent())
-			- add(Wame\UserModule\Vendor\Wame\ComponentModule\UserSettingsButtonComponent())
+    ComponentRegister:
+        setup:
+            - add(Wame\UserModule\Vendor\Wame\ComponentModule\UserComponent())
+            - add(Wame\UserModule\Vendor\Wame\ComponentModule\UserSettingsButtonComponent())
+            - add(Wame\UserModule\Vendor\Wame\ComponentModule\UserListComponent())
 
-	PermissionObject:
-		setup:
-			- addResource('userControl')
-			- addResourceAction('userControl', 'create')
-			- allow('moderator', 'userControl', 'create')
-			- addResourceAction('userControl', 'edit')
-			- allow('moderator', 'userControl', 'edit')
-			- addResourceAction('userControl', 'delete')
-			- allow('admin', 'userControl', 'delete')
+    PermissionObject:
+        setup:
+            - addResource('userControl')
+            - addResourceAction('userControl', 'create')
+            - allow('moderator', 'userControl', 'create')
+            - addResourceAction('userControl', 'edit')
+            - allow('moderator', 'userControl', 'edit')
+            - addResourceAction('userControl', 'delete')
+            - allow('admin', 'userControl', 'delete')

@@ -2,40 +2,21 @@
 
 namespace Wame\UserModule\Components;
 
-use Nette\DI\Container;
-use Wame\Core\Components\BaseControl;
 use Wame\UserModule\Entities\UserEntity;
+use Wame\ChameleonComponents\Components\SingleEntityControl;
+use Wame\ListControl\Components\IEntityControlFactory;
 
-interface IUserControlFactory
+interface IUserControlFactory extends IEntityControlFactory
 {
-
     /** @return UserControl */
-    public function create();
+    public function create($entity = null);
 }
 
-class UserControl extends BaseControl
+class UserControl extends SingleEntityControl
 {
-    public function __construct(
-        Container $container
-    ) {
-        parent::__construct($container);
-
-//        $this->getStatus()->set(UserEntity::class, $this->user->getEntity());
-    }
-
-    public function render(UserEntity $userEntity = null)
+    protected function getEntityType()
     {
-        if (!$userEntity) {
-            $userEntity = $this->getStatus()->get(UserEntity::class);
-        }
-        
-        if (!$userEntity && $this->user->isLoggedIn()) {
-            $userEntity = $this->user->getEntity();
-            
-            $this->getStatus()->set(UserEntity::class, $userEntity);
-        }
-        
-        $this->template->profile = $userEntity;
+        return UserEntity::class;
     }
     
 }
