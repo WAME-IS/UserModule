@@ -157,7 +157,7 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
 	public function setEmail($email)
 	{
 		$this->email = $email;
-		
+
 		return $this;
 	}
 	
