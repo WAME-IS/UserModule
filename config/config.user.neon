@@ -55,6 +55,8 @@ services:
 
     # Components
     - Wame\UserModule\Components\IUserControlFactory
+    - Wame\UserModule\Components\IUserListControlFactory
+    - Wame\UserModule\Components\IUserEmptyListControlFactory
     - Wame\UserModule\Components\IUserSettingsButtonControlFactory
 
 
