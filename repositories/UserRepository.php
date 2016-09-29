@@ -17,16 +17,18 @@ class UserRepository extends BaseRepository
     
     
     /**
-     * Event called when entity is created
-     * 
-     * Parameters of event:
-     * \Nette\Forms\Form $form
-     * array $values
-     * \Wame\Core\Entities\BaseEntity $entity
+     * Event called when password reset
      * 
      * @var callable[]
      */
     public $onPasswordReset = [];
+    
+    /**
+     * Event called when email is confirmed
+     * 
+     * @var callable[]
+     */
+    public $onConfirm = [];
 	
 
 	public function __construct()

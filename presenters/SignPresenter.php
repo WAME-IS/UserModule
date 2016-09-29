@@ -51,9 +51,9 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
         $email = $this->getParameter('email');
         $hash = $this->getParameter('hash');
         
+        $user = $this->userRepository->get(['token' => $hash, 'email' => $email, 'status' => UserRepository::STATUS_VERIFY_EMAIL]);
+        
         if($email & $hash) {
-            $user = $this->userRepository->get(['token' => $hash, 'email' => $email, 'status' => UserRepository::STATUS_VERIFY_EMAIL]);
-            
             if($user) {
                 $user->status = UserRepository::STATUS_ACTIVE;
             } else {
@@ -65,6 +65,7 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
         
         if(!$error) {
             $this->flashMessage(_('Your account has been activated.'), 'info');
+            $this->userRepository->onConfirm($user);
         } else {
             $this->flashMessage(_('Invalid approach, please use the link that has been send to your email.'), 'danger');
         }
