@@ -33,9 +33,10 @@ services:
             - add(Wame\UserModule\Vendor\Wame\AdminModule\Grids\ToolbarButtons\AddCompany())
             - add(Wame\DataGridControl\GroupActions\DeleteSelected())
 
-    CompanyFormBuilder:
-        class: Wame\UserModule\Vendor\Wame\AdminModule\Forms\CompanyFormBuilder
+    Admin.CompanyFormBuilder:
+        class: Wame\DynamicObject\Forms\EntityFormBuilder
         setup:
+            - setRepository(@CompanyRepository)
             - add(@Wame\DynamicObject\Forms\Containers\INameContainerFactory, 'NameContainer', {priority: 90})
             - add(@Wame\DynamicObject\Forms\Containers\ISlugContainerFactory, 'SlugContainer', {priority: 80})
             - add(@Wame\DynamicObject\Forms\Containers\IDescriptionContainerFactory, 'DescriptionContainer', {priority: 70})

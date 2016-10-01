@@ -2,9 +2,9 @@
 
 namespace App\AdminModule\Presenters;
 
-use Wame\UserModule\Vendor\Wame\AdminModule\Forms\CompanyFormBuilder;
-use Wame\UserModule\Repositories\CompanyRepository;
 use Wame\DynamicObject\Vendor\Wame\AdminModule\Presenters\AdminFormPresenter;
+use Wame\UserModule\Repositories\CompanyRepository;
+use Wame\UserModule\Vendor\Wame\AdminModule\Forms\CompanyFormBuilder;
 use Wame\UserModule\Vendor\Wame\AdminModule\Grids\CompanyGrid;
 
 class CompanyPresenter extends AdminFormPresenter
@@ -66,7 +66,7 @@ class CompanyPresenter extends AdminFormPresenter
 	}
     
     
-    /** components ************************************************************/
+    /** components ****************************************************************************************************/
     
     /**
 	 * Create user grid component
@@ -80,5 +80,14 @@ class CompanyPresenter extends AdminFormPresenter
 		
 		return $this->companyGrid;
 	}
+
+
+	/** abstract methods **********************************************************************************************/
+
+	/** {@inheritdoc} */
+    protected function getFormBuilderServiceAlias()
+    {
+        return "Admin.CompanyFormBuilder";
+    }
 
 }
