@@ -1,0 +1,17 @@
+Wame\UserModule\Entities\UserEntity:
+    userAdmin:
+        id: 1
+        lang: 'sk'
+        role: 'admin'
+        password: 'admin'
+        email: 'admin@admin.sk'
+        nick: 'admin'
+        registerDate: '<dateTime()>'
+        status: 1
+        info: @userAdminInfo
+
+Wame\UserModule\Entities\UserInfoEntity:
+    userAdminInfo:
+        id: 1
+        firstName: 'Wame'
+        lastName: 'Admin'
