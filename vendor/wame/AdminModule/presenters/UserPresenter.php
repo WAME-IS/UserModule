@@ -8,20 +8,12 @@ use Wame\UserModule\Repositories\UserRepository;
 use Wame\UserModule\Vendor\Wame\AdminModule\Forms\CreateUserForm;
 use Wame\UserModule\Vendor\Wame\AdminModule\Forms\EditUserForm;
 use Wame\UserModule\Vendor\Wame\AdminModule\Grids\UserGrid;
+use Wame\DynamicObject\Vendor\Wame\AdminModule\Presenters\AdminFormPresenter;
 
-class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
+class UserPresenter extends AdminFormPresenter
 {	
 	/** @var array */
 	private $roleList;
-	
-	/** @var \Wame\UserModule\Entities\UserEntity */
-	private $userEntity;
-	
-	/** @var CreateUserForm @inject */
-	public $createUserForm;
-	
-	/** @var EditUserForm @inject */
-	public $editUserForm;
 	
 	/** @var RoleRepository @inject */
 	public $roleRepository;
@@ -46,18 +38,14 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
     
     /** actions ***************************************************************/
 	
+    /**
+     * Action default
+     */
 	public function actionDefault()
 	{
 		if (!$this->user->isAllowed('admin.user', 'view')) {
 			$this->flashMessage(_('To enter this section you have not sufficient privileges.'), 'danger');
 			$this->redirect(':Admin:Dashboard:');
-		}
-	}
-	
-	public function actionEdit()
-	{
-		if ($this->id) {
-			$this->userEntity = $this->userRepository->get(['id' => $this->id]);
 		}
 	}
     
@@ -100,45 +88,21 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 		$this->flashMessage(_('User has been successfully deleted.'), 'success');
 		$this->redirect(':Admin:User:', ['id' => null]);
 	}
-    
-    
-    /** components ************************************************************/
-    
-    /**
-	 * Create user form component
-	 * 
-	 * @return CreateUserForm
-	 */
-	protected function createComponentCreateUserForm() 
-	{
-		$form = $this->createUserForm->build();
 
-		return $form;
-	}
-	
-	/**
-	 * Edit user form component
-	 * 
-	 * @return EditUserForm
-	 */
-	protected function createComponentEditUserForm() 
-	{
-		$form = $this->editUserForm->setId($this->id)->build();
-
-		return $form;
-	}
     
-    /**
-	 * Create user grid component
-     * 
-	 * @return UserGrid
-	 */
-	protected function createComponentUserGrid()
-	{
-        $qb = $this->userRepository->createQueryBuilder('a');
-		$this->userGrid->setDataSource($qb);
-		
-		return $this->userGrid;
-	}
+
+    /** implements ************************************************************/
+    
+    /** {@inheritDoc} */
+    protected function getFormBuilderServiceAlias()
+    {
+        return "Admin.UserFormBuilder";
+    }
+    
+    /** {@inheritDoc} */
+    protected function getGridServiceAlias()
+    {
+        return "Admin.UserGrid";
+    }
 
 }
