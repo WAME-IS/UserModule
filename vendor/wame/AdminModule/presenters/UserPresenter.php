@@ -8,6 +8,8 @@ use Wame\UserModule\Repositories\UserRepository;
 use Wame\UserModule\Vendor\Wame\AdminModule\Forms\CreateUserForm;
 use Wame\UserModule\Vendor\Wame\AdminModule\Forms\EditUserForm;
 use Wame\UserModule\Vendor\Wame\AdminModule\Grids\UserGrid;
+use Wame\UserModule\Entities\UserEntity;
+
 
 class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 {	
@@ -60,11 +62,26 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 			$this->userEntity = $this->userRepository->get(['id' => $this->id]);
 		}
 	}
+	
+	public function actionShow()
+	{
+		if ($this->id) {
+			$this->userEntity = $this->userRepository->get(['id' => $this->id]);
+            $this->getStatus()->set(UserEntity::class, $this->userEntity);
+		}
+	}
     
     
     /** handles ***************************************************************/
 	
-    
+	public function handleDelete()
+	{
+		$this->userRepository->delete(['id' => $this->id]);
+		
+		$this->flashMessage(_('User has been successfully deleted.'), 'success');
+		$this->redirect(':Admin:User:', ['id' => null]);
+	}
+
     
     /** renders ***************************************************************/
 	
@@ -72,6 +89,12 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 	{
 		$this->template->siteTitle = _('Users');
 		$this->template->users = $this->userRepository->find(['status >' => UserRepository::STATUS_BLOCKED]);
+	}
+	
+	
+	public function renderShow()
+	{
+		$this->template->siteTitle = _('Show user');
 	}
 	
 	
@@ -91,16 +114,7 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 	{
 		$this->template->siteTitle = _('Deleting user');
 	}
-	
-	
-	public function handleDelete()
-	{
-		$this->userRepository->delete(['id' => $this->id]);
-		
-		$this->flashMessage(_('User has been successfully deleted.'), 'success');
-		$this->redirect(':Admin:User:', ['id' => null]);
-	}
-    
+
     
     /** components ************************************************************/
     
