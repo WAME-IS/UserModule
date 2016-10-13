@@ -1,5 +1,6 @@
 services:
-    UserGrid:
+    # Grids
+    Admin.UserGrid:
         class: Wame\UserModule\Vendor\Wame\AdminModule\Grids\UserGrid
         setup:
             - add(Wame\DataGridControl\Columns\Id(), null, {priority: 90})
@@ -33,6 +34,20 @@ services:
             - add(Wame\DataGridControl\Actions\Delete(), null, {priority: 80})
             - add(Wame\UserModule\Vendor\Wame\AdminModule\Grids\ToolbarButtons\AddCompany())
             - add(Wame\DataGridControl\GroupActions\DeleteSelected())
+
+
+    # Forms
+    Admin.UserFormBuilder:
+        class: Wame\DynamicObject\Forms\EntityFormBuilder
+        setup:
+            - setRepository(@UserRepository)
+            - add(@Wame\UserModule\Forms\Containers\INickContainerFactory, 'NickContainer', {priority: 90})
+            - add(@Wame\UserModule\Forms\Containers\IEmailContainerFactory, 'EmailContainer', {priority: 80})
+            - add(@Wame\UserModule\Forms\Containers\IDegreeContainerFactory, 'DegreeContainer', {priority: 70})
+            - add(@Wame\DynamicObject\Forms\Containers\INameContainerFactory, 'NameContainer', {priority: 60})
+            - add(@Wame\UserModule\Forms\Containers\IBirthdateContainerFactory, 'BirthdateContainer', {priority: 50})
+            - add(@Wame\DynamicObject\Forms\Containers\ITextContainerFactory, 'TextContainer', {priority: 40})
+            - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer', {priority: 0})
 
     Admin.CompanyFormBuilder:
         class: Wame\DynamicObject\Forms\EntityFormBuilder

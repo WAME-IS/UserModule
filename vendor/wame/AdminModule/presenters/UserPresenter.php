@@ -9,21 +9,13 @@ use Wame\UserModule\Vendor\Wame\AdminModule\Forms\CreateUserForm;
 use Wame\UserModule\Vendor\Wame\AdminModule\Forms\EditUserForm;
 use Wame\UserModule\Vendor\Wame\AdminModule\Grids\UserGrid;
 use Wame\UserModule\Entities\UserEntity;
+use Wame\DynamicObject\Vendor\Wame\AdminModule\Presenters\AdminFormPresenter;
 
 
-class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
+class UserPresenter extends AdminFormPresenter
 {	
 	/** @var array */
 	private $roleList;
-	
-	/** @var \Wame\UserModule\Entities\UserEntity */
-	private $userEntity;
-	
-	/** @var CreateUserForm @inject */
-	public $createUserForm;
-	
-	/** @var EditUserForm @inject */
-	public $editUserForm;
 	
 	/** @var RoleRepository @inject */
 	public $roleRepository;
@@ -47,7 +39,7 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
     
     
     /** actions ***************************************************************/
-	
+
 	public function actionDefault()
 	{
 		if (!$this->user->isAllowed('admin.user', 'view')) {
@@ -125,34 +117,23 @@ class UserPresenter extends \App\AdminModule\Presenters\BasePresenter
 	 */
 	protected function createComponentCreateUserForm() 
 	{
-		$form = $this->createUserForm->build();
-
-		return $form;
-	}
-	
-	/**
-	 * Edit user form component
-	 * 
-	 * @return EditUserForm
-	 */
-	protected function createComponentEditUserForm() 
-	{
-		$form = $this->editUserForm->setId($this->id)->build();
-
-		return $form;
+		return $this->createUserForm->build();
 	}
     
-    /**
-	 * Create user grid component
-     * 
-	 * @return UserGrid
-	 */
-	protected function createComponentUserGrid()
-	{
-        $qb = $this->userRepository->createQueryBuilder('a');
-		$this->userGrid->setDataSource($qb);
-		
-		return $this->userGrid;
-	}
+
+    /** implements ************************************************************/
+    
+    /** {@inheritDoc} */
+    protected function getFormBuilderServiceAlias()
+    {
+        return "Admin.UserFormBuilder";
+    }
+    
+    
+    /** {@inheritDoc} */
+    protected function getGridServiceAlias()
+    {
+        return "Admin.UserGrid";
+    }
 
 }
