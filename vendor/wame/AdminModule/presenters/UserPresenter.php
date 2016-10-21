@@ -24,7 +24,7 @@ class UserPresenter extends AdminFormPresenter
 	public $signUpForm;
 	
 	/** @var UserRepository @inject */
-	public $userRepository;
+	public $repository;
     
     /** @var UserGrid @inject */
 	public $userGrid;
@@ -51,14 +51,14 @@ class UserPresenter extends AdminFormPresenter
 	public function actionEdit()
 	{
 		if ($this->id) {
-			$this->userEntity = $this->userRepository->get(['id' => $this->id]);
+			$this->userEntity = $this->repository->get(['id' => $this->id]);
 		}
 	}
 	
 	public function actionShow()
 	{
 		if ($this->id) {
-			$this->userEntity = $this->userRepository->get(['id' => $this->id]);
+			$this->userEntity = $this->repository->get(['id' => $this->id]);
             $this->getStatus()->set(UserEntity::class, $this->userEntity);
 		}
 	}
@@ -68,7 +68,7 @@ class UserPresenter extends AdminFormPresenter
 	
 	public function handleDelete()
 	{
-		$this->userRepository->delete(['id' => $this->id]);
+		$this->repository->delete(['id' => $this->id]);
 		
 		$this->flashMessage(_('User has been successfully deleted.'), 'success');
 		$this->redirect(':Admin:User:', ['id' => null]);
@@ -80,7 +80,7 @@ class UserPresenter extends AdminFormPresenter
 	public function renderDefault()
 	{
 		$this->template->siteTitle = _('Users');
-		$this->template->users = $this->userRepository->find(['status >' => UserRepository::STATUS_BLOCKED]);
+		$this->template->users = $this->repository->find(['status >' => UserRepository::STATUS_BLOCKED]);
 	}
 	
 	
