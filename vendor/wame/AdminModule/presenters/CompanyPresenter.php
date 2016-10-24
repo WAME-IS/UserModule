@@ -34,7 +34,7 @@ class CompanyPresenter extends AdminFormPresenter
 
     public function handleDelete()
 	{
-		$this->repository->delete(['id' => $this->id]);
+		$this->repository->changeStatus(['id' => $this->id]);
 
 		$this->flashMessage(sprintf(_('Company has been successfully deleted.'), $this->entity->getName()), 'success');
 		$this->redirect(':Admin:Company:', ['id' => null]);
