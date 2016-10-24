@@ -1,0 +1,31 @@
+services:
+    Admin.CompanyFormBuilder:
+        class: Wame\DynamicObject\Forms\EntityFormBuilder
+        setup:
+            - setRepository(@CompanyRepository)
+            - add(@Wame\DynamicObject\Forms\Containers\INameContainerFactory, 'NameContainer', {priority: 90})
+            - add(@Wame\DynamicObject\Forms\Containers\ISlugContainerFactory, 'SlugContainer', {priority: 80})
+            - add(@Wame\DynamicObject\Forms\Containers\IDescriptionContainerFactory, 'DescriptionContainer', {priority: 70})
+            - add(@Wame\UserModule\Forms\Containers\IIcoContainerFactory, 'IcoContainer', {priority: 60})
+            - add(@Wame\UserModule\Forms\Containers\IDicContainerFactory, 'DicContainer', {priority: 50})
+            - add(@Wame\UserModule\Forms\Containers\IIcDphContainerFactory, 'IcDphContainer', {priority: 40})
+            - add(@Wame\Geolocate\Forms\Containers\IAddressContainerFactory, 'AddressContainer', {priority: 30})
+            - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer', {priority: 10})
+
+
+    Admin.CompanyGrid:
+        class: Wame\UserModule\Vendor\Wame\AdminModule\Grids\CompanyGrid
+        setup:
+            - add(Wame\DataGridControl\Columns\Id(), null, {priority: 90})
+            - add(Wame\DataGridControl\Columns\Name(), null, {priority: 80})
+            - add(Wame\DataGridControl\Columns\Slug(), null, {priority: 70})
+            - add(Wame\DataGridControl\Columns\Description(), null, {priority: 60})
+            - add(Wame\UserModule\Grids\Columns\Ico(), null, {priority: 50})
+            - add(Wame\UserModule\Grids\Columns\Dic(), null, {priority: 40})
+            - add(Wame\UserModule\Grids\Columns\IcDph(), null, {priority: 30})
+            - add(Wame\DataGridControl\Columns\Status(), null, {priority: 20})
+#            - add(Wame\DataGridControl\Columns\Address(), null, {priority: 10})
+            - add(Wame\DataGridControl\Actions\Edit(), null, {priority: 2})
+            - add(Wame\DataGridControl\Actions\Delete(), null, {priority: 1})
+            - add(Wame\UserModule\Vendor\Wame\AdminModule\Grids\ToolbarButtons\AddCompany())
+            - add(Wame\DataGridControl\GroupActions\DeleteSelected())

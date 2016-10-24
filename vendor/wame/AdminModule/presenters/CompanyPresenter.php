@@ -3,82 +3,69 @@
 namespace App\AdminModule\Presenters;
 
 use Wame\DynamicObject\Vendor\Wame\AdminModule\Presenters\AdminFormPresenter;
+use Wame\UserModule\Entities\CompanyEntity;
 use Wame\UserModule\Repositories\CompanyRepository;
-use Wame\UserModule\Vendor\Wame\AdminModule\Forms\CompanyFormBuilder;
-use Wame\UserModule\Vendor\Wame\AdminModule\Grids\CompanyGrid;
+
 
 class CompanyPresenter extends AdminFormPresenter
 {
-	/** @var CompanyFormBuilder @inject */
-	public $formBuilder;
-	
 	/** @var CompanyRepository @inject */
-	public $companyRepository;
-    
-    /** @var CompanyGrid @inject */
-	public $companyGrid;
-    
-    
+	public $repository;
+
+	/** @var CompanyEntity @inject */
+	protected $entity;
+
+
     /** actions ***************************************************************/
-	
+
     public function actionEdit()
     {
-        $this->entity = $this->companyRepository->get(['id' => $this->id]);
+        $this->entity = $this->repository->get(['id' => $this->id]);
     }
-    
-    
+
+
+    public function actionDelete()
+    {
+        $this->entity = $this->repository->get(['id' => $this->id]);
+    }
+
+
     /** handles ***************************************************************/
-	
-    
-    
+
+    public function handleDelete()
+	{
+		$this->repository->delete(['id' => $this->id]);
+
+		$this->flashMessage(sprintf(_('Company has been successfully deleted.'), $this->entity->getName()), 'success');
+		$this->redirect(':Admin:Company:', ['id' => null]);
+	}
+
+
     /** renders ***************************************************************/
-	
+
 	public function renderDefault()
 	{
 		$this->template->siteTitle = _('Companies');
 	}
-	
-	
+
+
 	public function renderCreate()
 	{
-		$this->template->siteTitle = _('Create new company');
+		$this->template->siteTitle = _('Create company');
 	}
-	
-	
+
+
 	public function renderEdit()
 	{
 		$this->template->siteTitle = _('Edit company');
+		$this->template->subTitle = $this->entity->getName();
 	}
-	
-	
+
+
 	public function renderDelete()
 	{
-		$this->template->siteTitle = _('Deleting company');
-	}
-	
-	
-	public function handleDelete()
-	{
-		$this->companyRepository->delete(['id' => $this->id]);
-		
-		$this->flashMessage(_('Company has been successfully deleted.'), 'success');
-		$this->redirect(':Admin:Company:', ['id' => null]);
-	}
-    
-    
-    /** components ****************************************************************************************************/
-    
-    /**
-	 * Create user grid component
-     * 
-	 * @return UserGrid
-	 */
-	protected function createComponentCompanyGrid()
-	{
-        $qb = $this->companyRepository->createQueryBuilder('a');
-		$this->companyGrid->setDataSource($qb);
-		
-		return $this->companyGrid;
+		$this->template->siteTitle = _('Delete company');
+		$this->template->subTitle = $this->entity->getName();
 	}
 
 
@@ -87,7 +74,14 @@ class CompanyPresenter extends AdminFormPresenter
 	/** {@inheritdoc} */
     protected function getFormBuilderServiceAlias()
     {
-        return "Admin.CompanyFormBuilder";
+        return 'Admin.CompanyFormBuilder';
+    }
+
+
+    /** {@inheritdoc} */
+    protected function getGridServiceAlias()
+    {
+        return 'Admin.CompanyGrid';
     }
 
 }
