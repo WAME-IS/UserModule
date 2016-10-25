@@ -1,4 +1,5 @@
 services:
+    # Forms
     Admin.UserFormBuilder:
         class: Wame\DynamicObject\Forms\EntityFormBuilder
         setup:
@@ -8,10 +9,11 @@ services:
             - add(@Wame\UserModule\Forms\Containers\IDegreeContainerFactory, 'DegreeContainer', {priority: 70})
             - add(@Wame\DynamicObject\Forms\Containers\INameContainerFactory, 'NameContainer', {priority: 60})
             - add(@Wame\UserModule\Forms\Containers\IBirthdateContainerFactory, 'BirthdateContainer', {priority: 50})
-            - add(@Wame\DynamicObject\Forms\Containers\ITextContainerFactory, 'TextContainer', {priority: 40})
+#            - add(@Wame\DynamicObject\Forms\Containers\ITextContainerFactory, 'TextContainer', {priority: 40})
             - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer', {priority: 0})
 
 
+    # Grids
     Admin.UserGrid:
         class: Wame\UserModule\Vendor\Wame\AdminModule\Grids\UserGrid
         setup:

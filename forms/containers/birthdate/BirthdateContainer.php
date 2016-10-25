@@ -22,7 +22,7 @@ class BirthdateContainer extends BaseContainer
     /** {@inheritDoc} */
 	public function setDefaultValues($entity)
 	{
-        $this['birthdate']->setDefaultValue($entity->getBirthdate());
+        $this['birthdate']->setDefaultValue($entity->getInfo()->getBirthdate());
 	}
 
     /** {@inheritDoc} */

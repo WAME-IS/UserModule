@@ -22,7 +22,7 @@ class DegreeContainer extends BaseContainer
     /** {@inheritDoc} */
 	public function setDefaultValues($entity)
 	{
-        $this['degree']->setDefaultValue($entity->getDegree());
+        $this['degree']->setDefaultValue($entity->getInfo()->getDegree());
 	}
 
     /** {@inheritDoc} */

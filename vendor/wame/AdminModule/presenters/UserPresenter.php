@@ -5,8 +5,6 @@ namespace App\AdminModule\Presenters;
 use Wame\PermissionModule\Repositories\RoleRepository;
 use Wame\UserModule\Forms\SignUpForm;
 use Wame\UserModule\Repositories\UserRepository;
-use Wame\UserModule\Vendor\Wame\AdminModule\Forms\CreateUserForm;
-use Wame\UserModule\Vendor\Wame\AdminModule\Forms\EditUserForm;
 use Wame\UserModule\Vendor\Wame\AdminModule\Grids\UserGrid;
 use Wame\UserModule\Entities\UserEntity;
 use Wame\DynamicObject\Vendor\Wame\AdminModule\Presenters\AdminFormPresenter;
@@ -25,9 +23,6 @@ class UserPresenter extends AdminFormPresenter
 	
 	/** @var UserRepository @inject */
 	public $repository;
-    
-    /** @var UserGrid @inject */
-	public $userGrid;
 	
     
 	public function startup() 
@@ -51,15 +46,15 @@ class UserPresenter extends AdminFormPresenter
 	public function actionEdit()
 	{
 		if ($this->id) {
-			$this->userEntity = $this->repository->get(['id' => $this->id]);
+			$this->entity = $this->repository->get(['id' => $this->id]);
 		}
 	}
 	
 	public function actionShow()
 	{
 		if ($this->id) {
-			$this->userEntity = $this->repository->get(['id' => $this->id]);
-            $this->getStatus()->set(UserEntity::class, $this->userEntity);
+			$this->entity = $this->repository->get(['id' => $this->id]);
+            $this->getStatus()->set(UserEntity::class, $this->entity);
 		}
 	}
     
@@ -105,19 +100,6 @@ class UserPresenter extends AdminFormPresenter
 	public function renderDelete()
 	{
 		$this->template->siteTitle = _('Deleting user');
-	}
-
-    
-    /** components ************************************************************/
-    
-    /**
-	 * Create user form component
-	 * 
-	 * @return CreateUserForm
-	 */
-	protected function createComponentCreateUserForm() 
-	{
-		return $this->createUserForm->build();
 	}
     
 
