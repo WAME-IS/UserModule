@@ -4,7 +4,7 @@ services:
         setup:
             - setRepository(@CompanyRepository)
             - add(@Wame\DynamicObject\Forms\Containers\INameContainerFactory, 'NameContainer', {priority: 90})
-            - add(@Wame\DynamicObject\Forms\Containers\ISlugContainerFactory, 'SlugContainer', {priority: 80})
+            - add(@Wame\DynamicObject\Forms\Containers\INameSlugContainerFactory, 'NameSlugContainer', {priority: 80})
             - add(@Wame\DynamicObject\Forms\Containers\IDescriptionContainerFactory, 'DescriptionContainer', {priority: 70})
             - add(@Wame\UserModule\Forms\Containers\IIcoContainerFactory, 'IcoContainer', {priority: 60})
             - add(@Wame\UserModule\Forms\Containers\IDicContainerFactory, 'DicContainer', {priority: 50})
