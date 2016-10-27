@@ -1,0 +1,4 @@
+services:
+    QuickAddButtonRegister:
+        setup:
+            - add(Wame\UserModule\Vendor\Wame\QuickAddButtonModule\Components\QuickAddButtonControl\User())
