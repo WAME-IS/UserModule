@@ -5,7 +5,7 @@ namespace App\AdminModule\Presenters;
 use Wame\Core\Presenters\Traits\UseParentTemplates;
 
 
-class UserSettingsButtonComponentPresenter extends AbastractComponentPresenter
+class UserSettingsButtonComponentPresenter extends AbstractComponentPresenter
 {	
     use UseParentTemplates;
     
