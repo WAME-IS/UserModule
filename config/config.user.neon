@@ -1,15 +1,17 @@
 services:
     PermissionObject:
         setup:
-            - addResource('admin.user')
-            - addResourceAction('admin.user', 'view')
-            - allow('moderator', 'admin.user', 'view')
-            - addResourceAction('admin.user', 'add')
-            - allow('moderator', 'admin.user', 'add')
-            - addResourceAction('admin.user', 'edit')
-            - allow('moderator', 'admin.user', 'edit')
-            - addResourceAction('admin.user', 'delete')
-            - allow('admin', 'admin.user', 'delete')
+            - addResource('Admin:User')
+            - addResourceAction('Admin:User', 'default')
+            - allow('moderator', 'Admin:User', 'default')
+            - addResourceAction('Admin:User', 'show')
+            - allow('moderator', 'Admin:User', 'show')
+            - addResourceAction('Admin:User', 'create')
+            - allow('moderator', 'Admin:User', 'create')
+            - addResourceAction('Admin:User', 'edit')
+            - allow('moderator', 'Admin:User', 'edit')
+            - addResourceAction('Admin:User', 'delete')
+            - allow('admin', 'Admin:User', 'delete')
 
             - addResource('company')
             - addResourceAction('company', 'view')

@@ -5,43 +5,20 @@ namespace App\AdminModule\Presenters;
 use Wame\PermissionModule\Repositories\RoleRepository;
 use Wame\UserModule\Forms\SignUpForm;
 use Wame\UserModule\Repositories\UserRepository;
-use Wame\UserModule\Vendor\Wame\AdminModule\Grids\UserGrid;
 use Wame\UserModule\Entities\UserEntity;
 use Wame\DynamicObject\Vendor\Wame\AdminModule\Presenters\AdminFormPresenter;
 
 
 class UserPresenter extends AdminFormPresenter
-{	
-	/** @var array */
-	private $roleList;
-	
-	/** @var RoleRepository @inject */
-	public $roleRepository;
-
+{
 	/** @var SignUpForm @inject */
 	public $signUpForm;
 	
 	/** @var UserRepository @inject */
 	public $repository;
-	
-    
-	public function startup() 
-	{
-		parent::startup();
-		
-		$this->roleList = $this->roleRepository->getRoles();
-	}
     
     
     /** actions ***************************************************************/
-
-	public function actionDefault()
-	{
-		if (!$this->user->isAllowed('admin.user', 'view')) {
-			$this->flashMessage(_('To enter this section you have not sufficient privileges.'), 'danger');
-			$this->redirect(':Admin:Dashboard:');
-		}
-	}
 	
 	public function actionEdit()
 	{
