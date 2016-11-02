@@ -23,40 +23,40 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
 	 * @ORM\JoinColumn(name="referal_id", referencedColumnName="id", nullable=true)
      */
     protected $referal = null;
-
+    
     /**
      * @ORM\Column(name="role", type="string", length=20, nullable=false)
      */
     protected $role = 'client';
-
+    
     /**
 	 * @noApi
      * @ORM\Column(name="password", type="string", length=64, nullable=true)
      */
     protected $password;
- 
+    
     /**
      * @ORM\Column(name="email", type="string", length=100, nullable=false)
      */
     protected $email;
- 
+    
     /**
      * @ORM\Column(name="nick", type="string", length=30, nullable=true)
      */
     protected $nick = null;
- 
+    
     /**
 	 * @var DateTime
      * @ORM\Column(name="register_date", type="datetime", nullable=true)
      */
     protected $registerDate;
- 
+    
     /**
 	 * @var DateTime
      * @ORM\Column(name="last_login", type="datetime", nullable=true)
      */
     protected $lastLogin;
-
+    
 	/**
 	 * @ORM\ManyToOne(targetEntity="UserInfoEntity")
 	 * @ORM\JoinColumn(name="info_id", referencedColumnName="id", nullable=true)
@@ -100,7 +100,7 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity
 	{
 		return $this->lastLogin;
 	}
-
+    
 	public function getName()
 	{
 		return $this->info->firstName . ' ' . $this->info->lastName;

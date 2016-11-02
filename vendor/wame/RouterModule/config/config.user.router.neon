@@ -3,6 +3,8 @@ router:
         '/[<lang>/]users': 'User:User:default'
         '/[<lang>/]profile': 'User:Profile:default'
         '/[<lang>/]user/<id>': 'User:User:show'
+        '/[<lang>/]user/company': 'User:Company:default'
+        '/[<lang>/]user/company/create': 'User:Company:create'
         '/[<lang>/]admin/users': 'Admin:User:default'
         '/[<lang>/]admin/user/create': 'Admin:User:create'
         '/[<lang>/]admin/user/edit/<id>': 'Admin:User:edit'

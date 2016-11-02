@@ -1,5 +1,5 @@
 services:
-    # Form containers
+    # Form containers - old
     - Wame\UserModule\Forms\IBirthdateFormContainerFactory
     - Wame\UserModule\Forms\IDegreeFormContainerFactory
     - Wame\UserModule\Forms\IEmailFormContainerFactory
@@ -7,6 +7,8 @@ services:
     - Wame\UserModule\Forms\INickFormContainerFactory
     - Wame\UserModule\Forms\ITextFormContainerFactory
 
+
+    # Form containers
     - Wame\UserModule\Forms\Containers\INickContainerFactory
     - Wame\UserModule\Forms\Containers\IEmailContainerFactory
     - Wame\UserModule\Forms\Containers\IDegreeContainerFactory
@@ -14,16 +16,16 @@ services:
     - Wame\UserModule\Forms\Containers\IIcoContainerFactory
     - Wame\UserModule\Forms\Containers\IDicContainerFactory
     - Wame\UserModule\Forms\Containers\IIcDphContainerFactory
+    - Wame\UserModule\Forms\Containers\ICompanyContainerFactory
 
-    # Sign in form
+
+    # Forms
     SignInForm:
         class: Wame\UserModule\Forms\SignInForm
         setup:
             - addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 3)
             - addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 1)
 
-
-    # Sign up form
     SignUpForm:
         class: Wame\UserModule\Forms\SignUpForm
         setup:
@@ -36,22 +38,17 @@ services:
             - addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
             - addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
 
-
-    # Forgotten password form
     PasswordForgotForm:
         class: Wame\UserModule\Forms\PasswordForgotForm
         setup:
             - addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer')
 
-
-    # New password form
     PasswordNewForm:
         class: Wame\UserModule\Forms\PasswordNewForm
         setup:
             - addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 2)
             - addFormContainer(Wame\UserModule\Forms\PasswordRepeatFormContainer(), 'PasswordRepeatFormContainer', 1)
 
-    # Comapany form
     CompanyForm:
         class: Wame\UserModule\Forms\CompanyForm
         setup:
