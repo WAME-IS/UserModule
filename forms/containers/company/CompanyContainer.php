@@ -33,7 +33,8 @@ class CompanyContainer extends BaseContainer
         $count = count($this->companyList);
         
         if($count > 1) {
-            $this->addSelect('company', _('Company'), \Wame\Utils\Arrays::getPairs($this->companyList, 'id', 'name'));
+            $this->addSelect('company', _('Company'), \Wame\Utils\Arrays::getPairs($this->companyList, 'id', 'name'))
+                ->setPrompt(_('-- Select Company --'));
         } else if ($count == 1) {
             $this->addHidden('company')
                     ->setValue(array_keys($this->companyList)[0]);
