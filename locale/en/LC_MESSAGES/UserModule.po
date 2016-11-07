@@ -1,0 +1,572 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: UserModule\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2016-11-07T09:51:16+01:00\n"
+"PO-Revision-Date: 2016-11-07T09:51:16+01:00\n"
+"Language: en\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: gettext;__;ngettext;n__;pgettext;p__;dgettext;d__;dpgettext;dp__;npgettext;np__;dnpgettext;dnp__;noop;noop__;_\n"
+"X-Poedit-Basepath: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule\n"
+"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Domain: UserModule\n"
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/events/signIn/SignInListener.php:47
+msgid "You have been successfully logged in."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/company/billing/BillingFormContainer.php:45
+msgid "IČO"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/company/billing/BillingFormContainer.php:47
+msgid "DIČ"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/company/billing/BillingFormContainer.php:49
+msgid "IČ DPH"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/company/description/DescriptionFormContainer.php:41
+msgid "Description"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/company/name/NameFormContainer.php:43
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/FullName.php:12
+msgid "Name"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/company/name/NameFormContainer.php:44
+msgid "Please enter name"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/CompanyForm.php:68
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/PasswordNewForm.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/UserSettingsForm.php:39
+msgid "Save"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/CompanyForm.php:73
+msgid "Create"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/CompanyForm.php:93
+msgid "The company has been successfully updated."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/CompanyForm.php:99
+msgid "The company has been successfully created."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/containers/birthdate/BirthdateContainer.php:19
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/birthdate/BirthdateFormContainer.php:27
+msgid "Birthdate"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/containers/degree/DegreeContainer.php:19
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/degree/DegreeFormContainer.php:26
+msgid "Degree"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/containers/dic/DicContainer.php:19
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/grids/columns/Dic.php:11
+msgid "Dic"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/containers/email/EmailContainer.php:19
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/settings/email/EmailFormContainer.php:31
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/email/EmailFormContainer.php:23
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/Email.php:12
+msgid "Email"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/containers/icDph/IcDphContainer.php:19
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/grids/columns/IcDph.php:11
+msgid "IcDph"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/containers/ico/IcoContainer.php:19
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/grids/columns/Ico.php:11
+msgid "Ico"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/containers/ico/IcoContainer.php:20
+msgid "Please enter ICO"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/containers/nick/NickContainer.php:19
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/settings/nick/NickFormContainer.php:32
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/nick/NickFormContainer.php:26
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/Nick.php:12
+msgid "Nick"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/PasswordForgotForm.php:32
+msgid "Send"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/PasswordForgotForm.php:46
+msgid "To your inbox will be sent an email with a link to create a new password."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/PasswordNewForm.php:60
+msgid "Password successfully changed, you can log in now."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/settings/password/PasswordFormContainer.php:32
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/password/PasswordFormContainer.php:22
+msgid "Password"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/settings/password/PasswordFormContainer.php:35
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/passwordRepeat/PasswordRepeatFormContainer.php:22
+msgid "Password repeat"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/settings/password/PasswordFormContainer.php:37
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/passwordRepeat/PasswordRepeatFormContainer.php:25
+msgid "Passwords must be the same"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/SignInForm.php:33
+msgid "Keep me signed in"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/SignInForm.php:35
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/signIn/SignInFormContainer.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/SignInMenuItem.php:56
+msgid "Sign in"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/SignUpForm.php:38
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/signUp/SignUpFormContainer.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/SignUpMenuItem.php:56
+msgid "Sign up"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/SignUpForm.php:54
+msgid "Registration has been successfully completed."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/birthdate/BirthdateFormContainer.php:25
+msgid "Other details"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/degree/DegreeFormContainer.php:24
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-forms-user-name-default-latte.php:21
+msgid "Contact details"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/email/EmailFormContainer.php:25
+msgid "Please enter your email"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/email/EmailFormContainer.php:26
+msgid "Enter email"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/email/EmailFormContainer.php:27
+msgid "Wrong format email"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/name/NameFormContainer.php:24
+msgid "First name"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/name/NameFormContainer.php:25
+msgid "Please enter first name"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/name/NameFormContainer.php:27
+msgid "Last name"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/name/NameFormContainer.php:28
+msgid "Please enter last name"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/nick/NickFormContainer.php:24
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-forms-user-nick-default-latte.php:21
+msgid "Login data"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/nick/NickFormContainer.php:27
+msgid "Please enter nick"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/password/PasswordFormContainer.php:24
+msgid "Please enter password"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/password/PasswordFormContainer.php:25
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/passwordRepeat/PasswordRepeatFormContainer.php:24
+msgid "Password can not be empty"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/text/TextFormContainer.php:24
+msgid "About me"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/UserSettingsForm.php:67
+msgid "Settings has been successfully updated."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/models/Authenticator.php:44
+msgid "The user with this email not found."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/models/Authenticator.php:48
+msgid "Wrong password entered."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/models/Authenticator.php:52
+msgid "The user account is blocked."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/models/Authenticator.php:56
+msgid "The user account is not activated. Use the activation link sent to you at your email."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/models/Authenticator.php:60
+msgid "You have requested to change your password. To your inbox you will be sent an email with a link to change your password."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/CompanyPresenter.php:25
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/ProfilePresenter.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/SettingsPresenter.php:17
+msgid "To enter this section must be log in."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/CompanyPresenter.php:36
+msgid "To enter this section must be signed."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/CompanyPresenter.php:41
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:20
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:47
+msgid "To enter this section you do not have enough privileges."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/CompanyPresenter.php:64
+msgid "Company"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/CompanyPresenter.php:70
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/toolbarButtons/AddCompany.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/CompanyPresenter.php:54
+msgid "Create company"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/PasswordPresenter.php:28
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/PasswordPresenter.php:37
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/SignPresenter.php:26
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/SignPresenter.php:35
+msgid "You are now logged."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/PasswordPresenter.php:42
+msgid "Missing user identifier."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/PasswordPresenter.php:49
+msgid "The user of this identifier not found."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/PasswordPresenter.php:54
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:126
+msgid "This user account is blocked."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/PasswordPresenter.php:88
+msgid "Reset password"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/PasswordPresenter.php:94
+msgid "Enter a new password"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/ProfilePresenter.php:33
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/userProfile/UserProfileFormContainer.php:22
+msgid "Profile"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/SettingsPresenter.php:25
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-usersettingsbutton-default-latte.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/userSettings/UserSettingsFormContainer.php:22
+msgid "Settings"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/SignPresenter.php:67
+msgid "Your account has been activated."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/SignPresenter.php:70
+msgid "Invalid approach, please use the link that has been send to your email."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/SignPresenter.php:81
+msgid "Login"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/SignPresenter.php:87
+msgid "Registration"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/SignPresenter.php:92
+msgid "Policies"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/UserPresenter.php:16
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:54
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/AdminMenu/AdminMenuItem.php:33
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/AdminMenu/AdminMenuItem.php:48
+msgid "Users"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:99
+msgid "Passwords must be the same."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:122
+msgid "The user of this data not found."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:200
+msgid "The user with this email already exists."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-user-adminusershow-latte.php:25
+msgid "User info"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-user-adminusershow-latte.php:30
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/forms/EditUserForm.php:36
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:77
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:73
+msgid "Edit user"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-user-default-latte.php:25
+msgid "Not logged in"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-user-simple-latte.php:24
+msgid "n/a"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-useremptylistcontrol-default-latte.php:21
+msgid "No articles"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-useremptylistcontrol-default-latte.php:24
+msgid "Add article"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-presenters-templates-password-forgot-latte.php:20
+msgid "Please enter your login email."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-presenters-templates-sign-in-latte.php:24
+msgid "I forgot my password"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/forms/CreateUserForm.php:32
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/toolbarButtons/AddUser.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:71
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/ComponentModule/components/UserComponent.php:62
+msgid "Create user"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/forms/CreateUserForm.php:48
+msgid "The user was successfully created."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/forms/EditUserForm.php:57
+msgid "The user was successfully updated."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/LastLogin.php:12
+msgid "Last login"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/RegisterDate.php:12
+msgid "Register date"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/Role.php:12
+msgid "Role"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/Status.php:12
+msgid "Status"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/Status.php:13
+msgid "Active"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/Status.php:17
+msgid "Email activation"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/CompanyPresenter.php:39
+msgid "Company has been successfully deleted."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/CompanyPresenter.php:48
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/AdminMenu/AdminMenuItem.php:58
+msgid "Companies"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/CompanyPresenter.php:60
+msgid "Edit company"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/CompanyPresenter.php:67
+msgid "Delete company"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:28
+msgid "This position does not exist."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:33
+msgid "This position is removed."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:38
+msgid "This position is disabled."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserListControlPresenter.php:21
+msgid "User list component"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:119
+msgid "Edit sign up item in menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:121
+msgid "Add sign up item to menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:129
+msgid "Edit sign in item in menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:131
+msgid "Add sign in item to menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:139
+msgid "Edit sign out item in menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:141
+msgid "Add sign out item to menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:149
+msgid "Edit user settings item in menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:151
+msgid "Add user settings item to menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:159
+msgid "Edit user profile item in menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:161
+msgid "Add user profile item to menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:45
+msgid "User has been successfully deleted."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:61
+msgid "Show user"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:67
+msgid "Create new user"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:79
+msgid "Deleting user"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserSettingsButtonComponentPresenter.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/ComponentModule/components/UserSettingsButtonComponent.php:57
+msgid "User settings button"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/ComponentModule/components/UserComponent.php:56
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/Core/registers/types/UserStatusType.php:10
+msgid "User"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/ComponentModule/components/UserListComponent.php:56
+msgid "User list"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/ComponentModule/components/UserListComponent.php:62
+msgid "Create user list"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/ComponentModule/components/UserSettingsButtonComponent.php:63
+msgid "Create user settings button"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/signIn/SignInFormContainer.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/signOut/SignOutFormContainer.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/signUp/SignUpFormContainer.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/userProfile/UserProfileFormContainer.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/userSettings/UserSettingsFormContainer.php:21
+msgid "Title"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/SignInMenuItem.php:62
+msgid "Insert link to the user sign in"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/signOut/SignOutFormContainer.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/SignOutMenuItem.php:56
+msgid "Sign out"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/SignOutMenuItem.php:62
+msgid "Insert link to the user sign out"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/SignUpMenuItem.php:62
+msgid "Insert link to the user sign up"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/UserProfileMenuItem.php:56
+msgid "User profile"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/UserProfileMenuItem.php:62
+msgid "Insert link to the user profile"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/UserSettingsMenuItem.php:56
+msgid "User settings"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/UserSettingsMenuItem.php:62
+msgid "Insert link to the user settings"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/QuickAddButtonModule/components/QuickAddButtonControl/User.php:32
+msgid "New user"
+msgstr ""
