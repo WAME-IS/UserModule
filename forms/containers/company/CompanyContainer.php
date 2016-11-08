@@ -44,7 +44,7 @@ class CompanyContainer extends BaseContainer
     /** {@inheritDoc} */
 	public function setDefaultValues($entity)
 	{
-        $this['company']->setDefaultValue($entity->getCompany());
+        $this['company']->setDefaultValue($entity->getCompany()->id);
 	}
 
     /** {@inheritDoc} */
