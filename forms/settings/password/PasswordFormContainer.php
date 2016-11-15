@@ -34,6 +34,7 @@ class PasswordFormContainer extends BaseFormContainer
         
         $form->addPassword('password_repeat', _('Password repeat'))
 				->setType('password')
+                ->setRequired(false)
 				->addRule(Form::EQUAL, _('Passwords must be the same'), $form['password']);
     }
     
