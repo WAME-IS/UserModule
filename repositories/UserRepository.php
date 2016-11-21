@@ -55,6 +55,8 @@ class UserRepository extends BaseRepository
 
 		$this->entityManager->persist($userEntity);
 		$this->entityManager->persist($userEntity->info);
+        
+        $this->entityManager->flush();
 
 		return $userEntity;
 	}
