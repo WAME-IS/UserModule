@@ -22,7 +22,7 @@ class ProfilePresenter extends BasePresenter
 			$this->redirect(':User:Sign:in');
 		}
 		
-		$this->userEntity = $this->userRepository->get(['id' => $this->user->id]);
+		$this->userEntity = $this->user->getEntity();
         
         $this->getStatus()->set(UserEntity::class, $this->userEntity);
 	}
