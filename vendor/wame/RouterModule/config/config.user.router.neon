@@ -2,6 +2,7 @@ router:
     defaultRoutes:
         '/[<lang>/]users': 'User:User:default'
         '/[<lang>/]profile': 'User:Profile:default'
+        '/[<lang>/]settings': 'User:Settings:default'
         '/[<lang>/]user/<id>': 'User:User:show'
         '/[<lang>/]user/company': 'User:Company:default'
         '/[<lang>/]user/company/create': 'User:Company:create'
