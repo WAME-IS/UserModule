@@ -1,9 +1,12 @@
 router:
     defaultRoutes:
         '/[<lang>/]users': 'User:User:default'
+        '/[<lang>/]user/<id>': 'User:User:show'
+        '/[<lang>/]login': 'User:Sign:in'
+        '/[<lang>/]logout': 'User:Sign:out'
+        '/[<lang>/]registration': 'User:Sign:up'
         '/[<lang>/]profile': 'User:Profile:default'
         '/[<lang>/]settings': 'User:Settings:default'
-        '/[<lang>/]user/<id>': 'User:User:show'
         '/[<lang>/]user/company': 'User:Company:default'
         '/[<lang>/]user/company/create': 'User:Company:create'
         '/[<lang>/]admin/users': 'Admin:User:default'
