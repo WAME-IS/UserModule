@@ -1,0 +1,234 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: UserModule.AdminModule\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2016-11-21T15:46:32+01:00\n"
+"PO-Revision-Date: 2016-11-21T15:46:32+01:00\n"
+"Language: sk\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: gettext;__;ngettext;n__;pgettext;p__;dgettext;d__;dpgettext;dp__;npgettext;np__;dnpgettext;dnp__;noop;noop__;_\n"
+"X-Poedit-Basepath: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule\n"
+"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n >= 2 && n <= 4) ? 1 : 2);\n"
+"X-Domain: UserModule.AdminModule\n"
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/forms/CreateUserForm.php:32
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/toolbarButtons/AddUser.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:71
+msgid "Create user"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/forms/CreateUserForm.php:48
+msgid "The user was successfully created."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/forms/EditUserForm.php:36
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:77
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:73
+msgid "Edit user"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/forms/EditUserForm.php:57
+msgid "The user was successfully updated."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/Email.php:12
+msgid "Email"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/FullName.php:12
+msgid "Name"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/LastLogin.php:12
+msgid "Last login"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/Nick.php:12
+msgid "Nick"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/RegisterDate.php:12
+msgid "Register date"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/Role.php:12
+msgid "Role"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/Status.php:12
+msgid "Status"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/Status.php:13
+msgid "Active"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/columns/Status.php:17
+msgid "Email activation"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/toolbarButtons/AddCompany.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/CompanyPresenter.php:54
+msgid "Create company"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/CompanyPresenter.php:39
+msgid "Company has been successfully deleted."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/CompanyPresenter.php:48
+msgid "Companies"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/CompanyPresenter.php:60
+msgid "Edit company"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/CompanyPresenter.php:67
+msgid "Delete company"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:20
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:47
+msgid "To enter this section you do not have enough privileges."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:28
+msgid "This position does not exist."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:33
+msgid "This position is removed."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:38
+msgid "This position is disabled."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserListControlPresenter.php:21
+msgid "User list component"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:119
+msgid "Edit sign up item in menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:121
+msgid "Add sign up item to menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:129
+msgid "Edit sign in item in menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:131
+msgid "Add sign in item to menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:139
+msgid "Edit sign out item in menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:141
+msgid "Add sign out item to menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:149
+msgid "Edit user settings item in menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:151
+msgid "Add user settings item to menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:159
+msgid "Edit user profile item in menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserMenuItemPresenter.php:161
+msgid "Add user profile item to menu"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:45
+msgid "User has been successfully deleted."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:54
+msgid "Users"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:61
+msgid "Show user"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:67
+msgid "Create new user"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:79
+msgid "Deleting user"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserSettingsButtonComponentPresenter.php:21
+msgid "User settings button"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342910a4fe5.php:39
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298d1fa8a.php:39
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429eb30661.php:39
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f80301d9.php:39
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431f062b66.php:39
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324be098e.php:39
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332e1f31a.php:39
+msgid "Do you really want to delete %s company?"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342910a4fe5.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342910b00a4.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298d1fa8a.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298d2b86c.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429eb30661.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429eb3a07d.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f80301d9.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f80380fa.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431f062b66.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431f06ad6a.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324be098e.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324be9baf.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332e1f31a.php:42
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332e29158.php:42
+msgid "Delete"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342910a4fe5.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342910b00a4.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298d1fa8a.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298d2b86c.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429eb30661.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429eb3a07d.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f80301d9.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f80380fa.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431f062b66.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431f06ad6a.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324be098e.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324be9baf.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332e1f31a.php:44
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332e29158.php:44
+msgid "Cancel"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342910b00a4.php:39
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298d2b86c.php:39
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429eb3a07d.php:39
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f80380fa.php:39
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431f06ad6a.php:39
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324be9baf.php:39
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332e29158.php:39
+msgid "Do you really want to delete this user?"
+msgstr ""

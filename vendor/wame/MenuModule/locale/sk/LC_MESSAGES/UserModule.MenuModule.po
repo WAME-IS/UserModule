@@ -1,0 +1,86 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: UserModule.MenuModule\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2016-11-21T15:46:32+01:00\n"
+"PO-Revision-Date: 2016-11-21T15:46:32+01:00\n"
+"Language: sk\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: gettext;__;ngettext;n__;pgettext;p__;dgettext;d__;dpgettext;dp__;npgettext;np__;dnpgettext;dnp__;noop;noop__;_\n"
+"X-Poedit-Basepath: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule\n"
+"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n >= 2 && n <= 4) ? 1 : 2);\n"
+"X-Domain: UserModule.MenuModule\n"
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/AdminMenu/AdminMenuItem.php:33
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/AdminMenu/AdminMenuItem.php:48
+msgid "Users"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/AdminMenu/AdminMenuItem.php:58
+msgid "Companies"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/signIn/SignInFormContainer.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/signOut/SignOutFormContainer.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/signUp/SignUpFormContainer.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/userProfile/UserProfileFormContainer.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/userSettings/UserSettingsFormContainer.php:21
+msgid "Title"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/signIn/SignInFormContainer.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/SignInMenuItem.php:56
+msgid "Sign in"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/SignInMenuItem.php:62
+msgid "Insert link to the user sign in"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/signOut/SignOutFormContainer.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/SignOutMenuItem.php:56
+msgid "Sign out"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/SignOutMenuItem.php:62
+msgid "Insert link to the user sign out"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/signUp/SignUpFormContainer.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/SignUpMenuItem.php:56
+msgid "Sign up"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/SignUpMenuItem.php:62
+msgid "Insert link to the user sign up"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/userProfile/UserProfileFormContainer.php:22
+msgid "Profile"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/UserProfileMenuItem.php:56
+msgid "User profile"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/UserProfileMenuItem.php:62
+msgid "Insert link to the user profile"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/userSettings/UserSettingsFormContainer.php:22
+msgid "Settings"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/UserSettingsMenuItem.php:56
+msgid "User settings"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/UserSettingsMenuItem.php:62
+msgid "Insert link to the user settings"
+msgstr ""

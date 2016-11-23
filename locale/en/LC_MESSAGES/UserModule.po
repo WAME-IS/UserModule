@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2016-11-07T09:51:16+01:00\n"
-"PO-Revision-Date: 2016-11-07T09:51:16+01:00\n"
+"POT-Creation-Date: 2016-11-21T15:46:31+01:00\n"
+"PO-Revision-Date: 2016-11-21T15:46:31+01:00\n"
 "Language: en\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: gettext;__;ngettext;n__;pgettext;p__;dgettext;d__;dpgettext;dp__;npgettext;np__;dnpgettext;dnp__;noop;noop__;_\n"
@@ -67,6 +67,15 @@ msgstr ""
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/containers/birthdate/BirthdateContainer.php:19
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/birthdate/BirthdateFormContainer.php:27
 msgid "Birthdate"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/containers/company/CompanyContainer.php:36
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/CompanyPresenter.php:64
+msgid "Company"
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/containers/company/CompanyContainer.php:37
+msgid "-- Select Company --"
 msgstr ""
 
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/containers/degree/DegreeContainer.php:19
@@ -129,8 +138,8 @@ msgstr ""
 msgid "Password repeat"
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/settings/password/PasswordFormContainer.php:37
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/passwordRepeat/PasswordRepeatFormContainer.php:25
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/settings/password/PasswordFormContainer.php:38
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/passwordRepeat/PasswordRepeatFormContainer.php:26
 msgid "Passwords must be the same"
 msgstr ""
 
@@ -159,7 +168,17 @@ msgid "Other details"
 msgstr ""
 
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/degree/DegreeFormContainer.php:24
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-forms-user-name-default-latte.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-forms-user-name-default-latte.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/users-macmini2-weby-git-cms-wame-admin-4-0-0-vendor-wame-usermodule-forms-user-name-default-latte.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342579a04df.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583426c00e088.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834290f8f0b7.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298bb93c4.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429e9ec279.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f7f3c1b5.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431ef2e8ea.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324a73752.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332d11f52.php:12
 msgid "Contact details"
 msgstr ""
 
@@ -192,7 +211,17 @@ msgid "Please enter last name"
 msgstr ""
 
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/nick/NickFormContainer.php:24
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-forms-user-nick-default-latte.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-forms-user-nick-default-latte.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/users-macmini2-weby-git-cms-wame-admin-4-0-0-vendor-wame-usermodule-forms-user-nick-default-latte.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342579a259b.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583426c00fb13.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834290f90ee9.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298bbb29d.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429e9ef1e8.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f7f3ddd9.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431ef30870.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324a76608.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332d1391c.php:12
 msgid "Login data"
 msgstr ""
 
@@ -205,7 +234,7 @@ msgid "Please enter password"
 msgstr ""
 
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/password/PasswordFormContainer.php:25
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/passwordRepeat/PasswordRepeatFormContainer.php:24
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/forms/user/passwordRepeat/PasswordRepeatFormContainer.php:25
 msgid "Password can not be empty"
 msgstr ""
 
@@ -253,10 +282,6 @@ msgstr ""
 msgid "To enter this section you do not have enough privileges."
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/CompanyPresenter.php:64
-msgid "Company"
-msgstr ""
-
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/CompanyPresenter.php:70
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/grids/toolbarButtons/AddCompany.php:12
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/CompanyPresenter.php:54
@@ -279,7 +304,7 @@ msgid "The user of this identifier not found."
 msgstr ""
 
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/PasswordPresenter.php:54
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:126
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:137
 msgid "This user account is blocked."
 msgstr ""
 
@@ -297,8 +322,18 @@ msgid "Profile"
 msgstr ""
 
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/SettingsPresenter.php:25
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-usersettingsbutton-default-latte.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-usersettingsbutton-default-latte.php:13
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/MenuModule/components/MenuControl/MenuManager/forms/userSettings/UserSettingsFormContainer.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/users-macmini2-weby-git-cms-wame-admin-4-0-0-vendor-wame-usermodule-components-usersettingsbutton-default-latte.php:13
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342579575ca.php:13
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583426bfda5d4.php:13
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834290f689a9.php:13
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298b90989.php:13
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429e9b1afb.php:13
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f7f1522c.php:13
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431ef06b8d.php:13
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324a40869.php:13
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332ce3bcb.php:13
 msgid "Settings"
 msgstr ""
 
@@ -329,50 +364,134 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:99
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:110
 msgid "Passwords must be the same."
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:122
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:133
 msgid "The user of this data not found."
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:200
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:212
 msgid "The user with this email already exists."
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-user-adminusershow-latte.php:25
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/repositories/UserRepository.php:242
+msgid "The user with this nick already exists."
+msgstr ""
+
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-user-adminusershow-latte.php:17
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/users-macmini2-weby-git-cms-wame-admin-4-0-0-vendor-wame-usermodule-components-user-adminusershow-latte.php:17
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583425793a566.php:17
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583426bfc59bd.php:17
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834290f53f73.php:17
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298b7c324.php:17
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429e994049.php:17
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f7ef3834.php:17
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431eee53db.php:17
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324a29099.php:17
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332cd0768.php:17
 msgid "User info"
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-user-adminusershow-latte.php:30
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-user-adminusershow-latte.php:22
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/forms/EditUserForm.php:36
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserControlPresenter.php:77
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/vendor/wame/AdminModule/presenters/UserPresenter.php:73
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/users-macmini2-weby-git-cms-wame-admin-4-0-0-vendor-wame-usermodule-components-user-adminusershow-latte.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583425793a566.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583426bfc59bd.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834290f53f73.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298b7c324.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429e994049.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f7ef3834.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431eee53db.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324a29099.php:22
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332cd0768.php:22
 msgid "Edit user"
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-user-default-latte.php:25
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-user-default-latte.php:28
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/users-macmini2-weby-git-cms-wame-admin-4-0-0-vendor-wame-usermodule-components-user-default-latte.php:28
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583425793cbc4.php:28
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583426bfc81d9.php:28
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834290f574e9.php:28
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298b7ef8d.php:28
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429e997945.php:28
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f7f028e6.php:28
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431eee830b.php:28
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324a2c38c.php:28
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332cd39e4.php:28
 msgid "Not logged in"
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-user-simple-latte.php:24
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-user-simple-latte.php:26
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/users-macmini2-weby-git-cms-wame-admin-4-0-0-vendor-wame-usermodule-components-user-simple-latte.php:26
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834257940144.php:26
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583426bfcb2e5.php:26
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834290f59ed8.php:26
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298b818ea.php:26
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429e99b9fe.php:26
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f7f05657.php:26
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431eeeb1cd.php:26
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324a2f1dd.php:26
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332cd5ee5.php:26
 msgid "n/a"
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-useremptylistcontrol-default-latte.php:21
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-useremptylistcontrol-default-latte.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/users-macmini2-weby-git-cms-wame-admin-4-0-0-vendor-wame-usermodule-components-useremptylistcontrol-default-latte.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342579427b6.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583426bfcdcd5.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834290f5caa6.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298b842ef.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429e99f5ef.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f7f07fd9.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431eeedacf.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324a32116.php:12
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332cd858e.php:12
 msgid "No articles"
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-useremptylistcontrol-default-latte.php:24
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-components-useremptylistcontrol-default-latte.php:16
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/users-macmini2-weby-git-cms-wame-admin-4-0-0-vendor-wame-usermodule-components-useremptylistcontrol-default-latte.php:16
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342579427b6.php:16
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583426bfcdcd5.php:16
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834290f5caa6.php:16
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298b842ef.php:16
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429e99f5ef.php:16
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f7f07fd9.php:16
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431eeedacf.php:16
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324a32116.php:16
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332cd858e.php:16
 msgid "Add article"
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-presenters-templates-password-forgot-latte.php:20
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-presenters-templates-password-forgot-latte.php:58
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/users-macmini2-weby-git-cms-wame-admin-4-0-0-vendor-wame-usermodule-presenters-templates-password-forgot-latte.php:58
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342579ae83e.php:58
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583426c01a24a.php:58
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834290f9ad34.php:58
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298bc5490.php:58
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429ea06dbe.php:58
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f7f47e55.php:58
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431ef4111d.php:58
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324a86407.php:58
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332d1ce7d.php:58
 msgid "Please enter your login email."
 msgstr ""
 
-#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-presenters-templates-sign-in-latte.php:24
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/usermodule-presenters-templates-sign-in-latte.php:69
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/users-macmini2-weby-git-cms-wame-admin-4-0-0-vendor-wame-usermodule-presenters-templates-sign-in-latte.php:69
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342579be91a.php:69
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583426c0260b1.php:69
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834290fa6230.php:69
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834298bd04ad.php:69
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583429ea138d1.php:69
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/58342f7f52d02.php:69
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/583431ef5768f.php:69
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834324a949c7.php:69
+#: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/temp/latteCompiler/5834332d2798e.php:69
 msgid "I forgot my password"
 msgstr ""
 
