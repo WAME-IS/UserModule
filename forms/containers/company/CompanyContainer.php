@@ -17,21 +17,21 @@ class CompanyContainer extends BaseContainer
 {
     /** @var string */
     private $companyList;
-    
-    
-    public function __construct(UserInCompanyRepository $userInCompanyRepository, User $user)
+
+
+    public function __construct(\Nette\DI\Container $container, UserInCompanyRepository $userInCompanyRepository, User $user)
     {
-        parent::__construct();
-        
+        parent::__construct($container);
+
         $this->companyList = $userInCompanyRepository->getCompanyList($user->id);
     }
-    
-    
+
+
     /** {@inheritDoc} */
-    public function configure() 
+    public function configure()
 	{
         $count = count($this->companyList);
-        
+
         if($count > 1) {
             $this->addSelect('company', _('Company'), \Wame\Utils\Arrays::getPairs($this->companyList, 'id', 'name'))
                 ->setPrompt(_('-- Select Company --'));
