@@ -10,6 +10,8 @@ services:
 
     # Form containers
     - Wame\UserModule\Forms\Containers\INickContainerFactory
+    - Wame\UserModule\Forms\Containers\IFirstNameContainerFactory
+    - Wame\UserModule\Forms\Containers\ILastNameContainerFactory
     - Wame\UserModule\Forms\Containers\IEmailContainerFactory
     - Wame\UserModule\Forms\Containers\IDegreeContainerFactory
     - Wame\UserModule\Forms\Containers\IBirthdateContainerFactory

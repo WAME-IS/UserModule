@@ -55,7 +55,7 @@ class UserRepository extends BaseRepository
 
 		$this->entityManager->persist($userEntity);
 		$this->entityManager->persist($userEntity->info);
-        
+
         $this->entityManager->flush();
 
 		return $userEntity;
@@ -72,11 +72,8 @@ class UserRepository extends BaseRepository
 	{
 		$this->emailExists($userEntity->getEmail(), null, $userEntity->getId());
 
-        dump(method_exists($userEntity, 'getNick'));
-        exit;
-
         if (method_exists($userEntity, 'getNick') && $userEntity->getNick() != '') {
-            $this->nickExists($userEntity->getEmail(), $userEntity->getId());
+            $this->nickExists($userEntity->getNick(), $userEntity->getId());
         }
 
 		return $userEntity;

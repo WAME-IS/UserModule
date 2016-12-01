@@ -6,40 +6,40 @@ use Wame\DynamicObject\Forms\Containers\BaseContainer;
 use Wame\DynamicObject\Registers\Types\IBaseContainer;
 
 
-interface IEmailContainerFactory extends IBaseContainer
+interface ILastNameContainerFactory extends IBaseContainer
 {
-	/** @return EmailContainer */
+	/** @return LastNameContainer */
 	public function create();
 }
 
 
-class EmailContainer extends BaseContainer
+class LastNameContainer extends BaseContainer
 {
     /** {@inheritDoc} */
     public function configure()
 	{
-		$this->addText('email', _('Email'));
+		$this->addText('lastName', _('Last name'));
     }
 
 
     /** {@inheritDoc} */
 	public function setDefaultValues($entity)
 	{
-        $this['email']->setDefaultValue($entity->getEmail());
+        $this['lastName']->setDefaultValue($entity->getInfo()->getLastName());
 	}
 
 
     /** {@inheritDoc} */
     public function create($form, $values)
     {
-        $form->getEntity()->setEmail($values['email']);
+        $form->getEntity()->getInfo()->setLastName($values['lastName']);
     }
 
 
     /** {@inheritDoc} */
     public function update($form, $values)
     {
-        $form->getEntity()->setEmail($values['email']);
+        $form->getEntity()->getInfo()->setLastName($values['lastName']);
     }
 
 }

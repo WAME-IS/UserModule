@@ -4,13 +4,19 @@ services:
         class: Wame\DynamicObject\Forms\EntityFormBuilder
         setup:
             - setRepository(@UserRepository)
-            - add(@Wame\UserModule\Forms\Containers\INickContainerFactory, 'NickContainer', {priority: 90})
-            - add(@Wame\UserModule\Forms\Containers\IEmailContainerFactory, 'EmailContainer', {priority: 80})
-            - add(@Wame\UserModule\Forms\Containers\IDegreeContainerFactory, 'DegreeContainer', {priority: 70})
-            - add(@Wame\DynamicObject\Forms\Containers\INameContainerFactory, 'NameContainer', {priority: 60})
-            - add(@Wame\UserModule\Forms\Containers\IBirthdateContainerFactory, 'BirthdateContainer', {priority: 50})
-#            - add(@Wame\DynamicObject\Forms\Containers\ITextContainerFactory, 'TextContainer', {priority: 40})
-            - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer', {priority: 0})
+            # Login group
+            - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'LoginGroup', {priority: 100})
+            - add(@Wame\UserModule\Forms\Containers\INickContainerFactory, 'NickContainer', {priority: 99})
+            - add(@Wame\UserModule\Forms\Containers\IEmailContainerFactory, 'EmailContainer', {priority: 95})
+            # Name group
+            - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'NameGroup', {priority: 80})
+            - add(@Wame\UserModule\Forms\Containers\IDegreeContainerFactory, 'DegreeContainer', {priority: 79})
+            - add(@Wame\UserModule\Forms\Containers\IFirstNameContainerFactory, 'FirstNameContainer', {priority: 75})
+            - add(@Wame\UserModule\Forms\Containers\ILastNameContainerFactory, 'LastNameContainer', {priority: 70})
+            # Other group
+            - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'OtherGroup', {priority: 50})
+            - add(@Wame\UserModule\Forms\Containers\IBirthdateContainerFactory, 'BirthdateContainer', {priority: 49})
+            - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer')
 
 
     # Grids

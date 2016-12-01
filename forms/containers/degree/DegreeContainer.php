@@ -5,19 +5,22 @@ namespace Wame\UserModule\Forms\Containers;
 use Wame\DynamicObject\Forms\Containers\BaseContainer;
 use Wame\DynamicObject\Registers\Types\IBaseContainer;
 
+
 interface IDegreeContainerFactory extends IBaseContainer
 {
 	/** @return DegreeContainer */
 	public function create();
 }
 
+
 class DegreeContainer extends BaseContainer
 {
     /** {@inheritDoc} */
-    public function configure() 
+    public function configure()
 	{
 		$this->addText('degree', _('Degree'));
     }
+
 
     /** {@inheritDoc} */
 	public function setDefaultValues($entity)
@@ -25,16 +28,18 @@ class DegreeContainer extends BaseContainer
         $this['degree']->setDefaultValue($entity->getInfo()->getDegree());
 	}
 
+
     /** {@inheritDoc} */
     public function create($form, $values)
     {
-        $form->getEntity()->setDegree($values['degree']);
+        $form->getEntity()->getInfo()->setDegree($values['degree']);
     }
+
 
     /** {@inheritDoc} */
     public function update($form, $values)
     {
-        $form->getEntity()->setDegree($values['degree']);
+        $form->getEntity()->getInfo()->setDegree($values['degree']);
     }
 
 }

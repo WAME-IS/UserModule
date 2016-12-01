@@ -2,93 +2,86 @@
 
 namespace App\AdminModule\Presenters;
 
-use Wame\PermissionModule\Repositories\RoleRepository;
-use Wame\UserModule\Forms\SignUpForm;
-use Wame\UserModule\Repositories\UserRepository;
-use Wame\UserModule\Entities\UserEntity;
 use Wame\DynamicObject\Vendor\Wame\AdminModule\Presenters\AdminFormPresenter;
+use Wame\UserModule\Entities\UserEntity;
+use Wame\UserModule\Repositories\UserRepository;
 
 
 class UserPresenter extends AdminFormPresenter
 {
-	/** @var SignUpForm @inject */
-	public $signUpForm;
-	
 	/** @var UserRepository @inject */
 	public $repository;
-    
-    
+
+	/** @var UserEntity */
+	protected $entity;
+
+
     /** actions ***************************************************************/
-	
-	public function actionEdit()
-	{
-		if ($this->id) {
-			$this->entity = $this->repository->get(['id' => $this->id]);
-		}
-	}
-	
+
 	public function actionShow()
 	{
-		if ($this->id) {
-			$this->entity = $this->repository->get(['id' => $this->id]);
-            $this->getStatus()->set(UserEntity::class, $this->entity);
-		}
+        parent::actionShow();
+
+        $this->getStatus()->set(UserEntity::class, $this->entity);
 	}
-    
-    
+
+
     /** handles ***************************************************************/
-	
+
 	public function handleDelete()
 	{
 		$this->repository->delete(['id' => $this->id]);
-		
-		$this->flashMessage(_('User has been successfully deleted.'), 'success');
+
+		$this->flashMessage(sprintf(_('User #%s has been successfully deleted.'), $this->id), 'success');
 		$this->redirect(':Admin:User:', ['id' => null]);
 	}
 
-    
+
     /** renders ***************************************************************/
-	
+
 	public function renderDefault()
 	{
 		$this->template->siteTitle = _('Users');
 		$this->template->users = $this->repository->find(['status >' => UserRepository::STATUS_BLOCKED]);
 	}
-	
-	
+
+
 	public function renderShow()
 	{
-		$this->template->siteTitle = _('Show user');
+		$this->template->siteTitle = _('User');
+        $this->template->subTitle = $this->entity->getFullName();
 	}
-	
-	
+
+
 	public function renderCreate()
 	{
-		$this->template->siteTitle = _('Create new user');
+		$this->template->siteTitle = _('Create user');
 	}
-	
-	
+
+
 	public function renderEdit()
 	{
 		$this->template->siteTitle = _('Edit user');
+        $this->template->subTitle = $this->entity->getFullName();
 	}
-	
-	
+
+
 	public function renderDelete()
 	{
-		$this->template->siteTitle = _('Deleting user');
+		$this->template->siteTitle = _('Delete user');
+        $this->template->subTitle = $this->entity->getFullName();
 	}
-    
+
 
     /** implements ************************************************************/
-    
+
     /** {@inheritDoc} */
     protected function getFormBuilderServiceAlias()
     {
         return "Admin.UserFormBuilder";
     }
-    
-    
+
+
     /** {@inheritDoc} */
     protected function getGridServiceAlias()
     {
