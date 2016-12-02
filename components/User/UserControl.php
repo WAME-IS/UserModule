@@ -15,30 +15,21 @@ interface IUserControlFactory extends IEntityControlFactory
 
 class UserControl extends SingleEntityControl
 {
-    public function __construct(\Nette\DI\Container $container, User $user, $entity = null) 
+    public function __construct(\Nette\DI\Container $container, User $user, $entity = null)
     {
         // if not provided and logged, set entity to logged user
         if(!$entity && $user) {
             $entity = $user->getEntity();
         }
-        
+
         parent::__construct($container, $entity);
     }
-    
-    
+
+
     /** {@inheritDoc} */
     protected function getEntityType()
     {
         return UserEntity::class;
     }
-    
-    
-    /** {@inheritDoc} */
-    public function render()
-    {
-        parent::render();
-        
-        $this->template->columns = ['column1', '2'];
-    }
-    
+
 }
