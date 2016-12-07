@@ -4,6 +4,8 @@ services:
             - add(Wame\UserModule\Vendor\Wame\ComponentModule\UserComponent())
             - add(Wame\UserModule\Vendor\Wame\ComponentModule\UserSettingsButtonComponent())
             - add(Wame\UserModule\Vendor\Wame\ComponentModule\UserListComponent())
+            - add(Wame\UserModule\Vendor\Wame\ComponentModule\CompanyComponent())
+            - add(Wame\UserModule\Vendor\Wame\ComponentModule\CompanyListComponent())
 
     PermissionObject:
         setup:

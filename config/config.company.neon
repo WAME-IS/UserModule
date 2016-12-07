@@ -1,0 +1,41 @@
+services:
+    PermissionObject:
+        setup:
+            - addResource('company')
+            - addResourceAction('company', 'view')
+            - allow('guest', 'company', 'view')
+            - addResourceAction('company', 'create')
+            - allow('client', 'company', 'create')
+            - addResourceAction('company', 'edit')
+            - allow('client', 'company', 'edit')
+            - addResourceAction('company', 'delete')
+            - allow('client', 'company', 'delete')
+
+            - addResource('admin.company')
+            - addResourceAction('admin.company', 'view')
+            - allow('moderator', 'admin.company', 'view')
+            - addResourceAction('admin.company', 'create')
+            - allow('moderator', 'admin.company', 'create')
+            - addResourceAction('admin.company', 'edit')
+            - allow('moderator', 'admin.company', 'edit')
+            - addResourceAction('admin.company', 'delete')
+            - allow('admin', 'admin.company', 'delete')
+
+
+    # Repositories
+    CompanyRepository:
+        class: Wame\UserModule\Repositories\CompanyRepository
+        inject: yes
+
+    UserInCompanyRepository:
+        class: Wame\UserModule\Repositories\UserInCompanyRepository
+        inject: yes
+
+
+    # Components
+    - Wame\UserModule\Components\ICompanyControlFactory
+    - Wame\UserModule\Components\ICompanyListControlFactory
+
+
+    # Events
+    - {class: Wame\UserModule\Events\SignUp\CompanyListener, tags: [run]}

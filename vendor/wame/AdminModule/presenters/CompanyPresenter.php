@@ -66,6 +66,7 @@ class CompanyPresenter extends AdminFormPresenter
 	{
 		$this->template->siteTitle = _('Delete company');
 		$this->template->subTitle = $this->entity->getName();
+        $this->template->type = $this->getParameter('t');
 	}
 
 
