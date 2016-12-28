@@ -10,8 +10,8 @@ class UserEntityExtensionMethod
 
     public function __construct(UserRepository $userRepository)
     {
-        User::extensionMethod('getEntity', function(User $user) use ($userRepository) {
-            return $userRepository->getUserById($user->getId());
-        });
+//        User::extensionMethod('getEntity', function(User $user) use ($userRepository) {
+//            return $userRepository->getUserById($user->getId());
+//        });
     }
 }
