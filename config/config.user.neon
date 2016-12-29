@@ -14,8 +14,9 @@ services:
             - allow('admin', 'Admin:User', 'delete')
 
 
+    user: Wame\Security\User
     authenticator: Wame\UserModule\Models\Authenticator
-    - {class: Wame\UserModule\Models\UserEntityExtensionMethod, tags: [run]}
+#    - {class: Wame\UserModule\Models\UserEntityExtensionMethod, tags: [run]}
 
 
     # Repositories
@@ -33,6 +34,10 @@ services:
 
     # User sing in listener - user redirects
     - {class: Wame\UserModule\Events\SignInListener, tags: [run]}
+
+
+extensions:
+    doctrine2identity: Majkl578\NetteAddons\Doctrine2Identity\DI\IdentityExtension
 
 
 doctrine:
