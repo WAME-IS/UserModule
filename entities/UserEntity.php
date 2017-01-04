@@ -59,7 +59,7 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity implements IIdentity
     protected $lastLogin;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="UserInfoEntity")
+	 * @ORM\ManyToOne(targetEntity="UserInfoEntity", fetch="EAGER")
 	 * @ORM\JoinColumn(name="info_id", referencedColumnName="id", nullable=true)
 	 */
     protected $info;
