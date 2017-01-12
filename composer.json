@@ -10,9 +10,14 @@
         }
     ],
     "require": {
-        "wame/Core": "*",
+        "wame/LocationModule": "*",
+        "wame/DynamicObject": "*",
+        "wame/DataGridControl": "*"
+    },
+    "softRequire": {
+        "wame/AdminModule": "*",
         "wame/MenuModule": "*",
-        "wame/LocationModule": "*"
+        "wame/RouterModule": "*"
     },
     "autoload": {
         "classmap": [
