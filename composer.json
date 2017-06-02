@@ -16,7 +16,7 @@
     ],
     "config": { "secure-http": false },
     "require": {
-        "majkl578/nette-identity-doctrine": "dev-fix/proxy as master",
+        "majkl578/nette-identity-doctrine": "dev-fix/proxy",
         "wame/LocationModule": "0.0.*",
         "wame/DynamicObject": "0.0.*",
         "wame/DataGridControl": "0.0.*"
