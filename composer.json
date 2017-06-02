@@ -3,21 +3,28 @@
     "version": "0.0.1",
     "description": "CMS WAME admin",
     "homepage": "http://wame.sk/cms-wame-admin",
+    "minimum-stability": "dev",
     "authors": [
         {
-            "name": "Wame",
+            "name": "WAME s.r.o.",
             "homepage": "http://wame.sk"
         }
     ],
+    "repositories": [
+        { "type": "composer", "url": "http://packages.wame.sk" },
+        { "type": "vcs", "url": "https://github.com/matej21/nette-identity-doctrine" }
+    ],
+    "config": { "secure-http": false },
     "require": {
-        "wame/LocationModule": "*",
-        "wame/DynamicObject": "*",
-        "wame/DataGridControl": "*"
+        "majkl578/nette-identity-doctrine": "dev-fix/proxy",
+        "wame/LocationModule": "0.0.*",
+        "wame/DynamicObject": "0.0.*",
+        "wame/DataGridControl": "0.0.*"
     },
     "softRequire": {
-        "wame/AdminModule": "*",
-        "wame/MenuModule": "*",
-        "wame/RouterModule": "*"
+        "wame/AdminModule": "0.0.*",
+        "wame/MenuModule": "0.0.*",
+        "wame/RouterModule": "0.0.*"
     },
     "autoload": {
         "classmap": [
