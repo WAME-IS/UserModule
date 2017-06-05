@@ -5,6 +5,7 @@ namespace App\AdminModule\Presenters;
 use Wame\DynamicObject\Vendor\Wame\AdminModule\Presenters\AdminFormPresenter;
 use Wame\UserModule\Entities\UserInCompanyEntity;
 use Wame\UserModule\Repositories\UserInCompanyRepository;
+use Wame\UserModule\Repositories\CompanyRepository;
 
 
 class UserInCompanyPresenter extends AdminFormPresenter
