@@ -2,17 +2,18 @@
 
 namespace Wame\UserModule\Entities;
 
-use Wame\RestApiModule\DataConverter\Annotations\noApi;
 use Doctrine\ORM\Mapping as ORM;
 use Nette\Security\IIdentity;
 use Nette\Security\Passwords;
+use Wame\Core\Entities\BaseEntity;
 use Wame\Core\Entities\Columns;
+use Wame\RestApiModule\DataConverter\Annotations\noApi;
 
 /**
  * @ORM\Table(name="wame_user")
  * @ORM\Entity
  */
-class UserEntity extends \Wame\Core\Entities\BaseEntity implements IIdentity
+class UserEntity extends BaseEntity implements IIdentity
 {
 	use Columns\Identifier;
 	use Columns\Lang;
@@ -47,13 +48,13 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity implements IIdentity
     protected $nick = null;
 
     /**
-	 * @var DateTime
+	 * @var \DateTime
      * @ORM\Column(name="register_date", type="datetime", nullable=true)
      */
     protected $registerDate;
 
     /**
-	 * @var DateTime
+	 * @var \DateTime
      * @ORM\Column(name="last_login", type="datetime", nullable=true)
      */
     protected $lastLogin;
@@ -65,7 +66,7 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity implements IIdentity
     protected $info;
 
 
-	/** get ********************************************************************************/
+	/** get *******************************************************************/
 
 	public function getInfo()
 	{
@@ -129,7 +130,7 @@ class UserEntity extends \Wame\Core\Entities\BaseEntity implements IIdentity
         return [$this->getRole()];
     }
 
-	/** set ********************************************************************************/
+	/** set *******************************************************************/
 
 	public function setInfo($info)
 	{

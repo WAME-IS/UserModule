@@ -1,4 +1,20 @@
 services:
+    # Permission
+    PermissionObject:
+        setup:
+            - addResource('Admin:User')
+            - addResourceAction('Admin:User', 'default')
+            - allow('moderator', 'Admin:User', 'default')
+            - addResourceAction('Admin:User', 'show')
+            - allow('moderator', 'Admin:User', 'show')
+            - addResourceAction('Admin:User', 'create')
+            - allow('moderator', 'Admin:User', 'create')
+            - addResourceAction('Admin:User', 'edit')
+            - allow('moderator', 'Admin:User', 'edit')
+            - addResourceAction('Admin:User', 'delete')
+            - allow('admin', 'Admin:User', 'delete')
+
+
     # Forms
     Admin.UserFormBuilder:
         class: Wame\DynamicObject\Forms\EntityFormBuilder

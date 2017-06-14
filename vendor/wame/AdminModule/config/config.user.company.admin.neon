@@ -1,4 +1,19 @@
 services:
+    # Permission
+    PermissionObject:
+        setup:
+            - addResource('admin.company')
+            - addResourceAction('admin.company', 'view')
+            - allow('moderator', 'admin.company', 'view')
+            - addResourceAction('admin.company', 'create')
+            - allow('moderator', 'admin.company', 'create')
+            - addResourceAction('admin.company', 'edit')
+            - allow('moderator', 'admin.company', 'edit')
+            - addResourceAction('admin.company', 'delete')
+            - allow('admin', 'admin.company', 'delete')
+
+
+    # Forms
     Admin.CompanyFormBuilder:
         class: Wame\DynamicObject\Forms\EntityFormBuilder
         setup:
@@ -13,6 +28,7 @@ services:
             - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer', {priority: 10})
 
 
+    # Grids
     Admin.CompanyGrid:
         class: Wame\UserModule\Vendor\Wame\AdminModule\Grids\CompanyGrid
         setup:

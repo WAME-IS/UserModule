@@ -2,6 +2,8 @@
 
 Slúži na správu užívateľov
 
+[TOC]
+
 ## Čo sa udeje po vytvorení užívateľa v administrácii? ##
 
 * Overí či existuje taký email
@@ -17,3 +19,18 @@ Slúži na správu užívateľov
 * Odošle aktivačný email
 	* v emaily je aktivačný link po stlačení ho presmeruje na web kde si môže vytvoriť svoje heslo
 	* zmení status na 1 - aktívny
+
+
+## Components
+
+### Company
+
+### CompanyList
+
+### User
+
+### UserEmptyList
+
+### UserList
+
+### UserSettingsButton
