@@ -46,6 +46,8 @@ class Authenticator extends Object implements Security\IAuthenticator
             throw new Security\AuthenticationException(_('The user with this email not found.'), self::IDENTITY_NOT_FOUND);
         }
 
+        \Tracy\Debugger::barDump($password, $userEntity->password);
+
         if (!Security\Passwords::verify($password, $userEntity->password)) {
             throw new Security\AuthenticationException(_('Wrong password entered.'), self::INVALID_CREDENTIAL);
         }

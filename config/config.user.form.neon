@@ -19,9 +19,67 @@ services:
     - Wame\UserModule\Forms\Containers\IDicContainerFactory
     - Wame\UserModule\Forms\Containers\IIcDphContainerFactory
     - Wame\UserModule\Forms\Containers\ICompanyContainerFactory
+    - Wame\UserModule\Forms\Containers\IPasswordContainerFactory
+    - Wame\UserModule\Forms\Containers\IPasswordRepeatContainerFactory
+    - Wame\UserModule\Forms\Containers\IRememberContainerFactory
+
+
+    # Form actions
+    - Wame\UserModule\Forms\Actions\IRegisterDateActionFactory
 
 
     # Forms
+    UserSignInFormBuilder:
+        class: Wame\UserModule\Forms\UserSignInFormBuilder
+        setup:
+            # Login group
+            - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'LoginGroup', {priority: 100})
+            - add(@Wame\UserModule\Forms\Containers\IEmailContainerFactory, 'EmailContainer', {priority: 95})
+            - add(@Wame\UserModule\Forms\Containers\IPasswordContainerFactory, 'PasswordContainer', {priority: 94})
+            - add(@Wame\UserModule\Forms\Containers\IRememberContainerFactory, 'RememberContainer', {priority: 10})
+            - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer')
+            - redirectTo(':User:Profile:')
+
+    UserSignUpFormBuilder:
+        class: Wame\UserModule\Forms\UserSignUpFormBuilder
+        setup:
+            - setRepository(@UserRepository)
+            # Login group
+            - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'LoginGroup', {priority: 100})
+            - add(@Wame\UserModule\Forms\Containers\INickContainerFactory, 'NickContainer', {priority: 99})
+            - add(@Wame\UserModule\Forms\Containers\IEmailContainerFactory, 'EmailContainer', {priority: 95})
+            - add(@Wame\UserModule\Forms\Containers\IPasswordContainerFactory, 'PasswordContainer', {priority: 94})
+            - add(@Wame\UserModule\Forms\Containers\IPasswordRepeatContainerFactory, 'PasswordRepeatContainer', {priority: 93})
+            # Name group
+            - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'NameGroup', {priority: 80})
+            - add(@Wame\UserModule\Forms\Containers\IDegreeContainerFactory, 'DegreeContainer', {priority: 79})
+            - add(@Wame\UserModule\Forms\Containers\IFirstNameContainerFactory, 'FirstNameContainer', {priority: 75})
+            - add(@Wame\UserModule\Forms\Containers\ILastNameContainerFactory, 'LastNameContainer', {priority: 70})
+            # Other group
+            - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'OtherGroup', {priority: 50})
+            - add(@Wame\UserModule\Forms\Containers\IBirthdateContainerFactory, 'BirthdateContainer', {priority: 49})
+            - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer')
+            # Actions
+            - redirectTo(':User:Profile:')
+
+#    PasswordNewFormBuilder:
+#        class: Wame\DynamicObject\Forms\EntityFormBuilder
+#        setup:
+#            - setRepository(@UserRepository)
+#            - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'LoginGroup', {priority: 100})
+#            - add(@Wame\UserModule\Forms\Containers\IPasswordContainerFactory, 'PasswordContainer', {priority: 94})
+#            - add(@Wame\UserModule\Forms\Containers\IPasswordRepeatContainerFactory, 'PasswordRepeatContainer', {priority: 93})
+#            - redirectTo(':User:Profile:')
+
+    PasswordForgotFormBuilder:
+        class: Wame\UserModule\Forms\PasswordForgotFormBuilder
+        setup:
+            - add(@Wame\UserModule\Forms\Containers\IEmailContainerFactory, 'EmailContainer', {priority: 95})
+            - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer')
+#            - redirectTo(':User:Profile:')
+
+
+    # Forms - old
     SignInForm:
         class: Wame\UserModule\Forms\SignInForm
         setup:

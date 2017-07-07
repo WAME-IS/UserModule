@@ -54,7 +54,6 @@ class UserRepository extends BaseRepository
         }
 
 		$this->entityManager->persist($userEntity);
-		$this->entityManager->persist($userEntity->info);
 
         $this->entityManager->flush();
 
@@ -245,12 +244,13 @@ class UserRepository extends BaseRepository
 
     /** api *******************************************************************/
 
-	/**
-	 * @api {get} /user-search/ Search users
-	 * @param array $columns	columns
-	 * @param string $phrase	phrase
-	 * @param string $select	select
-	 */
+    /**
+     * @api {get} /user-search/ Search users
+     * @param array $columns columns
+     * @param string $phrase phrase
+     * @param string $select select
+     * @return mixed
+     */
 	public function findLike($columns = [], $phrase = null, $select = '*')
 	{
 		$search = $this->entityManager->createQueryBuilder()
@@ -270,13 +270,14 @@ class UserRepository extends BaseRepository
 	}
 
 
-	/**
-	 * @api {get} /user/ User
-	 * @param type $criteria
-	 * @param type $orderBy
-	 * @param type $limit
-	 * @param type $offset
-	 */
+    /**
+     * @api {get} /user/ User
+     * @param array $criteria criteria
+     * @param array $orderBy order
+     * @param integer $limit limit
+     * @param integer $offset offset
+     * @return array
+     */
 	public function find($criteria = array(), $orderBy = array(), $limit = null, $offset = null)
     {
 		return parent::find($criteria, $orderBy, $limit, $offset);
@@ -284,9 +285,10 @@ class UserRepository extends BaseRepository
 
 
     /**
-	 * @api {get} /user/:id Get user by id
-	 * @param int $id
-	 */
+     * @api {get} /user/:id Get user by id
+     * @param int $id id
+     * @return \Wame\Core\Entities\BaseEntity
+     */
 	public function getUserById($id)
     {
 		return $this->get(['id' => $id]);

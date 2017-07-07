@@ -24,35 +24,7 @@ class UserInfoEntity extends \Wame\Core\Entities\BaseEntity
      */
     protected $importUserId = null;
 
-    /**
-     * @ORM\Column(name="first_name", type="string", length=50, nullable=true)
-     */
-    protected $firstName = null;
 
-    /**
-     * @ORM\Column(name="last_name", type="string", length=50, nullable=true)
-     */
-    protected $lastName = null;
-
-    /**
-     * @ORM\Column(name="salutation", type="integer", length=1, nullable=true)
-     */
-    protected $salutation = null;
-
-    /**
-     * @ORM\Column(name="degree", type="string", length=30, nullable=true)
-     */
-    protected $degree = null;
-
-    /**
-     * @ORM\Column(name="degree_suffix", type="string", length=30, nullable=true)
-     */
-    protected $degreeSuffix = null;
-
-    /**
-     * @ORM\Column(name="gender", type="integer", length=1, nullable=true)
-     */
-    protected $gender = null;
 
     /**
 	 * @var Date

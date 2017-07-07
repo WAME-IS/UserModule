@@ -7,6 +7,7 @@ use Nette\Security\IIdentity;
 use Nette\Security\Passwords;
 use Wame\Core\Entities\BaseEntity;
 use Wame\Core\Entities\Columns;
+use Wame\LocationModule\Entities\Columns\Address;
 use Wame\RestApiModule\DataConverter\Annotations\noApi;
 
 /**
@@ -18,7 +19,10 @@ class UserEntity extends BaseEntity implements IIdentity
 	use Columns\Identifier;
 	use Columns\Lang;
 	use Columns\Status;
-	use Columns\Token;
+	use Columns\Description;
+
+    use Address;
+
 
     /**
 	 * @ORM\ManyToOne(targetEntity="UserEntity")
@@ -59,19 +63,47 @@ class UserEntity extends BaseEntity implements IIdentity
      */
     protected $lastLogin;
 
-	/**
-	 * @ORM\ManyToOne(targetEntity="UserInfoEntity", fetch="EAGER")
-	 * @ORM\JoinColumn(name="info_id", referencedColumnName="id", nullable=true)
-	 */
-    protected $info;
+    /**
+     * @ORM\Column(name="first_name", type="string", length=50, nullable=true)
+     */
+    protected $firstName = null;
+
+    /**
+     * @ORM\Column(name="last_name", type="string", length=50, nullable=true)
+     */
+    protected $lastName = null;
+
+    /**
+     * @ORM\Column(name="salutation", type="integer", length=1, nullable=true)
+     */
+    protected $salutation = null;
+
+    /**
+     * @ORM\Column(name="degree", type="string", length=30, nullable=true)
+     */
+    protected $degree = null;
+
+    /**
+     * @ORM\Column(name="degree_suffix", type="string", length=30, nullable=true)
+     */
+    protected $degreeSuffix = null;
+
+    /**
+     * @ORM\Column(name="gender", type="integer", length=1, nullable=true)
+     */
+    protected $gender = null;
+
+    /**
+     * @ORM\Column(name="token", type="string", length=64, nullable=true)
+     */
+
+    /**
+     * @ORM\OneToOne(targetEntity="\Wame\UserModule\Entities\TokenEntity", mappedBy="user")
+     */
+    protected $token;
 
 
 	/** get *******************************************************************/
-
-	public function getInfo()
-	{
-		return $this->info;
-	}
 
 	public function getReferal()
 	{
@@ -105,21 +137,21 @@ class UserEntity extends BaseEntity implements IIdentity
 
 	public function getName()
 	{
-		return $this->info->firstName . ' ' . $this->info->lastName;
+		return $this->firstName . ' ' . $this->lastName;
 	}
 
 	public function getFullName()
 	{
 		$return = '';
 
-		if ($this->info->degree) {
-			$return .= $this->info->degree . ' ';
+		if ($this->degree) {
+			$return .= $this->degree . ' ';
 		}
 
 		$return .= $this->getName();
 
-		if ($this->info->degreeSuffix) {
-			$return .= ' ' . $this->info->degreeSuffix;
+		if ($this->degreeSuffix) {
+			$return .= ' ' . $this->degreeSuffix;
 		}
 
 		return $return;
@@ -130,14 +162,48 @@ class UserEntity extends BaseEntity implements IIdentity
         return [$this->getRole()];
     }
 
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    public function getSalutation()
+    {
+        return $this->salutation;
+    }
+
+    public function getDegree()
+    {
+        return $this->degree;
+    }
+
+    public function getDegreeSuffix()
+    {
+        return $this->degreeSuffix;
+    }
+
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    public function getBirthdate()
+    {
+        return $this->birthdate;
+    }
+
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+
 	/** set *******************************************************************/
-
-	public function setInfo($info)
-	{
-		$this->info = $info;
-
-		return $this;
-	}
 
 	public function setPassword($password)
 	{
@@ -187,5 +253,71 @@ class UserEntity extends BaseEntity implements IIdentity
 
 		return $this;
 	}
+
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    public function setSalutation($salutation)
+    {
+        $this->salutation = $salutation;
+
+        return $this;
+    }
+
+    public function setDegree($degree)
+    {
+        $this->degree = $degree;
+
+        return $this;
+    }
+
+    public function setDegreeSuffix($degreeSuffix)
+    {
+        $this->degreeSuffix = $degreeSuffix;
+
+        return $this;
+    }
+
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function setBirthdate($birthdate)
+    {
+        if($birthdate) {
+            $this->birthdate = new \DateTime(date('Y-m-d', strtotime($birthdate)));
+        }
+
+        return $this;
+    }
+
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+
+    /** remove ****************************************************************/
+
+    public function removeToken()
+    {
+        $this->token->clear();
+    }
 
 }

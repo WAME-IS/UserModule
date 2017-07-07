@@ -25,21 +25,21 @@ class FirstNameContainer extends BaseContainer
     /** {@inheritDoc} */
 	public function setDefaultValues($entity)
 	{
-        $this['firstName']->setDefaultValue($entity->getInfo()->getFirstName());
+        $this['firstName']->setDefaultValue($entity->getFirstName());
 	}
 
 
     /** {@inheritDoc} */
     public function create($form, $values)
     {
-        $form->getEntity()->getInfo()->setFirstName($values['firstName']);
+        $form->getEntity()->setFirstName($values['firstName']);
     }
 
 
     /** {@inheritDoc} */
     public function update($form, $values)
     {
-        $form->getEntity()->getInfo()->setFirstName($values['firstName']);
+        $form->getEntity()->setFirstName($values['firstName']);
     }
 
 }

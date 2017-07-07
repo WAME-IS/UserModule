@@ -2,6 +2,7 @@
 
 namespace App\UserModule\Presenters;
 
+use Wame\DynamicObject\Forms\EntityForm;
 use Wame\UserModule\Forms\SignInForm;
 use Wame\UserModule\Forms\SignUpForm;
 use Wame\UserModule\Repositories\UserRepository;
@@ -98,26 +99,26 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
 	/**
 	 * Sign in form
 	 * 
-	 * @return Nette\Application\UI\Form
+	 * @return EntityForm
 	 */
 	protected function createComponentSignInForm()
 	{
-		$form = $this->signInForm->build();
-		
-		return $form;
+        return $this->context
+            ->getService('UserSignInFormBuilder')
+            ->build($this->id);
 	}
 	
 	
 	/**
 	 * Sign up form
 	 * 
-	 * @return Nette\Application\UI\Form
+	 * @return EntityForm
 	 */
 	protected function createComponentSignUpForm()
 	{
-		$form = $this->signUpForm->build();
-		
-		return $form;
+        return $this->context
+            ->getService('UserSignUpFormBuilder')
+            ->build($this->id);
 	}
 	
     

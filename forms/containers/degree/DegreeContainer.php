@@ -32,14 +32,14 @@ class DegreeContainer extends BaseContainer
     /** {@inheritDoc} */
     public function create($form, $values)
     {
-        $form->getEntity()->getInfo()->setDegree($values['degree']);
+        $form->getEntity()->setDegree($values['degree']);
     }
 
 
     /** {@inheritDoc} */
     public function update($form, $values)
     {
-        $form->getEntity()->getInfo()->setDegree($values['degree']);
+        $form->getEntity()->setDegree($values['degree']);
     }
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\UserModule\Presenters;
 
+use Wame\DynamicObject\Forms\BaseForm;
 use Wame\UserModule\Forms\PasswordForgotForm;
 use Wame\UserModule\Forms\PasswordNewForm;
 use Wame\UserModule\Repositories\UserRepository;
@@ -60,13 +61,13 @@ class PasswordPresenter extends \App\Core\Presenters\BasePresenter
 	/**
 	 * Forgotten password form
 	 * 
-	 * @return Nette\Application\UI\Form
+	 * @return BaseForm
 	 */
 	protected function createComponentPasswordForgotForm()
 	{
-		$form = $this->passwordForgotForm->build();
-		
-		return $form;
+        return $this->context
+            ->getService('PasswordForgotFormBuilder')
+            ->build($this->id);
 	}
 
 	

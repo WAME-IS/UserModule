@@ -25,21 +25,21 @@ class LastNameContainer extends BaseContainer
     /** {@inheritDoc} */
 	public function setDefaultValues($entity)
 	{
-        $this['lastName']->setDefaultValue($entity->getInfo()->getLastName());
+        $this['lastName']->setDefaultValue($entity->getLastName());
 	}
 
 
     /** {@inheritDoc} */
     public function create($form, $values)
     {
-        $form->getEntity()->getInfo()->setLastName($values['lastName']);
+        $form->getEntity()->setLastName($values['lastName']);
     }
 
 
     /** {@inheritDoc} */
     public function update($form, $values)
     {
-        $form->getEntity()->getInfo()->setLastName($values['lastName']);
+        $form->getEntity()->setLastName($values['lastName']);
     }
 
 }

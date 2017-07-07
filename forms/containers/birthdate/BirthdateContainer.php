@@ -26,21 +26,21 @@ class BirthdateContainer extends BaseContainer
     /** {@inheritDoc} */
 	public function setDefaultValues($entity)
 	{
-        $this['birthdate']->setDefaultValue(Date::toString($entity->getInfo()->getBirthdate(), 'd.m.Y'));
+        $this['birthdate']->setDefaultValue(Date::toString($entity->getBirthdate(), 'd.m.Y'));
 	}
 
 
     /** {@inheritDoc} */
     public function create($form, $values)
     {
-        $form->getEntity()->getInfo()->setBirthdate($values['birthdate']);
+        $form->getEntity()->setBirthdate($values['birthdate']);
     }
 
 
     /** {@inheritDoc} */
     public function update($form, $values)
     {
-        $form->getEntity()->getInfo()->setBirthdate($values['birthdate']);
+        $form->getEntity()->setBirthdate($values['birthdate']);
     }
 
 }
