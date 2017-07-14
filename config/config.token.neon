@@ -1,0 +1,5 @@
+services:
+    # Repositories
+    TokenRepository:
+        class: Wame\UserModule\Repositories\TokenRepository
+        inject: yes

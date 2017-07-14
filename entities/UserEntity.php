@@ -94,10 +94,7 @@ class UserEntity extends BaseEntity implements IIdentity
     protected $gender = null;
 
     /**
-     * @ORM\Column(name="token", type="string", length=64, nullable=true)
-     */
-
-    /**
+     * @noApi
      * @ORM\OneToOne(targetEntity="\Wame\UserModule\Entities\TokenEntity", mappedBy="user")
      */
     protected $token;
