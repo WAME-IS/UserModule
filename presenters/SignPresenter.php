@@ -3,21 +3,14 @@
 namespace App\UserModule\Presenters;
 
 use Wame\DynamicObject\Forms\EntityForm;
-use Wame\UserModule\Forms\SignInForm;
-use Wame\UserModule\Forms\SignUpForm;
 use Wame\UserModule\Repositories\UserRepository;
 
-class SignPresenter extends \App\Core\Presenters\BasePresenter
-{	
-	/** @var SignInForm @inject */
-	public $signInForm;
 
-	/** @var SignUpForm @inject */
-	public $signUpForm;
-    
+class SignPresenter extends \App\Core\Presenters\BasePresenter
+{
     /** @var UserRepository @inject */
     public $userRepository;
-	
+
     
     /** actions ***************************************************************/
 	
@@ -46,35 +39,6 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
 	}
     
     
-    public function actionVerify()
-    {
-        $error = false;
-        $email = $this->getParameter('email');
-        $hash = $this->getParameter('hash');
-        
-        $user = $this->userRepository->get(['token' => $hash, 'email' => $email, 'status' => UserRepository::STATUS_VERIFY_EMAIL]);
-        
-        if($email & $hash) {
-            if($user) {
-                $user->status = UserRepository::STATUS_ACTIVE;
-            } else {
-                $error = true;
-            }
-        } else {
-            $error = true;
-        }
-        
-        if(!$error) {
-            $this->flashMessage(_('Your account has been activated.'), 'info');
-            $this->userRepository->onConfirm($user);
-        } else {
-            $this->flashMessage(_('Invalid approach, please use the link that has been send to your email.'), 'danger');
-        }
-        
-        $this->redirect(':User:Profile:');
-    }
-    
-    
     /** renders ***************************************************************/
 	
 	public function renderIn()
@@ -87,11 +51,6 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
 	{
 		$this->template->siteTitle = _('Registration');
 	}
-    
-    public function renderPolicies()
-    {
-        $this->template->siteTitle = _('Policies');
-    }
 	
 	
     /** components ************************************************************/
@@ -104,8 +63,8 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
 	protected function createComponentSignInForm()
 	{
         return $this->context
-            ->getService('UserSignInFormBuilder')
-            ->build($this->id);
+                    ->getService('UserSignInFormBuilder')
+                    ->build($this->id);
 	}
 	
 	
@@ -117,10 +76,8 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
 	protected function createComponentSignUpForm()
 	{
         return $this->context
-            ->getService('UserSignUpFormBuilder')
-            ->build($this->id);
+                    ->getService('UserSignUpFormBuilder')
+                    ->build($this->id);
 	}
-	
-    
 
 }

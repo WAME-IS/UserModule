@@ -19,9 +19,6 @@ services:
     - Wame\UserModule\Forms\Containers\IDicContainerFactory
     - Wame\UserModule\Forms\Containers\IIcDphContainerFactory
     - Wame\UserModule\Forms\Containers\ICompanyContainerFactory
-    - Wame\UserModule\Forms\Containers\IPasswordContainerFactory
-    - Wame\UserModule\Forms\Containers\IPasswordRepeatContainerFactory
-    - Wame\UserModule\Forms\Containers\IRememberContainerFactory
 
 
     # Form actions
@@ -62,61 +59,6 @@ services:
             # Actions
             - redirectTo(':User:Profile:')
 
-#    PasswordNewFormBuilder:
-#        class: Wame\DynamicObject\Forms\EntityFormBuilder
-#        setup:
-#            - setRepository(@UserRepository)
-#            - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'LoginGroup', {priority: 100})
-#            - add(@Wame\UserModule\Forms\Containers\IPasswordContainerFactory, 'PasswordContainer', {priority: 94})
-#            - add(@Wame\UserModule\Forms\Containers\IPasswordRepeatContainerFactory, 'PasswordRepeatContainer', {priority: 93})
-#            - redirectTo(':User:Profile:')
-
-    PasswordForgotFormBuilder:
-        class: Wame\UserModule\Forms\PasswordForgotFormBuilder
-        setup:
-            - add(@Wame\UserModule\Forms\Containers\IEmailContainerFactory, 'EmailContainer', {priority: 95})
-            - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer')
-#            - redirectTo(':User:Profile:')
-
-
-    # Forms - old
-    SignInForm:
-        class: Wame\UserModule\Forms\SignInForm
-        setup:
-            - addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 3)
-            - addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 1)
-
-    SignUpForm:
-        class: Wame\UserModule\Forms\SignUpForm
-        setup:
-            - addFormContainer(Wame\UserModule\Forms\NickFormContainer(), 'NickFormContainer', 99)
-            - addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer', 98)
-            - addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 97)
-            - addFormContainer(Wame\UserModule\Forms\PasswordRepeatFormContainer(), 'PasswordRepeatFormContainer', 96)
-            - addFormContainer(Wame\UserModule\Forms\DegreeFormContainer(), 'DegreeFormContainer', 80)
-            - addFormContainer(Wame\UserModule\Forms\NameFormContainer(), 'NameFormContainer', 80)
-            - addFormContainer(Wame\UserModule\Forms\BirthdateFormContainer(), 'BirthdateFormContainer', 50)
-            - addFormContainer(Wame\UserModule\Forms\TextFormContainer(), 'TextFormContainer', 45)
-
-    PasswordForgotForm:
-        class: Wame\UserModule\Forms\PasswordForgotForm
-        setup:
-            - addFormContainer(Wame\UserModule\Forms\EmailFormContainer(), 'EmailFormContainer')
-
-    PasswordNewForm:
-        class: Wame\UserModule\Forms\PasswordNewForm
-        setup:
-            - addFormContainer(Wame\UserModule\Forms\PasswordFormContainer(), 'PasswordFormContainer', 2)
-            - addFormContainer(Wame\UserModule\Forms\PasswordRepeatFormContainer(), 'PasswordRepeatFormContainer', 1)
-
-    CompanyForm:
-        class: Wame\UserModule\Forms\CompanyForm
-        setup:
-            - addFormContainer(Wame\UserModule\Forms\Company\NameFormContainer(), 'NameFormContainer', 99)
-            - addFormContainer(Wame\UserModule\Forms\Company\DescriptionFormContainer(), 'DescriptionFormContainer', 98)
-            - addFormContainer(Wame\UserModule\Forms\Company\BillingDataFormContainer(), 'BillingDataFormContainer', 80)
-
-    # Comapany form
     UserSettingsForm:
         class: Wame\UserModule\Forms\UserSettingsForm
         setup:

@@ -28,6 +28,9 @@ class PasswordForgotFormBuilder extends BaseFormBuilder
         parent::submit($form, $values);
 
         $this->userRepository->resetPassword(['email' => $values['EmailContainer']['email']]);
+
+        $form->getPresenter()->flashMessage(_('We sent you a link to your email where you can change your password.'), 'info');
+        $form->getPresenter()->redirect(':User:Password:submit', ['id' => null]);
     }
 
 }
