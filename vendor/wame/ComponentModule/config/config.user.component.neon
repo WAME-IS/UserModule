@@ -8,6 +8,7 @@ services:
             - add(Wame\UserModule\Vendor\Wame\ComponentModule\CompanyListComponent())
             - add(Wame\UserModule\Vendor\Wame\ComponentModule\SignInFormComponent())
             - add(Wame\UserModule\Vendor\Wame\ComponentModule\SignUpFormComponent())
+            - add(Wame\UserModule\Vendor\Wame\ComponentModule\PasswordForgotFormComponent())
 
     PermissionObject:
         setup:
