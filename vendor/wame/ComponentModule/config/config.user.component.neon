@@ -6,6 +6,8 @@ services:
             - add(Wame\UserModule\Vendor\Wame\ComponentModule\UserListComponent())
             - add(Wame\UserModule\Vendor\Wame\ComponentModule\CompanyComponent())
             - add(Wame\UserModule\Vendor\Wame\ComponentModule\CompanyListComponent())
+            - add(Wame\UserModule\Vendor\Wame\ComponentModule\SignInFormComponent())
+            - add(Wame\UserModule\Vendor\Wame\ComponentModule\SignUpFormComponent())
 
     PermissionObject:
         setup:
