@@ -25,17 +25,21 @@ class TokenEntity extends BaseEntity
     private $user;
 
 
+    /** get ************************************************************/
+
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+
+    /** set ************************************************************/
+
     public function setUser($user)
     {
         $this->user = $user;
 
         return $this;
-    }
-
-
-    public function getUser()
-    {
-        return $this->user;
     }
 
 }

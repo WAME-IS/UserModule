@@ -29,3 +29,12 @@ services:
 
     # Events
     - {class: Wame\UserModule\Events\SignUp\CompanyListener, tags: [run]}
+
+
+    # Forms
+    CompanyForm:
+        class: Wame\UserModule\Forms\CompanyForm
+        setup:
+            - addFormContainer(Wame\UserModule\Forms\Company\NameFormContainer(), 'NameFormContainer', 99)
+            - addFormContainer(Wame\UserModule\Forms\Company\DescriptionFormContainer(), 'DescriptionFormContainer', 98)
+            - addFormContainer(Wame\UserModule\Forms\Company\BillingDataFormContainer(), 'BillingDataFormContainer', 80)

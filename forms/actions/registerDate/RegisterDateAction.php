@@ -19,7 +19,6 @@ class RegisterDateAction extends BaseAction
     /** {@inheritDoc} */
     public function create($form, $values)
     {
-        \Tracy\Debugger::barDump("RegisterDateAction create");
         $form->getEntity()->setRegisterDate(Date::toDateTime(Date::NOW));
     }
 
