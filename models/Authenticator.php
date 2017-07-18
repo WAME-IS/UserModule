@@ -29,11 +29,11 @@ class Authenticator extends Object implements Security\IAuthenticator
 
         $this->verify($userEntity, $password);
 
-        if (Security\Passwords::needsRehash($userEntity->getPassword())) {
-            $userEntity->setPassword(Security\Passwords::hash($password));
-        }
+		if (Security\Passwords::needsRehash($userEntity->getPassword())) {
+			$userEntity->setPassword(Security\Passwords::hash($password));
+		}
 
-        $userEntity->setLastLogin(Date::toDateTime('now'));
+		$userEntity->setLastLogin(Date::toDateTime('now'));
 
 //        return new Security\Identity($userEntity->id, $userEntity->role, $this->getIdentityData($userEntity));
         return $userEntity;
@@ -46,7 +46,9 @@ class Authenticator extends Object implements Security\IAuthenticator
             throw new Security\AuthenticationException(_('The user with this email not found.'), self::IDENTITY_NOT_FOUND);
         }
 
-        if (!Security\Passwords::verify($password, $userEntity->getPassword())) {
+        \Tracy\Debugger::barDump($password, $userEntity->password);
+
+        if (!Security\Passwords::verify($password, $userEntity->password)) {
             throw new Security\AuthenticationException(_('Wrong password entered.'), self::INVALID_CREDENTIAL);
         }
 
@@ -56,6 +58,10 @@ class Authenticator extends Object implements Security\IAuthenticator
 
  		if ($userEntity->status == UserRepository::STATUS_VERIFY_EMAIL){
 			throw new Security\AuthenticationException(_('The user account is not activated. Use the activation link sent to you at your email.'), self::INVALID_CREDENTIAL);
+		}
+
+ 		if ($userEntity->status == UserRepository::STATUS_RESET_PASSWORD){
+			throw new Security\AuthenticationException(_('You have requested to change your password. To your inbox you will be sent an email with a link to change your password.'), self::INVALID_CREDENTIAL);
 		}
 	}
 

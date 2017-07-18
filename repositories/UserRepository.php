@@ -3,6 +3,7 @@
 namespace Wame\UserModule\Repositories;
 
 use Nette\Utils\Random;
+use Nette\Utils\Strings;
 use Wame\Core\Repositories\BaseRepository;
 use Wame\UserModule\Entities\UserEntity;
 use Wame\Core\Exception\RepositoryException;
@@ -13,6 +14,7 @@ class UserRepository extends BaseRepository
 	const STATUS_BLOCKED = 0;
 	const STATUS_ACTIVE = 1;
 	const STATUS_VERIFY_EMAIL = 2;
+	const STATUS_RESET_PASSWORD = 3;
 
 
     /**
@@ -99,14 +101,14 @@ class UserRepository extends BaseRepository
 	 */
 	public function getPassword($values = [])
 	{
-		if (isset($values['PasswordContainer']['password'])) {
-			if ($values['PasswordContainer']['password'] && $values['PasswordContainer']['password'] == $values['PasswordRepeatContainer']['passwordRepeat']) {
-				$password = $values['PasswordContainer']['password'];
+		if (array_key_exists('password', $values)) {
+			if ($values['password'] && $values['password'] == $values['password_repeat']) {
+				$password = $values['password'];
 			} else {
 				throw new RepositoryException(_('Passwords must be the same.'));
 			}
 		} else {
-			$password = Random::generate();
+			$password = Strings::random();
 		}
 
 		return $password;
@@ -115,6 +117,7 @@ class UserRepository extends BaseRepository
 
 	/**
 	 * Reset password
+	 * password set on null and change status
 	 *
 	 * @param array $criteria
 	 * @return UserEntity
@@ -125,14 +128,17 @@ class UserRepository extends BaseRepository
 		$userEntity = $this->get($criteria);
 
 		if (!$userEntity) {
-			throw new RepositoryException(_('Account with this email does not exist.'));
+			throw new RepositoryException(_('The user of this data not found.'));
 		}
 
-		if ($userEntity->getStatus() == self::STATUS_BLOCKED) {
+		if ($userEntity->status == self::STATUS_BLOCKED) {
 			throw new RepositoryException(_('This user account is blocked.'));
 		}
 
         $this->onPasswordReset($userEntity);
+
+//		$userEntity->password = null;
+//		$userEntity->status = self::STATUS_RESET_PASSWORD;
 
 		return $userEntity;
 	}
@@ -148,7 +154,8 @@ class UserRepository extends BaseRepository
 	 */
 	public function changePassword($userEntity, $password)
 	{
-		$userEntity->setPassword($password);
+		$userEntity->password = $password;
+		$userEntity->status = self::STATUS_ACTIVE;
 
 		return $userEntity;
 	}
