@@ -94,6 +94,12 @@ class UserEntity extends BaseEntity implements IIdentity
     protected $gender = null;
 
     /**
+     * @var \DateTime
+     * @ORM\Column(name="birthdate", type="datetime", nullable=true)
+     */
+    protected $birthdate;
+
+    /**
      * @noApi
      * @ORM\OneToOne(targetEntity="\Wame\UserModule\Entities\TokenEntity", mappedBy="user")
      */
