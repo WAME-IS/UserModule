@@ -20,9 +20,9 @@ class PasswordRepeatContainer extends BaseContainer
     public function configure()
 	{
 		$this->addPassword('passwordRepeat', _('Password repeat'))
-            ->setRequired(true)
-            ->addRule(Form::FILLED, _('Password can not be empty'))
-            ->addRule(Form::EQUAL, _('Passwords must be the same'), $this->getForm()['PasswordContainer']['password']);
+                ->setRequired(true)
+                ->addRule(Form::FILLED, _('Password can not be empty'))
+                ->addRule(Form::EQUAL, _('Passwords must be the same'), $this->getForm()['PasswordContainer']['password']);
     }
 
 }

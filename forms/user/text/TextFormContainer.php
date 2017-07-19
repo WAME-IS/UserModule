@@ -5,18 +5,18 @@ namespace Wame\UserModule\Forms;
 use Nette\Application\UI\Form;
 use Nette\Application\UI\Presenter;
 use Wame\DynamicObject\Forms\BaseFormContainer;
-use Wame\UserModule\Entities\UserInfoEntity;
+use Wame\UserModule\Entities\UserEntity;
+
 
 interface ITextFormContainerFactory
 {
-
     /** @return TextFormContainer */
     public function create();
 }
 
+
 class TextFormContainer extends BaseFormContainer
 {
-
     public function configure()
     {
         $form = $this->getForm();
@@ -24,12 +24,14 @@ class TextFormContainer extends BaseFormContainer
         $form->addTextArea('text', _('About me'));
     }
 
+
     public function setDefaultValues($object)
     {
         $form = $this->getForm();
 
-        $form['text']->setDefaultValue($object->userEntity->info->text);
+        $form['text']->setDefaultValue($object->userEntity->getText());
     }
+
 
     /**
      * Create
@@ -40,14 +42,15 @@ class TextFormContainer extends BaseFormContainer
      */
     public function create($form, $values, $presenter)
     {
-        $userInfoEntity = $presenter->getStatus()->get(UserInfoEntity::class);
+        $userEntity = $presenter->getStatus()->get(UserEntity::class);
 
-        if (!$userInfoEntity) {
-            $userInfoEntity = new UserInfoEntity();
+        if (!$userEntity) {
+            $userEntity = new UserEntity();
         }
 
-        $userInfoEntity->setText($values['text']);
+        $userEntity->setText($values['text']);
 
-        $presenter->getStatus()->set(UserInfoEntity::class, $userInfoEntity);
+        $presenter->getStatus()->set(UserEntity::class, $userEntity);
     }
+
 }

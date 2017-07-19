@@ -19,7 +19,8 @@
         "majkl578/nette-identity-doctrine": "dev-fix/proxy",
         "wame/LocationModule": ">=0.0.1",
         "wame/DynamicObject": ">=0.0.1",
-        "wame/DataGridControl": ">=0.0.1"
+        "wame/DataGridControl": ">=0.0.1",
+        "wame/PermissionModule": ">=0.0.1"
     },
     "softRequire": {
         "wame/AdminModule": ">=0.0.1",
