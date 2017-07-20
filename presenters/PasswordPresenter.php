@@ -22,6 +22,15 @@ class PasswordPresenter extends \App\Core\Presenters\BasePresenter
 
     /** actions ***************************************************************/
 
+    public function actionChange()
+    {
+        if (!$this->user->isLoggedIn()) {
+            $this->flashMessage(_('To enter this section must be log in.'), 'danger');
+            $this->redirect(':User:Sign:in');
+        }
+    }
+
+
 	public function actionNew()
 	{
 		if ($this->user->isLoggedIn()) {
@@ -63,11 +72,17 @@ class PasswordPresenter extends \App\Core\Presenters\BasePresenter
 
 
     /** renders ***************************************************************/
-	
-	public function renderForgot()
-	{
-		$this->template->siteTitle = _('Reset password');
-	}
+
+    public function renderChange()
+    {
+        $this->template->siteTitle = _('Change password');
+    }	
+    
+    
+    public function renderForgot()
+    {
+        $this->template->siteTitle = _('Reset password');
+    }
 	
 	
 	public function renderNew()
@@ -89,11 +104,24 @@ class PasswordPresenter extends \App\Core\Presenters\BasePresenter
      *
      * @return BaseForm
      */
+    protected function createComponentPasswordChangeForm()
+    {
+        return $this->context
+                    ->getService('PasswordChangeFormBuilder')
+                    ->build();
+    }
+
+
+    /**
+     * Forgotten password form
+     *
+     * @return BaseForm
+     */
     protected function createComponentPasswordForgotForm()
     {
         return $this->context
                     ->getService('PasswordForgotFormBuilder')
-                    ->build($this->id);
+                    ->build();
     }
 
 
@@ -106,7 +134,7 @@ class PasswordPresenter extends \App\Core\Presenters\BasePresenter
     {
         return $this->context
                     ->getService('PasswordNewFormBuilder')
-                    ->build($this->id);
+                    ->build();
     }
 
 }

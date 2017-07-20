@@ -1,11 +1,11 @@
 services:
     # Form containers - old
-    - Wame\UserModule\Forms\IBirthdateFormContainerFactory
-    - Wame\UserModule\Forms\IDegreeFormContainerFactory
-    - Wame\UserModule\Forms\IEmailFormContainerFactory
-    - Wame\UserModule\Forms\INameFormContainerFactory
-    - Wame\UserModule\Forms\INickFormContainerFactory
-    - Wame\UserModule\Forms\ITextFormContainerFactory
+#    - Wame\UserModule\Forms\IBirthdateFormContainerFactory
+#    - Wame\UserModule\Forms\IDegreeFormContainerFactory
+#    - Wame\UserModule\Forms\IEmailFormContainerFactory
+#    - Wame\UserModule\Forms\INameFormContainerFactory
+#    - Wame\UserModule\Forms\INickFormContainerFactory
+#    - Wame\UserModule\Forms\ITextFormContainerFactory
 
 
     # Form containers
@@ -14,6 +14,7 @@ services:
     - Wame\UserModule\Forms\Containers\ILastNameContainerFactory
     - Wame\UserModule\Forms\Containers\IEmailContainerFactory
     - Wame\UserModule\Forms\Containers\IDegreeContainerFactory
+    - Wame\UserModule\Forms\Containers\IGenderContainerFactory
     - Wame\UserModule\Forms\Containers\IBirthdateContainerFactory
     - Wame\UserModule\Forms\Containers\IIcoContainerFactory
     - Wame\UserModule\Forms\Containers\IDicContainerFactory
@@ -22,7 +23,7 @@ services:
 
 
     # Form actions
-    - Wame\UserModule\Forms\Actions\IRegisterDateActionFactory
+#    - Wame\UserModule\Forms\Actions\IRegisterDateActionFactory
 
 
     # Forms
@@ -59,11 +60,34 @@ services:
             # Actions
             - redirectTo(':User:Profile:')
 
-    UserSettingsForm:
-        class: Wame\UserModule\Forms\UserSettingsForm
+    UserSettingsAccountFormBuilder:
+        class: Wame\DynamicObject\Forms\EntityFormBuilder
         setup:
-#            TODO: pridat group
-#            - addFormContainer()
-            - addFormContainer(Wame\UserModule\Forms\Settings\NickFormContainer(), 'NickFormContainer', 90)
-            - addFormContainer(Wame\UserModule\Forms\Settings\EmailFormContainer(), 'EmailFormContainer', 80)
-            - addFormContainer(Wame\UserModule\Forms\Settings\PasswordFormContainer(), 'PasswordFormContainer', 70)
+            - setRepository(@UserRepository)
+            # Login group
+            - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'LoginGroup', {priority: 100})
+            - add(@Wame\UserModule\Forms\Containers\INickContainerFactory, 'NickContainer', {priority: 99})
+            - add(@Wame\UserModule\Forms\Containers\IEmailContainerFactory, 'EmailContainer', {priority: 95})
+            # Name group
+            - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'NameGroup', {priority: 80})
+            - add(@Wame\UserModule\Forms\Containers\IDegreeContainerFactory, 'DegreeContainer', {priority: 79})
+            - add(@Wame\UserModule\Forms\Containers\IFirstNameContainerFactory, 'FirstNameContainer', {priority: 75})
+            - add(@Wame\UserModule\Forms\Containers\ILastNameContainerFactory, 'LastNameContainer', {priority: 70})
+            # Other group
+            - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'OtherGroup', {priority: 50})
+            - add(@Wame\UserModule\Forms\Containers\IGenderContainerFactory, 'GenderContainer', {priority: 49})
+            - add(@Wame\UserModule\Forms\Containers\IBirthdateContainerFactory, 'BirthdateContainer', {priority: 48})
+            - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer')
+            # Actions
+            - redirectTo(':User:Profile:')
+
+
+
+#    UserSettingsForm:
+#        class: Wame\UserModule\Forms\UserSettingsForm
+#        setup:
+##            TODO: pridat group
+##            - addFormContainer()
+#            - addFormContainer(Wame\UserModule\Forms\Settings\NickFormContainer(), 'NickFormContainer', 90)
+#            - addFormContainer(Wame\UserModule\Forms\Settings\EmailFormContainer(), 'EmailFormContainer', 80)
+#            - addFormContainer(Wame\UserModule\Forms\Settings\PasswordFormContainer(), 'PasswordFormContainer', 70)

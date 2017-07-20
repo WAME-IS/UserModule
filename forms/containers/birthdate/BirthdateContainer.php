@@ -19,14 +19,16 @@ class BirthdateContainer extends BaseContainer
     /** {@inheritDoc} */
     public function configure()
 	{
-		$this->addText('birthdate', _('Birthdate'));
+		$this->addText('birthdate', _('Birthdate'))
+                ->setType('date')
+                ->setRequired(true);
     }
 
 
     /** {@inheritDoc} */
 	public function setDefaultValues($entity)
 	{
-        $this['birthdate']->setDefaultValue(Date::toString($entity->getBirthdate(), 'd.m.Y'));
+        $this['birthdate']->setDefaultValue(Date::toString($entity->getBirthdate(), 'Y-m-d'));
 	}
 
 

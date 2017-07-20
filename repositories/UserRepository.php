@@ -14,6 +14,9 @@ class UserRepository extends BaseRepository
 	const STATUS_ACTIVE = 1;
 	const STATUS_VERIFY_EMAIL = 2;
 
+    const GENDER_WOMAN = 0;
+    const GENDER_MAN = 1;
+
 
     /**
      * Event called when password reset
@@ -232,6 +235,28 @@ class UserRepository extends BaseRepository
 		} else {
 			throw new RepositoryException(_('The user with this nick already exists.'));
 		}
+    }
+
+
+    /**
+     * Get gender list
+     *
+     * @param int|null $gender
+     *
+     * @return array|string
+     */
+    public static function getGender($gender = null)
+    {
+        $list = [
+            self::GENDER_WOMAN => _('Woman'),
+            self::GENDER_MAN => _('Man')
+        ];
+
+        if ($gender) {
+            return $list[$gender];
+        }
+
+        return $list;
     }
 
 

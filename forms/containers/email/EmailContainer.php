@@ -18,7 +18,8 @@ class EmailContainer extends BaseContainer
     /** {@inheritDoc} */
     public function configure()
 	{
-		$this->addText('email', _('Email'));
+		$this->addEmail('email', _('Email'))
+                ->setRequired(true);
     }
 
 
