@@ -19,7 +19,7 @@ class TokenEntity extends BaseEntity
 
 
     /**
-     * @ORM\OneToOne(targetEntity="Wame\UserModule\Entities\UserEntity", inversedBy="token")
+     * @ORM\OneToOne(targetEntity="Wame\UserModule\Entities\UserEntity", inversedBy="token", cascade={"persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
