@@ -3,12 +3,13 @@
 {/block}
 
 {block content}
-	<h1>
-		{$siteTitle}
-		
-		<small>{$userEntity->nick}</small>
-	</h1>
-	
-	<div class="row">
-		{position profile}
-	</div>
+
+<main class="container">
+    <h1>
+        {$siteTitle}
+
+        <small>{$userEntity->nick}</small>
+    </h1>
+
+    {position userProfileTop}
+</main>
