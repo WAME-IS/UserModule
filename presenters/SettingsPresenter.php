@@ -46,7 +46,7 @@ class SettingsPresenter extends \App\Core\Presenters\BasePresenter
 
     public function renderAccount()
     {
-        $this->template->siteTitle = _('Account');
+        $this->template->siteTitle = _('Account settings');
     }
 
 
