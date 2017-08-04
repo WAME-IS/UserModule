@@ -1,5 +1,9 @@
 {var $remember = $container['remember']}
 <div class="form-group">
-    <input class="filled-in" n:name="$remember">
-    <label n:name="$remember">{_'Remember'}</label>
+    <div class="checkbox">
+        <label n:name="$remember">
+            <input class="filled-in" n:name="$remember">
+            {_'Remember'}
+        </label>
+    </div>
 </div>

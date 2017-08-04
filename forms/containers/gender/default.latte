@@ -1,5 +1,13 @@
 {var $gender = $container['gender']}
 <div class="form-group">
-    {label $gender/}
-    {input $gender}
+    <div class="radio-list">
+        <label n:name="$gender">{_'Gender'}</label>
+        {foreach $gender->items as $key => $label}
+            <div class="radio">
+                <label n:name="$gender:$key">
+                    <input n:name="$gender:$key" /> {$label}
+                </label>
+            </div>    
+        {/foreach}
+    </div>
 </div>
