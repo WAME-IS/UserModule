@@ -20,6 +20,7 @@ services:
     - Wame\UserModule\Forms\Containers\IDicContainerFactory
     - Wame\UserModule\Forms\Containers\IIcDphContainerFactory
     - Wame\UserModule\Forms\Containers\ICompanyContainerFactory
+    - Wame\UserModule\Forms\Containers\ILicenceTermsContainerFactory
 
 
     # Form actions
@@ -56,6 +57,7 @@ services:
             # Other group
             - add(@Wame\DynamicObject\Forms\Groups\IEmptyGroupFactory, 'OtherGroup', {priority: 50})
             - add(@Wame\UserModule\Forms\Containers\IBirthdateContainerFactory, 'BirthdateContainer', {priority: 49})
+            - add(@Wame\UserModule\Forms\Containers\ILicenceTermsContainerFactory, 'LicenceTermsContainer', {priority: 10})
             - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer')
             # Actions
             - redirectTo(':User:Profile:')
