@@ -6,13 +6,14 @@ use App\Core\Presenters\BasePresenter;
 use Wame\UserModule\Entities\UserEntity;
 use Wame\UserModule\Repositories\UserRepository;
 
+
 class ProfilePresenter extends BasePresenter
 {	
 	/** @var UserRepository @inject */
-	public $userRepository;
+	public $repository;
 	
 	/** @var UserEntity */
-	private $userEntity;
+	private $entity;
 	
 	
 	public function actionDefault()
@@ -22,16 +23,18 @@ class ProfilePresenter extends BasePresenter
 			$this->redirect(':User:Sign:in');
 		}
 		
-		$this->userEntity = $this->user->getEntity();
-        
-        $this->getStatus()->set(UserEntity::class, $this->userEntity);
+		$this->entity = $this->user->getEntity();
+
+        $this->getStatus()->set('item', $this->entity);
+        $this->getStatus()->set(UserEntity::class, $this->entity);
 	}
 	
 	
 	public function renderDefault()
 	{
-		$this->template->siteTitle = _('Profile');
-		$this->template->userEntity = $this->userEntity;
+        $this->template->siteTitle = _('Profile');
+        $this->template->subTitle = $this->entity->getFullName();
+		$this->template->userEntity = $this->entity;
 	}
 
 }
