@@ -10,6 +10,7 @@ class AddCompany extends AdminAdd
     public function __construct() 
     {
         $this->setTitle(_('Create company'));
+        $this->isAjaxModal(null, true);
     }
 
 }
