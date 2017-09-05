@@ -8,7 +8,7 @@ class Dic extends BaseGridItem
 {
     /** {@inheritDoc} */
 	public function render($grid) {
-		$grid->addColumnText('dic', _('Dic'))
+		$grid->addColumnText('dic', _('Tax ID'))
                 ->setSortable()
 				->setFilterText();
                 

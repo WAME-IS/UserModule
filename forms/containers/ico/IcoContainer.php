@@ -16,8 +16,8 @@ class IcoContainer extends BaseContainer
     /** {@inheritDoc} */
     public function configure() 
 	{
-		$this->addText('ico', _('Ico'))
-				->setRequired(_('Please enter ICO'));
+		$this->addText('ico', _('Business ID'))
+				->setRequired(_('Please enter Business ID'));
     }
 
     /** {@inheritDoc} */

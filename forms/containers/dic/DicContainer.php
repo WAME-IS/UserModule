@@ -16,7 +16,7 @@ class DicContainer extends BaseContainer
     /** {@inheritDoc} */
     public function configure() 
 	{
-		$this->addText('dic', _('Dic'));
+		$this->addText('dic', _('Tax ID'));
     }
 
     /** {@inheritDoc} */

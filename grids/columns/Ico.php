@@ -8,7 +8,7 @@ class Ico extends BaseGridItem
 {
     /** {@inheritDoc} */
 	public function render($grid) {
-		$grid->addColumnText('ico', _('Ico'))
+		$grid->addColumnText('ico', _('Business ID'))
                 ->setSortable()
 				->setFilterText();
                 

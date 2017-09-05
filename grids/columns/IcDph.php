@@ -8,7 +8,7 @@ class IcDph extends BaseGridItem
 {
     /** {@inheritDoc} */
 	public function render($grid) {
-		$grid->addColumnText('icDph', _('IcDph'))
+		$grid->addColumnText('icDph', _('VAT reg. no.'))
                 ->setSortable()
 				->setFilterText();
                 

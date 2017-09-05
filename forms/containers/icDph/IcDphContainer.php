@@ -16,7 +16,7 @@ class IcDphContainer extends BaseContainer
     /** {@inheritDoc} */
     public function configure() 
 	{
-		$this->addText('icDph', _('IcDph'));
+		$this->addText('icDph', _('VAT reg. no.'));
     }
 
     /** {@inheritDoc} */
