@@ -5,12 +5,16 @@ namespace App\AdminModule\Presenters;
 use Wame\DynamicObject\Vendor\Wame\AdminModule\Presenters\AdminFormPresenter;
 use Wame\UserModule\Entities\CompanyEntity;
 use Wame\UserModule\Repositories\CompanyRepository;
+use Wame\UserModule\Repositories\UserInCompanyRepository;
 
 
 class CompanyPresenter extends AdminFormPresenter
 {
 	/** @var CompanyRepository @inject */
 	public $repository;
+
+	/** @var UserInCompanyRepository @inject */
+	public $userInCompanyRepository;
 
 	/** @var CompanyEntity @inject */
 	protected $entity;
@@ -20,13 +24,15 @@ class CompanyPresenter extends AdminFormPresenter
 
     public function actionEdit()
     {
-        $this->entity = $this->repository->get(['id' => $this->id]);
-    }
+        parent::actionEdit();
 
+        if (!$this->entity) {
+            $this->redirect(':Admin:Company:', ['id' => null]);
+        }
 
-    public function actionDelete()
-    {
-        $this->entity = $this->repository->get(['id' => $this->id]);
+        $this->count = $this->userInCompanyRepository->countBy(['company' => $this->entity]);
+
+//        $this->addComponent($this->IParameterModuleListControlFactory->create($this->entity->getParameter(), $this->entity->getId()), 'parameterModuleList');
     }
 
 
@@ -36,7 +42,7 @@ class CompanyPresenter extends AdminFormPresenter
 	{
 		$this->repository->changeStatus(['id' => $this->id]);
 
-		$this->flashMessage(sprintf(_('Company has been successfully deleted.'), $this->entity->getName()), 'success');
+		$this->flashMessage(sprintf(_('Company %s has been successfully deleted.'), $this->entity->getName()), 'success');
 		$this->redirect(':Admin:Company:', ['id' => null]);
 	}
 
@@ -51,7 +57,7 @@ class CompanyPresenter extends AdminFormPresenter
 
 	public function renderCreate()
 	{
-		$this->template->siteTitle = _('Create company');
+		$this->template->siteTitle = _('Create new company');
 	}
 
 
@@ -59,14 +65,14 @@ class CompanyPresenter extends AdminFormPresenter
 	{
 		$this->template->siteTitle = _('Edit company');
 		$this->template->subTitle = $this->entity->getName();
+        $this->template->count = $this->count;
 	}
 
 
 	public function renderDelete()
 	{
-		$this->template->siteTitle = _('Delete company');
+		$this->template->siteTitle = _('Deleting company');
 		$this->template->subTitle = $this->entity->getName();
-        $this->template->type = $this->getParameter('t');
 	}
 
 
