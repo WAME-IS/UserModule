@@ -17,9 +17,18 @@ services:
         class: Wame\UserModule\Repositories\CompanyRepository
         inject: yes
 
+    CompanyItemRepository:
+        class: Wame\UserModule\Repositories\CompanyItemRepository
+        inject: yes
+
     UserInCompanyRepository:
         class: Wame\UserModule\Repositories\UserInCompanyRepository
         inject: yes
+
+
+    # Registers
+    CompanyItemRegister:
+        class: Wame\UserModule\Registers\CompanyItemRegister
 
 
     # Components
@@ -27,8 +36,8 @@ services:
     - Wame\UserModule\Components\ICompanyListControlFactory
 
 
-    # Events
-#    - {class: Wame\UserModule\Events\SignUp\CompanyListener, tags: [run]}
+    # Form containers
+    - Wame\UserModule\Forms\Containers\ICompanyItemContainerFactory
 
 
     # Forms

@@ -5,6 +5,7 @@ namespace Wame\UserModule\Repositories;
 use Wame\Core\Repositories\BaseRepository;
 use Wame\UserModule\Entities\UserInCompanyEntity;
 
+
 class UserInCompanyRepository extends BaseRepository
 {
 	public function __construct()
@@ -17,6 +18,7 @@ class UserInCompanyRepository extends BaseRepository
 	 * Add user to company
 	 * 
 	 * @param UserInCompanyEntity $userInCompanyEntity
+     *
 	 * @return UserInCompanyEntity
 	 */
 	public function create($userInCompanyEntity)
@@ -31,8 +33,8 @@ class UserInCompanyRepository extends BaseRepository
 	 * Get company list
 	 * 
 	 * @param int $userId
-	 * @return array
-	 * @throws \Exception
+     *
+	 * @return UserInCompanyEntity[]
 	 */
 	public function getCompanyList($userId = null)
 	{
@@ -56,6 +58,7 @@ class UserInCompanyRepository extends BaseRepository
 	 * Get company pairs
 	 * 
 	 * @param int $userId
+     *
 	 * @return array
 	 */
 	public function getCompanyPairs($userId = null, $value = 'name', $key = 'id')

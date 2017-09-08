@@ -15,7 +15,7 @@ interface ICompanyContainerFactory extends IBaseContainer
 
 class CompanyContainer extends BaseContainer
 {
-    /** @var string */
+    /** @var array */
     private $companyList;
 
 
