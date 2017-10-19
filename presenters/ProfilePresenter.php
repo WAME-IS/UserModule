@@ -13,7 +13,7 @@ class ProfilePresenter extends BasePresenter
 	public $repository;
 	
 	/** @var UserEntity */
-	private $entity;
+    protected $entity;
 	
 	
 	public function actionDefault()
