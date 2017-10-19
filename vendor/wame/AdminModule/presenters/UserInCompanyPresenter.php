@@ -3,6 +3,7 @@
 namespace App\AdminModule\Presenters;
 
 use Wame\DynamicObject\Vendor\Wame\AdminModule\Presenters\AdminFormPresenter;
+use Wame\UserModule\Entities\CompanyEntity;
 use Wame\UserModule\Entities\UserInCompanyEntity;
 use Wame\UserModule\Repositories\UserInCompanyRepository;
 use Wame\UserModule\Repositories\CompanyRepository;
@@ -16,8 +17,16 @@ class UserInCompanyPresenter extends AdminFormPresenter
 	/** @var CompanyRepository @inject */
 	public $companyRepository;
 
-	/** @var UserInCompanyEntity */
+	/** @var UserInCompanyEntity|CompanyEntity */
 	protected $entity;
+
+
+    /** actions ***************************************************************/
+
+    public function actionCreate()
+    {
+        $this->entity = $this->companyRepository->get(['id' => $this->id]);
+    }
 
 
     /** handles ***************************************************************/
@@ -41,8 +50,8 @@ class UserInCompanyPresenter extends AdminFormPresenter
 
 	public function renderCreate()
 	{
-		$this->template->siteTitle = _('Add company to user');
-        $this->template->subTitle = $this->entity->getFullName();
+		$this->template->siteTitle = _('Add user to company');
+        $this->template->subTitle = $this->entity->getName();
 	}
 
 

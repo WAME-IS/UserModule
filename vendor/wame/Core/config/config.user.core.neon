@@ -2,3 +2,4 @@ services:
     StatusTypeRegister:
         setup:
             - add(Wame\UserModule\Vendor\Wame\Core\Registers\Types\UserStatusType(), 'user')
+            - add(Wame\UserModule\Vendor\Wame\Core\Registers\Types\CompanyStatusType(), 'company')

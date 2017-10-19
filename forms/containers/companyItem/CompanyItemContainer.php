@@ -8,7 +8,6 @@ use Wame\Core\Registers\Types\StatusType;
 use Wame\DynamicObject\Forms\Containers\BaseContainer;
 use Wame\DynamicObject\Registers\Types\IBaseContainer;
 use Wame\UserModule\Entities\CompanyItemEntity;
-use Wame\UserModule\Registers\CompanyItemRegister;
 use Wame\UserModule\Repositories\CompanyItemRepository;
 use Wame\UserModule\Repositories\CompanyRepository;
 use Wame\UserModule\Repositories\UserInCompanyRepository;
@@ -30,9 +29,6 @@ class CompanyItemContainer extends BaseContainer
     /** @var CompanyItemRepository */
     private $companyItemRepository;
 
-    /** @var CompanyItemRegister */
-    private $companyItemRegister;
-
     /** @var StatusTypeRegister */
     private $statusTypeRegister;
 
@@ -44,14 +40,12 @@ class CompanyItemContainer extends BaseContainer
         \Nette\DI\Container $container,
         CompanyRepository $companyRepository,
         CompanyItemRepository $companyItemRepository,
-        CompanyItemRegister $companyItemRegister,
         StatusTypeRegister $statusTypeRegister
     ) {
         parent::__construct($container);
 
         $this->companyRepository = $companyRepository;
         $this->companyItemRepository = $companyItemRepository;
-        $this->companyItemRegister = $companyItemRegister;
         $this->statusTypeRegister = $statusTypeRegister;
 
         $this->companyList = $companyRepository->getPairs();

@@ -16,7 +16,7 @@ class CompanyPresenter extends AdminFormPresenter
 	/** @var UserInCompanyRepository @inject */
 	public $userInCompanyRepository;
 
-	/** @var CompanyEntity @inject */
+	/** @var CompanyEntity */
 	protected $entity;
 
 
@@ -31,8 +31,6 @@ class CompanyPresenter extends AdminFormPresenter
         }
 
         $this->count = $this->userInCompanyRepository->countBy(['company' => $this->entity]);
-
-//        $this->addComponent($this->IParameterModuleListControlFactory->create($this->entity->getParameter(), $this->entity->getId()), 'parameterModuleList');
     }
 
 
