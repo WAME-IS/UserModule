@@ -31,6 +31,8 @@ class CompanyPresenter extends AdminFormPresenter
         }
 
         $this->count = $this->userInCompanyRepository->countBy(['company' => $this->entity]);
+
+        $this->getStatus()->set(CompanyEntity::class, $this->entity);
     }
 
 
