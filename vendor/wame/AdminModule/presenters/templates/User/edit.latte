@@ -1,3 +1,28 @@
+{block javascript}
+    <script>
+        $(document).ready(function(){
+            $('ul.tabs').tabs();
+        });
+    </script>
+{/block}
+
+
 {block content}
 
-{control form}
+<ul class="tabs z-depth-1">
+    <li class="tab"><a href="#general" class="active">{_'General'}</a></li>
+    <li class="tab disabled"><a href="#parameters">{_'Parameters'}</a></li>
+</ul>
+
+
+<div class="card-panel no-shadow" id="general">
+    <div class="row">
+        <div class="col-xs-12 col-lg-8">
+            {control form}
+        </div>
+
+        <div class="col-xs-12 col-lg-4">
+            {position adminUserRightPanel}
+        </div>
+    </div>
+</div>
