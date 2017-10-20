@@ -47,3 +47,15 @@ services:
             - add(Wame\DataGridControl\Actions\Delete(), null, {priority: 1})
             - add(Wame\UserModule\Vendor\Wame\AdminModule\Grids\ToolbarButtons\AddCompany())
             - add(Wame\DataGridControl\GroupActions\DeleteSelected())
+
+
+    # Commands
+    PositionAdminUserCompanyRightPanelCommand:
+        class: Wame\UserModule\Vendor\Wame\AdminModule\Commands\PositionAdminUserCompanyRightPanelCommand
+        tags: [kdyby.console.command]
+
+
+    # Registers
+    AdminPositionRegister:
+        setup:
+            - add(@PositionAdminUserCompanyRightPanelCommand, 'PositionAdminUserCompanyRightPanelCommand')

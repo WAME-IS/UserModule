@@ -53,3 +53,15 @@ services:
             - add(Wame\UserModule\Vendor\Wame\AdminModule\Grids\ToolbarButtons\AddUser())
             - add(Wame\DataGridControl\GroupActions\DeleteSelected())
             - add(Wame\UserModule\Vendor\Wame\AdminModule\Grids\GroupActions\ChangeRoleSelected())
+
+
+    # Commands
+    PositionAdminUserRightPanelCommand:
+        class: Wame\UserModule\Vendor\Wame\AdminModule\Commands\PositionAdminUserRightPanelCommand
+        tags: [kdyby.console.command]
+
+
+    # Registers
+    AdminPositionRegister:
+        setup:
+            - add(@PositionAdminUserRightPanelCommand, 'PositionAdminUserRightPanelCommand')
