@@ -8,8 +8,6 @@ router:
         '/[<lang>/]profile': 'User:Profile:default'
         '/[<lang>/]settings': 'User:Settings:default'
         '/[<lang>/]reset-password': 'User:Password:forgot'
-        '/[<lang>/]user/company': 'User:Company:default'
-        '/[<lang>/]user/company/create': 'User:Company:create'
         '/[<lang>/]verify-account': 'User:Verify:default'
         '/[<lang>/]admin/users': 'Admin:User:default'
         '/[<lang>/]admin/user/create': 'Admin:User:create'

@@ -23,10 +23,6 @@ Slúži na správu užívateľov
 
 ## Components
 
-### Company
-
-### CompanyList
-
 ### User
 
 ### UserEmptyList

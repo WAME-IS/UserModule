@@ -16,10 +16,6 @@ services:
     - Wame\UserModule\Forms\Containers\IDegreeContainerFactory
     - Wame\UserModule\Forms\Containers\IGenderContainerFactory
     - Wame\UserModule\Forms\Containers\IBirthdateContainerFactory
-    - Wame\UserModule\Forms\Containers\IIcoContainerFactory
-    - Wame\UserModule\Forms\Containers\IDicContainerFactory
-    - Wame\UserModule\Forms\Containers\IIcDphContainerFactory
-    - Wame\UserModule\Forms\Containers\ICompanyContainerFactory
     - Wame\UserModule\Forms\Containers\ILicenceTermsContainerFactory
 
 

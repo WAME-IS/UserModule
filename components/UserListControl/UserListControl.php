@@ -8,11 +8,13 @@ use Wame\UserModule\Entities\UserEntity;
 use Wame\ChameleonComponents\IO\DataLoaderControl;
 use Wame\ChameleonComponentsListControl\Components\ChameleonListControl;
 
+
 interface IUserListControlFactory
 {
     /** @return UserListControl */
     public function create();
 }
+
 
 class UserListControl extends ChameleonListControl implements DataLoaderControl
 {
@@ -24,6 +26,7 @@ class UserListControl extends ChameleonListControl implements DataLoaderControl
         $name = NULL
     ) {
         parent::__construct($container, $parent, $name);
+
         $this->setComponentFactory($IUserControlFactory);
         $this->setNoItemsFactory($IUserEmptyListControlFactory);
     }
@@ -34,4 +37,5 @@ class UserListControl extends ChameleonListControl implements DataLoaderControl
     {
         return UserEntity::class;
     }
+
 }
