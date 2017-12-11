@@ -2,6 +2,7 @@
 
 namespace Wame\UserModule\Forms;
 
+use Wame\DynamicObject\Forms\BaseForm;
 use Wame\DynamicObject\Forms\EntityFormBuilder;
 use Wame\UserModule\Entities\UserEntity;
 use Wame\UserModule\Repositories\TokenRepository;
@@ -22,6 +23,24 @@ class UserSignUpFormBuilder extends EntityFormBuilder
     }
 
 
+    /** {@inheritDoc} */
+    public function submit(BaseForm $form, array $values)
+    {
+        $entity = $form->getEntity();
+
+        $entity = $this->create($form, $values);
+
+        if ($this->persist) {
+            $this->getRepository()->create($entity);
+        }
+
+        $this->getRepository()->onCreate($form, $values, $entity);
+
+        $form->getRepository()->entityManager->flush();
+    }
+
+
+    /** {@inheritDoc} */
     protected function create($form, $values)
     {
         /** @var UserEntity $entity */

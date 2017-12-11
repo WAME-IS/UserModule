@@ -9,6 +9,7 @@ use Wame\UserModule\Entities\UserEntity;
 use Wame\UserModule\Repositories\UserRepository;
 use Wame\Utils\Date;
 
+
 class Authenticator extends Object implements Security\IAuthenticator
 {
 	/** @var UserRepository */
@@ -35,7 +36,6 @@ class Authenticator extends Object implements Security\IAuthenticator
 
         $userEntity->setLastLogin(Date::toDateTime('now'));
 
-//        return new Security\Identity($userEntity->id, $userEntity->role, $this->getIdentityData($userEntity));
         return $userEntity;
     }
 
@@ -57,30 +57,6 @@ class Authenticator extends Object implements Security\IAuthenticator
  		if ($userEntity->status == UserRepository::STATUS_VERIFY_EMAIL){
 			throw new Security\AuthenticationException(_('The user account is not activated. Use the activation link sent to you at your email.'), self::INVALID_CREDENTIAL);
 		}
-	}
-
-
-	/**
-	 * Return identity data
-	 *
-	 * @param UserEntity $userEntity
-	 * @return array
-	 */
-	private function getIdentityData($userEntity)
-	{
-		return [
-			'lang' => $userEntity->lang,
-			'token' => $userEntity->token,
-			'email' => $userEntity->email,
-			'nick' => $userEntity->nick,
-			'name' => $userEntity->name,
-			'fullName' => $userEntity->fullName,
-			'birthdate' => $userEntity->info->birthdate,
-			'gender' => $userEntity->info->gender,
-			'registerDate' => $userEntity->registerDate,
-			'lastLogin' => $userEntity->lastLogin,
-			'status' => $userEntity->status
-		];
 	}
 
 }

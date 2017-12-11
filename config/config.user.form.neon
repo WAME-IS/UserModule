@@ -56,7 +56,7 @@ services:
             - add(@Wame\UserModule\Forms\Containers\ILicenceTermsContainerFactory, 'LicenceTermsContainer', {priority: 10})
             - add(@Wame\DynamicObject\Forms\Containers\ISubmitContainerFactory, 'SubmitContainer')
             # Actions
-            - redirectTo(':User:Profile:')
+            - redirectTo(':User:Sign:in')
 
     UserSettingsAccountFormBuilder:
         class: Wame\DynamicObject\Forms\EntityFormBuilder

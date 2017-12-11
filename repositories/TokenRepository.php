@@ -40,6 +40,8 @@ class TokenRepository extends BaseRepository
             } else {
                 $tokenEntity->setExpireDate(Date::toDateTime($expireDate));
             }
+        } else {
+            $tokenEntity->setExpireDate(Date::toDateTime('+ 20 minutes'));
         }
 
         $this->entityManager->persist($tokenEntity);

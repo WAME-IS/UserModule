@@ -8,6 +8,7 @@ use Nette\Http\Request;
 use Nette\Security\User;
 use Wame\UserModule\Repositories\UserRepository;
 
+
 class SignInListener extends Object 
 {
 	/** @var \Nette\Application\Application */
@@ -16,6 +17,7 @@ class SignInListener extends Object
 	/** @var \Nette\Http\Request */
 	private $httpRequest;
 
+
 	public function __construct(Application $application, Request $httpRequest, User $user)
 	{
 		$this->application = $application;
@@ -23,6 +25,7 @@ class SignInListener extends Object
 		
 		$user->onLoggedIn[] = [$this, 'redirectAfterLogin'];
 	}
+
 
 	public function redirectAfterLogin(User $user) 
 	{
@@ -43,8 +46,7 @@ class SignInListener extends Object
 //				$presenter->redirectUrl($referer->path);
 //			}
 //		}
-		
-		$presenter->flashMessage(_('You have been successfully logged in.'), 'success');
+
 		$presenter->redirect(':User:Profile:');
 	}
 
