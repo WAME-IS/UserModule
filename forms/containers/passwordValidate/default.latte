@@ -1,0 +1,7 @@
+{var $password = $container['password']}
+
+<div class="form-group">
+    {label $password/}
+    <input class="form-control" n:name="$password">
+    <small n:if="$password->getOption('description')">{$password->getOption('description')}</small>
+</div>
