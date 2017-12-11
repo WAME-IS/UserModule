@@ -19,10 +19,12 @@ class PasswordRepeatContainer extends BaseContainer
     /** {@inheritDoc} */
     public function configure()
 	{
+	    $equal = isset($this->getForm()['PasswordValidateContainer']) ? $this->getForm()['PasswordValidateContainer'] : $this->getForm()['PasswordContainer'];
+
 		$this->addPassword('passwordRepeat', _('Password repeat'))
                 ->setRequired(true)
                 ->addRule(Form::FILLED, _('Password can not be empty'))
-                ->addRule(Form::EQUAL, _('Passwords must be the same'), $this->getForm()['PasswordContainer']['password']);
+                ->addRule(Form::EQUAL, _('Passwords must be the same'), $equal['password']);
     }
 
 }
