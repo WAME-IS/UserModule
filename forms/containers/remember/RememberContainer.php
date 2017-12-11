@@ -18,7 +18,7 @@ class RememberContainer extends BaseContainer
     /** {@inheritDoc} */
     public function configure()
     {
-        $this->addCheckbox('remember', _('Remember'));
+        $this->addCheckbox('remember', _('Remember me'));
     }
 
 }
