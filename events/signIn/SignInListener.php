@@ -31,14 +31,14 @@ class SignInListener extends Object
 	{
 		$presenter = $this->application->getPresenter();
 		
-		if ($user->identity->status == UserRepository::STATUS_BLOCKED) {
+		if ($user->getEntity()->getStatus() == UserRepository::STATUS_BLOCKED) {
 			$presenter->redirect(':User:Sign:in');
 		}
-		if ($user->identity->status == UserRepository::STATUS_VERIFY_EMAIL) {
+		if ($user->getEntity()->getStatus() == UserRepository::STATUS_VERIFY_EMAIL) {
 			$presenter->redirect(':User:Verify:email');
 		}
 		
-//		Presmerovanie na adresu odkiaľ prišiel
+// Todo: Presmerovanie na adresu odkiaľ prišiel
 //		if ($this->httpRequest->getReferer()) {
 //			$referer = $this->httpRequest->getReferer();
 //			
@@ -47,7 +47,7 @@ class SignInListener extends Object
 //			}
 //		}
 
-		$presenter->redirect(':User:Profile:');
+		$presenter->redirect(':User:Profile:', ['id' => null, 'lang' => $user->getEntity()->getLang()]);
 	}
 
 }

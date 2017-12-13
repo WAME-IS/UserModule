@@ -35,7 +35,7 @@ class SignPresenter extends \App\Core\Presenters\BasePresenter
 	public function actionOut()
 	{
 		$this->getUser()->logout(true);
-		$this->redirect(':User:Sign:in');
+		$this->redirect(':User:Sign:in', ['id' => null, 'lang' => $this->lang]);
 	}
     
     
