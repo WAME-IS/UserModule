@@ -39,7 +39,8 @@ class UserSettingsMenuItemListener extends Object
 	public function onUpdate($form, $values, $menuEntity)
 	{
 		if ($menuEntity->type == 'userSettings') {
-			$menuEntity->langs[$this->lang]->setTitle($values['title']);
+            $menuEntity->setShowing(MenuRepository::SHOWING_LOGGED);
+			$menuEntity->setTitle($values['title']);
 		}
 	}
 	

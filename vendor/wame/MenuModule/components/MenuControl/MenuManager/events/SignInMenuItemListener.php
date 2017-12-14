@@ -39,7 +39,8 @@ class SignInMenuItemListener extends Object
 	public function onUpdate($form, $values, $menuEntity)
 	{
 		if ($menuEntity->type == 'signIn') {
-			$menuEntity->langs[$this->lang]->setTitle($values['title']);
+            $menuEntity->setShowing(MenuRepository::SHOWING_NOT_LOGGED);
+			$menuEntity->setTitle($values['title']);
 		}
 	}
 	

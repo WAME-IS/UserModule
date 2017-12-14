@@ -39,7 +39,8 @@ class SignOutMenuItemListener extends Object
 	public function onUpdate($form, $values, $menuEntity)
 	{
 		if ($menuEntity->type == 'signOut') {
-			$menuEntity->langs[$this->lang]->setTitle($values['title']);
+            $menuEntity->setShowing(MenuRepository::SHOWING_LOGGED);
+			$menuEntity->setTitle($values['title']);
 		}
 	}
 	

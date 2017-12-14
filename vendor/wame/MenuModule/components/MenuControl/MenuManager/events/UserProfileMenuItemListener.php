@@ -40,7 +40,6 @@ class UserProfileMenuItemListener extends Object
 	{
 		if ($menuEntity->type == 'userProfile') {
             $menuEntity->setShowing(MenuRepository::SHOWING_LOGGED);
-
 			$menuEntity->setTitle($values['title']);
 		}
 	}
