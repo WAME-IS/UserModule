@@ -1,5 +1,5 @@
 {
-    "name": "wame/UserModule",
+    "name": "wameis/UserModule",
     "version": "0.0.2",
     "description": "CMS WAME admin",
     "homepage": "http://wame.sk/cms-wame-admin",
@@ -17,17 +17,17 @@
     "config": { "secure-http": false },
     "require": {
         "majkl578/nette-identity-doctrine": "dev-fix/proxy",
-        "wame/AutocompleteFormControl": ">=0.0.1",
-        "wame/LocationModule": ">=0.0.1",
-        "wame/DynamicObject": ">=0.0.1",
-        "wame/DataGridControl": ">=0.0.1",
-        "wame/PermissionModule": ">=0.0.1",
-        "wame/ChameleonComponents": ">=0.0.1"
+        "wameis/AutocompleteFormControl": ">=0.0.1",
+        "wameis/LocationModule": ">=0.0.1",
+        "wameis/DynamicObject": ">=0.0.1",
+        "wameis/DataGridControl": ">=0.0.1",
+        "wameis/PermissionModule": ">=0.0.1",
+        "wameis/ChameleonComponents": ">=0.0.1"
     },
     "softRequire": {
-        "wame/AdminModule": ">=0.0.1",
-        "wame/MenuModule": ">=0.0.1",
-        "wame/RouterModule": ">=0.0.1"
+        "wameis/AdminModule": ">=0.0.1",
+        "wameis/MenuModule": ">=0.0.1",
+        "wameis/RouterModule": ">=0.0.1"
     },
     "autoload": {
         "classmap": [
