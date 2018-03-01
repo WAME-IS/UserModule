@@ -47,6 +47,10 @@ class SettingsPresenter extends \App\Core\Presenters\BasePresenter
     public function renderAccount()
     {
         $this->template->siteTitle = _('Account settings');
+        
+        if ($this->isAjax()) {
+            $this->redrawControl();
+        }
     }
 
 
