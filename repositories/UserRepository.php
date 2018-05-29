@@ -48,17 +48,28 @@ class UserRepository extends BaseRepository
 	 */
 	public function create($userEntity)
 	{
-		$this->emailExists($userEntity->getEmail());
-
-        if (method_exists($userEntity, 'getNick') && $userEntity->getNick() != '') {
-            $this->nickExists($userEntity->getNick());
+	    try {
+            $this->emailExists($userEntity->getEmail());
+        } catch (\Exception $e) {
+            $this->entityManager->clear();
+            throw new \Exception($e->getMessage());
         }
 
-		$this->entityManager->persist($userEntity);
+        if (method_exists($userEntity, 'getNick') && $userEntity->getNick() != '') {
+            try {
+                $this->nickExists($userEntity->getNick());
+            } catch (\Exception $e) {
+                $this->entityManager->clear();
+                throw new \Exception($e->getMessage());
+            }
+        }
+
+        $this->entityManager->persist($userEntity);
 
         $this->entityManager->flush();
 
-		return $userEntity;
+        return $userEntity;
+
 	}
 
 
