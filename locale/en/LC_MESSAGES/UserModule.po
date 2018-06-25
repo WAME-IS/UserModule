@@ -273,7 +273,7 @@ msgid "To enter this section must be log in."
 msgstr ""
 
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/CompanyPresenter.php:36
-msgid "To enter this section must be signed."
+msgid "You must log in to continue."
 msgstr ""
 
 #: /Users/MacMini2/Weby/GIT/cms-wame-admin-4.0.0/vendor/wame/UserModule/presenters/CompanyPresenter.php:41
