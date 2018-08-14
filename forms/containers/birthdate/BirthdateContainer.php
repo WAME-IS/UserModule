@@ -20,7 +20,6 @@ class BirthdateContainer extends BaseContainer
     public function configure()
 	{
 		$this->addText('birthdate', _('Birthdate'))
-                ->setType('date')
                 ->setRequired(true);
     }
 

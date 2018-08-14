@@ -17,7 +17,7 @@ services:
 
     # Forms
     Admin.UserFormBuilder:
-        class: Wame\DynamicObject\Forms\EntityFormBuilder
+        class: Wame\UserModule\Vendor\Wame\AdminModule\Forms\UserFormBuilder
         setup:
             - setRepository(@UserRepository)
             # Login group
